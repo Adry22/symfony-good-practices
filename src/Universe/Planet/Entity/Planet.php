@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\Table;
 
 /**
- * @ORM\Entity(repositoryClass="")
+ * @ORM\Entity(repositoryClass="Universe\Planet\Repository\PlanetRepository")
  * @Table(name="planets")
  */
 class Planet
