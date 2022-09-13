@@ -22,7 +22,8 @@ Symfony app with some examples of good practices
 **2 - Handling errors:**
 
     1.1 - Method exceptions in controller to put exception class
-          and HTTP code inside an array.
+          and HTTP code inside an array avoiding use of try catch in
+          every controller.
 
     1.2 - ApiController to register exceptions from controllers.
 
