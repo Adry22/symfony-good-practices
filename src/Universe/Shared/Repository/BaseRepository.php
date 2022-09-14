@@ -17,15 +17,6 @@ abstract class BaseRepository extends EntityRepository
 
     abstract public function getEntityClassName();
 
-    /**
-     * @param $object
-     * @deprecated Use save method instead and do flush manually
-     */
-    public function saveAndFlush($object)
-    {
-        $this->getEntityManager()->persist($object);
-        $this->getEntityManager()->flush();
-    }
 
     public function save($object)
     {
@@ -34,16 +25,6 @@ abstract class BaseRepository extends EntityRepository
 
     public function flush()
     {
-        $this->getEntityManager()->flush();
-    }
-
-    /**
-     * @param $object
-     * @deprecated Use remove method instead and do flush manually
-     */
-    public function removeAndFlush($object)
-    {
-        $this->getEntityManager()->remove($object);
         $this->getEntityManager()->flush();
     }
 

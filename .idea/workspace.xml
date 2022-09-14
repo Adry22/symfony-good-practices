@@ -2,16 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f8e620-9122-4eff-803a-4fd55ece371f" name="Changes" comment="Change namespace from App to Universe. Create Universe entity and fixtures">
-      <change afterPath="$PROJECT_DIR$/src/Universe/Planet/Exception/PlanetsNotFoundException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiExceptionListener.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiExceptionsHttpStatusCodeMapping.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/mailer.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20220914153405.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Mailer/MailtrapEmailSender.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/User/Controller/RegisterUserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/User/Entity/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/User/Exception/UserMailNotValidException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/User/Repository/UserRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/User/UseCase/RegisterUserUseCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/symfony-good-practices.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony-good-practices.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Controller/ListPlanetsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Controller/ListPlanetsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Repository/PlanetRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Repository/PlanetRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/UseCase/ListPlanetsUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/UseCase/ListPlanetsUseCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiExceptionListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiExceptionListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/Shared/Repository/BaseRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Shared/Repository/BaseRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +113,11 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/validator" />
     </include_path>
   </component>
   <component name="ProjectId" id="2E5Z1pWmR0N63UlEdu1i6hD7AWG" />
@@ -116,7 +129,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../symfony-maintainable-scalable-course" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Fynkus/fynkus" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -131,7 +144,10 @@
       <workItem from="1661887195022" duration="870000" />
       <workItem from="1661923955477" duration="603000" />
       <workItem from="1662991994437" duration="3457000" />
-      <workItem from="1663078393499" duration="6875000" />
+      <workItem from="1663078393499" duration="7485000" />
+      <workItem from="1663085906123" duration="8000" />
+      <workItem from="1663133614746" duration="606000" />
+      <workItem from="1663165386789" duration="7280000" />
     </task>
     <task id="LOCAL-00001" summary="Change namespace from App to Universe. Create Universe entity and fixtures">
       <created>1661887470130</created>
