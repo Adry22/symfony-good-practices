@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f8e620-9122-4eff-803a-4fd55ece371f" name="Changes" comment="Change namespace from App to Universe. Create Universe entity and fixtures">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +130,8 @@
       <workItem from="1663078393499" duration="7485000" />
       <workItem from="1663085906123" duration="8000" />
       <workItem from="1663133614746" duration="606000" />
-      <workItem from="1663165386789" duration="7596000" />
+      <workItem from="1663165386789" duration="7665000" />
+      <workItem from="1663220029612" duration="36000" />
     </task>
     <task id="LOCAL-00001" summary="Change namespace from App to Universe. Create Universe entity and fixtures">
       <created>1661887470130</created>
