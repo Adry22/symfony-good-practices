@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f8e620-9122-4eff-803a-4fd55ece371f" name="Changes" comment="Change namespace from App to Universe. Create Universe entity and fixtures">
-      <change afterPath="$PROJECT_DIR$/tests/Common/Controller/BaseWebTestCase.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Common/Controller/BaseWebApiTestCase.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Universe/Planet/Controller/ListPlanetsControllerTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Universe/Planet/UseCase/ListPlanetUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/Planet/UseCase/ListPlanetUseCaseTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiExceptionListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiExceptionListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Common/Controller/BaseWebTestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Common/Controller/BaseWebTestCase.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,45 +163,36 @@
       <TestRunner class="Tests\Universe\Planet\UseCase\ListPlanetUseCaseTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/UseCase/ListPlanetUseCaseTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="ListPlanetUseCaseTest.should_fail_when_no_planets_found" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <CommandLine>
-        <PhpTestInterpreterSettings>
-          <option name="interpreterName" value="symfony_good_practices_app" />
-        </PhpTestInterpreterSettings>
-      </CommandLine>
-      <TestRunner class="Tests\Universe\Planet\UseCase\ListPlanetUseCaseTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/UseCase/ListPlanetUseCaseTest.php" method="should_fail_when_no_planets_found" scope="Method" />
+    <configuration name="ListPlanetsControllerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Universe\Planet\Controller\ListPlanetsControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/ListPlanetsControllerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="ListPlanetUseCaseTest.should_return_all_planets_when_no_filter" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <CommandLine>
-        <PhpTestInterpreterSettings>
-          <option name="interpreterName" value="symfony_good_practices_app" />
-        </PhpTestInterpreterSettings>
-      </CommandLine>
-      <TestRunner class="Tests\Universe\Planet\UseCase\ListPlanetUseCaseTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/UseCase/ListPlanetUseCaseTest.php" method="should_return_all_planets_when_no_filter" scope="Method" />
+    <configuration name="ListPlanetsControllerTest.should_exists_url" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Universe\Planet\Controller\ListPlanetsControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/ListPlanetsControllerTest.php" method="should_exists_url" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ListPlanetUseCaseTest.should_return_planet_filtered" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <CommandLine>
-        <PhpTestInterpreterSettings>
-          <option name="interpreterName" value="symfony_good_practices_app" />
-        </PhpTestInterpreterSettings>
-      </CommandLine>
-      <TestRunner class="Tests\Universe\Planet\UseCase\ListPlanetUseCaseTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/UseCase/ListPlanetUseCaseTest.php" method="should_return_planet_filtered" scope="Method" />
+    <configuration name="ListPlanetsControllerTest.should_fail_when_planet_not_exists" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Universe\Planet\Controller\ListPlanetsControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/ListPlanetsControllerTest.php" method="should_fail_when_planet_not_exists" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ListPlanetsControllerTest.should_return_data_when_everything_is_correct" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Universe\Planet\Controller\ListPlanetsControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/ListPlanetsControllerTest.php" method="should_return_data_when_everything_is_correct" scope="Method" />
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="PHPUnit.ListPlanetUseCaseTest.should_fail_when_no_planets_found" />
-      <item itemvalue="PHPUnit.ListPlanetUseCaseTest.should_return_all_planets_when_no_filter" />
-      <item itemvalue="PHPUnit.ListPlanetUseCaseTest.should_return_planet_filtered" />
       <item itemvalue="PHPUnit.ListPlanetUseCaseTest" />
+      <item itemvalue="PHPUnit.ListPlanetsControllerTest.should_exists_url" />
+      <item itemvalue="PHPUnit.ListPlanetsControllerTest.should_fail_when_planet_not_exists" />
+      <item itemvalue="PHPUnit.ListPlanetsControllerTest.should_return_data_when_everything_is_correct" />
+      <item itemvalue="PHPUnit.ListPlanetsControllerTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="PHPUnit.ListPlanetUseCaseTest" />
-        <item itemvalue="PHPUnit.ListPlanetUseCaseTest.should_return_planet_filtered" />
-        <item itemvalue="PHPUnit.ListPlanetUseCaseTest.should_return_all_planets_when_no_filter" />
-        <item itemvalue="PHPUnit.ListPlanetUseCaseTest.should_fail_when_no_planets_found" />
+        <item itemvalue="PHPUnit.ListPlanetsControllerTest" />
+        <item itemvalue="PHPUnit.ListPlanetsControllerTest.should_fail_when_planet_not_exists" />
+        <item itemvalue="PHPUnit.ListPlanetsControllerTest.should_return_data_when_everything_is_correct" />
+        <item itemvalue="PHPUnit.ListPlanetsControllerTest.should_exists_url" />
       </list>
     </recent_temporary>
   </component>
@@ -219,7 +213,7 @@
       <workItem from="1663165386789" duration="7665000" />
       <workItem from="1663220029612" duration="36000" />
       <workItem from="1664288916551" duration="7064000" />
-      <workItem from="1664373995378" duration="326000" />
+      <workItem from="1664373995378" duration="2409000" />
     </task>
     <task id="LOCAL-00001" summary="Change namespace from App to Universe. Create Universe entity and fixtures">
       <created>1661887470130</created>

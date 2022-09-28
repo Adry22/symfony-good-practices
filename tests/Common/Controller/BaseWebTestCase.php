@@ -8,11 +8,14 @@ use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Platforms\MySQLPlatform;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class BaseWebTestCase extends WebTestCase
 {
+    protected ?KernelBrowser $client;
+
     protected ContainerInterface $testContainer;
     protected EntityManagerInterface $entityManager;
 
@@ -30,6 +33,8 @@ class BaseWebTestCase extends WebTestCase
 
     public function setUp(): void
     {
+        $this->client = static::createClient();
+        $this->client->disableReboot();
         $this->testContainer = static::getContainer();
         $this->entityManager = $this->testContainer->get('doctrine')->getManager();
         $this->connection = $this->entityManager->getConnection();

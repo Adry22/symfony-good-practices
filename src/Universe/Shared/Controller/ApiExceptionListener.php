@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Universe\Shared\Controller;
 
+use ReflectionClass;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 
@@ -25,6 +26,7 @@ final class ApiExceptionListener
                 [
                     'code'    => $this->apiExceptionsHttpStatusCodeMapping->statusCodeFor(get_class($exception)),
                     'message' => $exception->getMessage(),
+                    'type' => (new ReflectionClass($exception))->getShortName(),
                 ],
                 $this->apiExceptionsHttpStatusCodeMapping->statusCodeFor(get_class($exception))
             )
