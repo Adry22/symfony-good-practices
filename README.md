@@ -41,4 +41,5 @@ Symfony app with some examples of good practices
 **4 - Testing:**
 
     4.1 - Unit
+
     4.2 - Functional

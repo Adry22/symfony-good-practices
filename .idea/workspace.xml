@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f8e620-9122-4eff-803a-4fd55ece371f" name="Changes" comment="Change namespace from App to Universe. Create Universe entity and fixtures">
-      <change afterPath="$PROJECT_DIR$/tests/Common/Controller/BaseWebApiTestCase.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Universe/Planet/Controller/ListPlanetsControllerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiExceptionListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiExceptionListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Common/Controller/BaseWebTestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Common/Controller/BaseWebTestCase.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +208,7 @@
       <workItem from="1663165386789" duration="7665000" />
       <workItem from="1663220029612" duration="36000" />
       <workItem from="1664288916551" duration="7064000" />
-      <workItem from="1664373995378" duration="2409000" />
+      <workItem from="1664373995378" duration="2693000" />
     </task>
     <task id="LOCAL-00001" summary="Change namespace from App to Universe. Create Universe entity and fixtures">
       <created>1661887470130</created>
