@@ -101,6 +101,14 @@
       <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />
       <path value="$PROJECT_DIR$/vendor/symfony/browser-kit" />
       <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/behat/gherkin" />
+      <path value="$PROJECT_DIR$/vendor/behat/behat" />
+      <path value="$PROJECT_DIR$/vendor/behat/transliterator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/friends-of-behat/symfony-extension" />
+      <path value="$PROJECT_DIR$/vendor/friends-of-behat/mink" />
+      <path value="$PROJECT_DIR$/vendor/friends-of-behat/mink-extension" />
+      <path value="$PROJECT_DIR$/vendor/friends-of-behat/mink-browserkit-driver" />
     </include_path>
   </component>
   <component name="PhpInterpreters">

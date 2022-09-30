@@ -42,4 +42,15 @@ Symfony app with some examples of good practices
 
     4.1 - Unit
 
+        4.1.1 - BaseWebTestCase to purge test database at the end of each test
+
     4.2 - Functional
+
+        4.2.1 - BaseWebApiTestCase
+
+    4.3 - End to end (Behat and Mink)
+
+        4.3.1 - behat.yml with extensions and suites
+        4.3.2 - ApiContext
+        4.3.3 - Features created to being tested
+        

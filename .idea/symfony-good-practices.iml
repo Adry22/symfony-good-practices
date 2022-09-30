@@ -104,6 +104,14 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/dom-crawler" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/browser-kit" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/theseer/tokenizer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/behat/gherkin" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/behat/behat" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/behat/transliterator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/translation" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/friends-of-behat/symfony-extension" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/friends-of-behat/mink" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/friends-of-behat/mink-extension" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/friends-of-behat/mink-browserkit-driver" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
