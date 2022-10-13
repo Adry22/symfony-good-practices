@@ -57,6 +57,7 @@ Symfony app with some examples of good practices
 **5 - Authentication:**
 
     5.1 - Lexik JWT Bundle to authenticate
+    
     5.2 - Hashing user password
 
 
