@@ -54,3 +54,9 @@ Symfony app with some examples of good practices
         4.3.2 - ApiContext
         4.3.3 - Features created to being tested
         
+**5 - Authentication:**
+
+    5.1 - Lexik JWT Bundle to authenticate.
+    5.2 - Hashing user password.
+
+

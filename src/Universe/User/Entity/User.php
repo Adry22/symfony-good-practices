@@ -8,13 +8,15 @@ use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\Table;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Universe\User\Exception\UserMailNotValidException;
 
 /**
  * @ORM\Entity(repositoryClass="Universe\User\Repository\UserRepository")
  * @Table(name="users")
  */
-final class User
+final class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
      * @Id()
@@ -28,7 +30,10 @@ final class User
      */
     private string $email;
 
-    private function __construct() {}
+    /**
+     * @Column(type="string", nullable=false)
+     */
+    private string $password;
 
     /**
      * @throws UserMailNotValidException
@@ -56,5 +61,29 @@ final class User
         }
 
         $this->email = $email;
+    }
+
+    public function getRoles(): array
+    {
+        return [];
+    }
+
+    public function eraseCredentials(): void
+    {
+    }
+
+    public function getUserIdentifier(): string
+    {
+        return $this->email;
+    }
+
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): void
+    {
+        $this->password = $password;
     }
 }

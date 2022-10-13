@@ -3,6 +3,7 @@
 namespace Universe\User\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Universe\Shared\Controller\ApiController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,21 +19,25 @@ class RegisterUserController extends ApiController
 {
     private UserRepository $userRepository;
     private MailtrapEmailSender $emailSender;
+    private UserPasswordHasherInterface $userPasswordHasher;
     private RegisterUserUseCase $registerUserUseCase;
 
     public function __construct(
         ApiExceptionsHttpStatusCodeMapping $apiExceptionsHttpStatusCodeMapping,
         UserRepository $userRepository,
-        MailtrapEmailSender $emailSender
+        MailtrapEmailSender $emailSender,
+        UserPasswordHasherInterface $userPasswordHasher
     )
     {
         parent::__construct($apiExceptionsHttpStatusCodeMapping);
         $this->userRepository = $userRepository;
         $this->emailSender = $emailSender;
+        $this->userPasswordHasher = $userPasswordHasher;
 
         $this->registerUserUseCase = new RegisterUserUseCase(
             $this->userRepository,
-            $this->emailSender
+            $this->emailSender,
+            $this->userPasswordHasher
         );
     }
 
@@ -46,8 +51,9 @@ class RegisterUserController extends ApiController
     public function action(Request $request): JsonResponse
     {
         $email = $request->get('email');
+        $password = $request->get('password');
 
-        $this->registerUserUseCase->handle($email);
+        $this->registerUserUseCase->handle($email, $password);
         return $this->json('OK');
     }
 
