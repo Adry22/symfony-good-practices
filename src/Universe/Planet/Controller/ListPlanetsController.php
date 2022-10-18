@@ -34,7 +34,7 @@ final class ListPlanetsController extends ApiController
      */
     public function action(Request $request): JsonResponse
     {
-        $name = $request->get('name');
+        $name = $this->getParameterOrFail($request, 'name');
         $planets = (new ListPlanetsUseCase($this->planetRepository))->handle($name);
         return $this->json($planets);
     }

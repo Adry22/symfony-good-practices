@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f8e620-9122-4eff-803a-4fd55ece371f" name="Changes" comment="End to end testing with Behat and Mink">
+      <change afterPath="$PROJECT_DIR$/tests/Common/Builder/User/UserBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.test" beforeDir="false" afterPath="$PROJECT_DIR$/.env.test" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Controller/ListPlanetsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Controller/ListPlanetsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/User/Controller/RegisterUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Controller/RegisterUserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Common/Controller/BaseWebApiTestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Common/Controller/BaseWebApiTestCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Universe/Planet/Controller/ListPlanetsControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/Planet/Controller/ListPlanetsControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Universe/User/UseCase/RegisterUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/User/UseCase/RegisterUseCaseTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +189,7 @@
     <property name="credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm" value="Docker Compose" />
     <property name="credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm" value="Docker Compose" />
     <property name="js.buildTools.grunt.grunt-cli.package" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Fynkus/fynkus" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="inlay.hints" />
@@ -197,9 +205,9 @@
       <recent name="$PROJECT_DIR$/tests/features/planets" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.RegisterUserControllerTest">
-    <configuration name="ListPlanetUseCaseTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Universe\Planet\UseCase\ListPlanetUseCaseTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/UseCase/ListPlanetUseCaseTest.php" scope="Class" />
+  <component name="RunManager" selected="PHPUnit.RegisterUserControllerTest.should_create_user">
+    <configuration name="RegisterUseCaseTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Universe\User\UseCase\RegisterUseCaseTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/User/UseCase/RegisterUseCaseTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="RegisterUseCaseTest.should_create_user" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -233,19 +241,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="PHPUnit.ListPlanetUseCaseTest" />
-      <item itemvalue="PHPUnit.RegisterUseCaseTest.should_create_user" />
-      <item itemvalue="PHPUnit.RegisterUserControllerTest.should_exists_url" />
-      <item itemvalue="PHPUnit.RegisterUserControllerTest.should_create_user" />
       <item itemvalue="PHPUnit.RegisterUserControllerTest" />
+      <item itemvalue="PHPUnit.RegisterUserControllerTest.should_exists_url" />
+      <item itemvalue="PHPUnit.RegisterUseCaseTest" />
+      <item itemvalue="PHPUnit.RegisterUseCaseTest.should_create_user" />
+      <item itemvalue="PHPUnit.RegisterUserControllerTest.should_create_user" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.RegisterUserControllerTest" />
         <item itemvalue="PHPUnit.RegisterUserControllerTest.should_create_user" />
         <item itemvalue="PHPUnit.RegisterUserControllerTest.should_exists_url" />
         <item itemvalue="PHPUnit.RegisterUseCaseTest.should_create_user" />
-        <item itemvalue="PHPUnit.ListPlanetUseCaseTest" />
+        <item itemvalue="PHPUnit.RegisterUseCaseTest" />
+        <item itemvalue="PHPUnit.RegisterUserControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -273,7 +281,10 @@
       <workItem from="1664809191868" duration="2436000" />
       <workItem from="1664861539786" duration="613000" />
       <workItem from="1665415160151" duration="3353000" />
-      <workItem from="1665671719571" duration="6796000" />
+      <workItem from="1665671719571" duration="7396000" />
+      <workItem from="1665741237993" duration="87000" />
+      <workItem from="1666100753442" duration="4014000" />
+      <workItem from="1666105262360" duration="907000" />
     </task>
     <task id="LOCAL-00001" summary="Change namespace from App to Universe. Create Universe entity and fixtures">
       <created>1661887470130</created>

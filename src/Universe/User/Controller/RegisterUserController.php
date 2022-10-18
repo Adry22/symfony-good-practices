@@ -50,8 +50,8 @@ class RegisterUserController extends ApiController
      */
     public function action(Request $request): JsonResponse
     {
-        $email = $request->get('email');
-        $password = $request->get('password');
+        $email = $this->getParameterOrFail($request, 'email');
+        $password = $this->getParameterOrFail($request, 'password');
 
         $this->registerUserUseCase->handle($email, $password);
         return $this->json('OK');

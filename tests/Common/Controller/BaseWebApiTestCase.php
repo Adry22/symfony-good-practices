@@ -3,20 +3,22 @@
 namespace Tests\Common\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Universe\User\Entity\User;
 
 class BaseWebApiTestCase extends BaseWebTestCase
 {
-    public function getRequestJson($url, $parameters = [], $files = [], $server = [])
+    public function getRequestJson($url, $parameters = [], $files = [], $server = []): Response
     {
         $server['CONTENT_TYPE'] = 'application/json';
         $server['HTTP_ACCEPT'] = 'application/json';
 
-        $crawler = $this->client->request(Request::METHOD_GET, $url, $parameters, $files, $server);
+        $this->client->request(Request::METHOD_GET, $url, $parameters, $files, $server);
 
         return $this->client->getResponse();
     }
 
-    public function postRequestJson($url, $body = [], $files = [], $server = [])
+    public function postRequestJson($url, $body = [], $files = [], $server = []): Response
     {
         $server['CONTENT_TYPE'] = 'application/json';
         $server['HTTP_ACCEPT'] = 'application/json';
@@ -24,7 +26,7 @@ class BaseWebApiTestCase extends BaseWebTestCase
         return $this->client->getResponse();
     }
 
-    public function putRequestJson($url, $body = [])
+    public function putRequestJson($url, $body = []): Response
     {
         $server = [
             'CONTENT_TYPE' => 'application/json',
@@ -36,7 +38,7 @@ class BaseWebApiTestCase extends BaseWebTestCase
         return $this->client->getResponse();
     }
 
-    public function deleteJsonRequest($url)
+    public function deleteJsonRequest($url): Response
     {
         $server = [
             'CONTENT_TYPE' => 'application/json',
@@ -46,5 +48,10 @@ class BaseWebApiTestCase extends BaseWebTestCase
         $this->client->request(Request::METHOD_DELETE, $url, [], [], $server);
 
         return $this->client->getResponse();
+    }
+
+    protected function loginUser(User $user): void
+    {
+        $this->client->loginUser($user);
     }
 }

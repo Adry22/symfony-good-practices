@@ -5,6 +5,7 @@ namespace Tests\Universe\Planet\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Tests\Common\Builder\Planet\PlanetBuilder;
+use Tests\Common\Builder\User\UserBuilder;
 use Tests\Common\Controller\BaseWebApiTestCase;
 
 class ListPlanetsControllerTest extends BaseWebApiTestCase
@@ -12,12 +13,14 @@ class ListPlanetsControllerTest extends BaseWebApiTestCase
     private const URL = '/planets';
 
     private PlanetBuilder $planetBuilder;
+    private UserBuilder $userBuilder;
 
     public function setUp(): void
     {
         parent::setUp();
 
         $this->planetBuilder = new PlanetBuilder($this->entityManager);
+        $this->userBuilder = new UserBuilder($this->entityManager);
     }
 
     /** @test */
@@ -35,6 +38,11 @@ class ListPlanetsControllerTest extends BaseWebApiTestCase
     /** @test */
     public function should_fail_when_planet_not_exists(): void
     {
+        $user = $this->userBuilder
+            ->withEmail('test@email.com')
+            ->withPassword('password')
+            ->build();
+
         $this->planetBuilder
             ->withName('Mars')
             ->build();
@@ -43,6 +51,7 @@ class ListPlanetsControllerTest extends BaseWebApiTestCase
             'name' => 'Earth'
         ];
 
+        $this->loginUser($user);
         $this->getRequestJson(self::URL, $parameters);
 
         $content = json_decode($this->client->getResponse()->getContent(), true);
@@ -55,6 +64,11 @@ class ListPlanetsControllerTest extends BaseWebApiTestCase
     /** @test */
     public function should_return_data_when_everything_is_correct(): void
     {
+        $user = $this->userBuilder
+            ->withEmail('test@email.com')
+            ->withPassword('password')
+            ->build();
+
         $this->planetBuilder
             ->withName('Mars')
             ->build();
@@ -63,6 +77,7 @@ class ListPlanetsControllerTest extends BaseWebApiTestCase
             'name' => 'Mars'
         ];
 
+        $this->loginUser($user);
         $this->getRequestJson(self::URL, $parameters);
 
         $content = json_decode($this->client->getResponse()->getContent(), true);

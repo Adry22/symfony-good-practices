@@ -4,6 +4,8 @@ declare(strict_types=1);
 namespace Universe\Shared\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 abstract class ApiController extends AbstractController
 {
@@ -13,6 +15,17 @@ abstract class ApiController extends AbstractController
         foreach ($this->exceptions() as $exceptionClass => $httpCode) {
             $apiExceptionsHttpStatusCodeMapping->register($exceptionClass, $httpCode);
         }
+    }
+
+    protected function getParameterOrFail(Request $request, string $key)
+    {
+        $parameter = $request->get($key);
+
+        if (null === $parameter) {
+            throw new BadRequestHttpException('Invalid parameter ' . $key);
+        }
+
+        return $parameter;
     }
 
     abstract protected function exceptions(): array;

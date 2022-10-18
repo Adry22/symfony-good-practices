@@ -22,7 +22,7 @@ class RegisterUserControllerTest extends BaseWebApiTestCase
     /** @test */
     public function should_exists_url(): void
     {
-        $parameters = ['email' => 'email@test.com'];
+        $parameters = ['email' => 'email@test.com', 'password' => 'password'];
 
         $response = $this->getRequestJson(self::URL, $parameters);
 
@@ -32,7 +32,7 @@ class RegisterUserControllerTest extends BaseWebApiTestCase
     /** @test */
     public function should_create_user(): void
     {
-        $parameters = ['email' => 'email@test.com'];
+        $parameters = ['email' => 'email@test.com', 'password' => 'password'];
 
         $this->getRequestJson(self::URL, $parameters);
 
