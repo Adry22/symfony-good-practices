@@ -60,4 +60,10 @@ Symfony app with some examples of good practices
     
     5.2 - Hashing user password
 
+**6 - Logging:**
+
+    6.1 - Monolog Bundle
+    
+    6.2 - Custom channel main_log
+
 

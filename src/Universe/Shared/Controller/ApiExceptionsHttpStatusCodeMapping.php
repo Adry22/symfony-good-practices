@@ -4,10 +4,17 @@ declare(strict_types=1);
 namespace Universe\Shared\Controller;
 
 use InvalidArgumentException;
+use Psr\Log\LoggerInterface;
 
 final class ApiExceptionsHttpStatusCodeMapping
 {
     private array $exceptions = [];
+    private LoggerInterface $mainLogLogger;
+
+    public function __construct(LoggerInterface $mainLogLogger)
+    {
+        $this->mainLogLogger = $mainLogLogger;
+    }
 
     public function register(string $exceptionClass, int $statusCode): void
     {
@@ -22,9 +29,11 @@ final class ApiExceptionsHttpStatusCodeMapping
         }
 
         if (null === $statusCode) {
+            $this->mainLogLogger->error("There are no status code mapping for <$exceptionClass>");
             throw new InvalidArgumentException("There are no status code mapping for <$exceptionClass>");
         }
 
+        $this->mainLogLogger->error("Exception: $exceptionClass - Status code: $statusCode");
         return $statusCode;
     }
 }

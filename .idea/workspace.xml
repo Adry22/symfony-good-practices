@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f8e620-9122-4eff-803a-4fd55ece371f" name="Changes" comment="End to end testing with Behat and Mink">
-      <change afterPath="$PROJECT_DIR$/src/Universe/User/Exception/UserEmailAlreadyExistsException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/monolog.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/symfony-good-practices.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony-good-practices.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/User/Controller/RegisterUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Controller/RegisterUserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/User/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/User/UseCase/RegisterUserUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/UseCase/RegisterUserUseCase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Universe/User/UseCase/RegisterUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/User/UseCase/RegisterUseCaseTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiExceptionsHttpStatusCodeMapping.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiExceptionsHttpStatusCodeMapping.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +46,7 @@
     <setting file="file://$PROJECT_DIR$/behat.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Behat/ApiContext.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Universe/Planet/UseCase/ListPlanetsUseCase.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/config/packages/monolog.yaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/composer.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/config/services_test.yaml" root0="FORCE_HIGHLIGHTING" />
@@ -172,6 +176,9 @@
       <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
       <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bridge" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
     </include_path>
   </component>
   <component name="ProjectId" id="2E5Z1pWmR0N63UlEdu1i6hD7AWG" />
@@ -186,7 +193,7 @@
     <property name="credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm" value="Docker Compose" />
     <property name="credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm" value="Docker Compose" />
     <property name="js.buildTools.grunt.grunt-cli.package" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Fynkus/fynkus" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="inlay.hints" />
@@ -282,7 +289,7 @@
       <workItem from="1665741237993" duration="87000" />
       <workItem from="1666100753442" duration="4014000" />
       <workItem from="1666105262360" duration="1419000" />
-      <workItem from="1666188977867" duration="1191000" />
+      <workItem from="1666188977867" duration="4149000" />
     </task>
     <task id="LOCAL-00001" summary="Change namespace from App to Universe. Create Universe entity and fixtures">
       <created>1661887470130</created>
