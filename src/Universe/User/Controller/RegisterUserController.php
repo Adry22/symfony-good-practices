@@ -2,6 +2,7 @@
 
 namespace Universe\User\Controller;
 
+use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Universe\Shared\Controller\ApiController;
@@ -10,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Universe\Shared\Controller\ApiExceptionsHttpStatusCodeMapping;
 use Universe\Shared\Mailer\MailtrapEmailSender;
+use Universe\User\Exception\UserEmailAlreadyExistsException;
 use Universe\User\Exception\UserMailNotValidException;
 use Universe\User\Repository\UserRepository;
 use Universe\User\UseCase\RegisterUserUseCase;
@@ -47,6 +49,8 @@ class RegisterUserController extends ApiController
      * @return JsonResponse
      * @throws TransportExceptionInterface
      * @throws UserMailNotValidException
+     * @throws NonUniqueResultException
+     * @throws UserEmailAlreadyExistsException
      */
     public function action(Request $request): JsonResponse
     {
@@ -62,6 +66,7 @@ class RegisterUserController extends ApiController
         return [
             TransportExceptionInterface::class => Response::HTTP_NOT_FOUND,
             UserMailNotValidException::class => Response::HTTP_BAD_REQUEST,
+            UserEmailAlreadyExistsException::class => Response::HTTP_BAD_REQUEST
         ];
     }
 }
