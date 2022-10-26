@@ -8,35 +8,37 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Universe\Planet\Exception\PlanetsNotFoundException;
-use Universe\Planet\Repository\PlanetRepository;
-use Universe\Planet\UseCase\ListPlanetsUseCase;
+use Universe\Planet\Query\ListPlanetQuery;
+use Universe\Shared\Bus\Query\QueryBus;
 use Universe\Shared\Controller\ApiController;
 use Universe\Shared\Controller\ApiExceptionsHttpStatusCodeMapping;
 
 final class ListPlanetsController extends ApiController
 {
-    private PlanetRepository $planetRepository;
+    private QueryBus $queryBus;
 
     public function __construct(
         ApiExceptionsHttpStatusCodeMapping $apiExceptionsHttpStatusCodeMapping,
-        PlanetRepository $planetRepository
+        QueryBus $queryBus
     )
     {
         parent::__construct($apiExceptionsHttpStatusCodeMapping);
-        $this->planetRepository = $planetRepository;
+        $this->queryBus = $queryBus;
     }
 
     /**
      * @Route("/planets", methods={"GET"}, defaults={"_format"="json"})
      * @param Request $request
      * @return JsonResponse
-     * @throws PlanetsNotFoundException
      */
     public function action(Request $request): JsonResponse
     {
         $name = $this->getParameterOrFail($request, 'name');
-        $planets = (new ListPlanetsUseCase($this->planetRepository))->handle($name);
-        return $this->json($planets);
+
+        $query = new ListPlanetQuery($name);
+        $planets = $this->queryBus->handle($query);
+
+        return $this->json($planets->results());
     }
 
     protected function exceptions(): array

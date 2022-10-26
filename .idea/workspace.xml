@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f8e620-9122-4eff-803a-4fd55ece371f" name="Changes" comment="End to end testing with Behat and Mink">
-      <change afterPath="$PROJECT_DIR$/config/packages/monolog.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/config.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanetQuery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanetResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanetResult.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Bus/Command/Command.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Bus/Command/CommandBus.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Bus/Command/CommandHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Bus/Command/TacticianCommandBus.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Bus/Query/Query.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Bus/Query/QueryBus.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Bus/Query/QueryHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Bus/Query/Result.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Bus/Query/TacticianQueryBus.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/User/Command/RegisterUser/RegisterUserCommand.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/symfony-good-practices.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony-good-practices.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -10,8 +23,17 @@
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiExceptionsHttpStatusCodeMapping.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiExceptionsHttpStatusCodeMapping.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/monolog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/monolog.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Controller/ListPlanetsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Controller/ListPlanetsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/UseCase/ListPlanetsUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanetQueryHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/User/Controller/RegisterUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Controller/RegisterUserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/User/UseCase/RegisterUserUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Command/RegisterUser/RegisterUserCommandHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Universe/Planet/Controller/ListPlanetsControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/Planet/Controller/ListPlanetsControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Universe/Planet/UseCase/ListPlanetUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/Planet/Query/ListPlanetQueryHandlerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Universe/User/UseCase/RegisterUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/User/Command/RegisterUserCommandHandlerTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,10 +64,8 @@
     <setting file="file://$PROJECT_DIR$/.env" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/features/planets/get_planets.feature" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/config/packages/security.yaml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/tests/Universe/Planet/UseCase/ListPlanetUseCaseTest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/behat.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Behat/ApiContext.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Universe/Planet/UseCase/ListPlanetsUseCase.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/config/packages/monolog.yaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/composer.json" root0="FORCE_HIGHLIGHTING" />
@@ -179,6 +199,15 @@
       <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/monolog-bridge" />
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/league/tactician" />
+      <path value="$PROJECT_DIR$/vendor/league/tactician-logger" />
+      <path value="$PROJECT_DIR$/vendor/league/tactician-container" />
+      <path value="$PROJECT_DIR$/vendor/league/tactician-bundle" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/uuid-doctrine" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/vendor/league/tactician-doctrine" />
     </include_path>
   </component>
   <component name="ProjectId" id="2E5Z1pWmR0N63UlEdu1i6hD7AWG" />
@@ -206,28 +235,31 @@
       <recent name="$PROJECT_DIR$/tests/Behat" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/config/packages" />
+      <recent name="$PROJECT_DIR$/config" />
+      <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/tests/features/planets" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.RegisterUserControllerTest">
-    <configuration name="RegisterUseCaseTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Universe\User\UseCase\RegisterUseCaseTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/User/UseCase/RegisterUseCaseTest.php" scope="Class" />
+  <component name="RunManager" selected="PHPUnit.ListPlanetQueryHandlerTest">
+    <configuration name="ListPlanetQueryHandlerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Universe\Planet\Query\ListPlanetQueryHandlerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Query/ListPlanetQueryHandlerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="RegisterUseCaseTest.given_email_to_register_user_when_email_already_exists_then_fail" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Universe\User\UseCase\RegisterUseCaseTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/User/UseCase/RegisterUseCaseTest.php" method="given_email_to_register_user_when_email_already_exists_then_fail" scope="Method" />
+    <configuration name="ListPlanetsControllerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Universe\Planet\Controller\ListPlanetsControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/ListPlanetsControllerTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ListPlanetsControllerTest.should_return_data_when_everything_is_correct" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Universe\Planet\Controller\ListPlanetsControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/ListPlanetsControllerTest.php" method="should_return_data_when_everything_is_correct" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="RegisterUserCommandHandlerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Universe\User\Command\RegisterUserCommandHandlerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/User/Command/RegisterUserCommandHandlerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="RegisterUserControllerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Universe\User\Controller\RegisterUserControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
-    <configuration name="RegisterUserControllerTest.given_email_to_register_user_when_email_already_exists_then_fail" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Universe\User\Controller\RegisterUserControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" method="given_email_to_register_user_when_email_already_exists_then_fail" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="RegisterUserControllerTest.should_create_user" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Universe\User\Controller\RegisterUserControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" method="should_create_user" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="PhpBehatConfigurationType">
@@ -245,19 +277,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="PHPUnit.RegisterUseCaseTest" />
-      <item itemvalue="PHPUnit.RegisterUserControllerTest.should_create_user" />
-      <item itemvalue="PHPUnit.RegisterUseCaseTest.given_email_to_register_user_when_email_already_exists_then_fail" />
-      <item itemvalue="PHPUnit.RegisterUserControllerTest.given_email_to_register_user_when_email_already_exists_then_fail" />
+      <item itemvalue="PHPUnit.ListPlanetQueryHandlerTest" />
+      <item itemvalue="PHPUnit.ListPlanetsControllerTest" />
+      <item itemvalue="PHPUnit.ListPlanetsControllerTest.should_return_data_when_everything_is_correct" />
+      <item itemvalue="PHPUnit.RegisterUserCommandHandlerTest" />
       <item itemvalue="PHPUnit.RegisterUserControllerTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.ListPlanetQueryHandlerTest" />
         <item itemvalue="PHPUnit.RegisterUserControllerTest" />
-        <item itemvalue="PHPUnit.RegisterUserControllerTest.given_email_to_register_user_when_email_already_exists_then_fail" />
-        <item itemvalue="PHPUnit.RegisterUseCaseTest" />
-        <item itemvalue="PHPUnit.RegisterUseCaseTest.given_email_to_register_user_when_email_already_exists_then_fail" />
-        <item itemvalue="PHPUnit.RegisterUserControllerTest.should_create_user" />
+        <item itemvalue="PHPUnit.RegisterUserCommandHandlerTest" />
+        <item itemvalue="PHPUnit.ListPlanetsControllerTest" />
+        <item itemvalue="PHPUnit.ListPlanetsControllerTest.should_return_data_when_everything_is_correct" />
       </list>
     </recent_temporary>
   </component>
@@ -289,7 +321,12 @@
       <workItem from="1665741237993" duration="87000" />
       <workItem from="1666100753442" duration="4014000" />
       <workItem from="1666105262360" duration="1419000" />
-      <workItem from="1666188977867" duration="4149000" />
+      <workItem from="1666188977867" duration="4389000" />
+      <workItem from="1666243803618" duration="13000" />
+      <workItem from="1666624713955" duration="3669000" />
+      <workItem from="1666628419944" duration="647000" />
+      <workItem from="1666708740604" duration="4244000" />
+      <workItem from="1666793185969" duration="3006000" />
     </task>
     <task id="LOCAL-00001" summary="Change namespace from App to Universe. Create Universe entity and fixtures">
       <created>1661887470130</created>

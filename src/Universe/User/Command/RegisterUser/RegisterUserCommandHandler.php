@@ -1,17 +1,18 @@
 <?php
 
-namespace Universe\User\UseCase;
+namespace Universe\User\Command\RegisterUser;
 
+use Doctrine\ORM\NonUniqueResultException;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Universe\Shared\Bus\Command\CommandHandler;
 use Universe\Shared\Mailer\MailtrapEmailSender;
 use Universe\User\Entity\User;
 use Universe\User\Exception\UserEmailAlreadyExistsException;
 use Universe\User\Exception\UserMailNotValidException;
 use Universe\User\Repository\UserRepository;
-use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
-use Doctrine\ORM\NonUniqueResultException;
 
-class RegisterUserUseCase
+class RegisterUserCommandHandler implements CommandHandler
 {
     private UserRepository $userRepository;
     private MailtrapEmailSender $emailSender;
@@ -34,14 +35,13 @@ class RegisterUserUseCase
      * @throws UserEmailAlreadyExistsException
      * @throws UserMailNotValidException
      */
-    public function handle(string $email, string $password): void
+    public function handle(RegisterUserCommand $command): void
     {
-        $this->checkEmailNotExists($email);
+        $this->checkEmailNotExists($command->email());
 
-        $user = User::create($email);
-        $this->hashPassword($user, $password);
+        $user = User::create($command->email());
+        $this->hashPassword($user, $command->password());
         $this->userRepository->save($user);
-        $this->userRepository->flush();
 
         $this->emailSender->sendTo($user->email());
     }

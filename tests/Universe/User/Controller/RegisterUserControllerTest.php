@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Tests\Universe\User\Controller;
 
 use Symfony\Component\HttpFoundation\Response;

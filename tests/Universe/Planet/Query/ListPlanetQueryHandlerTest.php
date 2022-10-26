@@ -1,20 +1,20 @@
 <?php
 declare(strict_types=1);
-
-namespace Tests\Universe\Planet\UseCase;
+namespace Tests\Universe\Planet\Query;
 
 use Tests\Common\Builder\Planet\PlanetBuilder;
 use Tests\Common\Controller\BaseWebTestCase;
 use Universe\Planet\Exception\PlanetsNotFoundException;
-use Exception;
+use Universe\Planet\Query\ListPlanetQuery;
+use Universe\Planet\Query\ListPlanetQueryHandler;
 use Universe\Planet\Repository\PlanetRepository;
-use Universe\Planet\UseCase\ListPlanetsUseCase;
+use Exception;
 
-class ListPlanetUseCaseTest extends BaseWebTestCase
+class ListPlanetQueryHandlerTest extends BaseWebTestCase
 {
     private PlanetBuilder $planetBuilder;
     private PlanetRepository $planetRepository;
-    private ListPlanetsUseCase $listPlanetsUseCase;
+    private ListPlanetQueryHandler $listPlanetQueryHandler;
 
     /**
      * @throws \Doctrine\DBAL\Exception
@@ -25,7 +25,7 @@ class ListPlanetUseCaseTest extends BaseWebTestCase
 
         $this->planetBuilder = new PlanetBuilder($this->entityManager);
         $this->planetRepository = $this->testContainer->get(PlanetRepository::class);
-        $this->listPlanetsUseCase = new ListPlanetsUseCase($this->planetRepository);
+        $this->listPlanetQueryHandler = new ListPlanetQueryHandler($this->planetRepository);
     }
 
     /** @test
@@ -39,7 +39,8 @@ class ListPlanetUseCaseTest extends BaseWebTestCase
             ->withName('Mars')
             ->build();
 
-        $this->listPlanetsUseCase->handle('Jupiter');
+        $query = new ListPlanetQuery('Jupiter');
+        $this->listPlanetQueryHandler->handle($query);
     }
 
     /** @test */
@@ -54,10 +55,11 @@ class ListPlanetUseCaseTest extends BaseWebTestCase
             ->withName('Earth')
             ->build();
 
-        $planets = $this->listPlanetsUseCase->handle();
+        $query = new ListPlanetQuery();
+        $planets = $this->listPlanetQueryHandler->handle($query);
 
-        $this->assertEquals('Mars', $planets[0]);
-        $this->assertEquals('Earth', $planets[1]);
+        $this->assertEquals('Mars', $planets->results()[0]->name());
+        $this->assertEquals('Earth', $planets->results()[1]->name());
     }
 
     /** @test */
@@ -72,9 +74,10 @@ class ListPlanetUseCaseTest extends BaseWebTestCase
             ->withName('Earth')
             ->build();
 
-        $planets = $this->listPlanetsUseCase->handle('Earth');
+        $query = new ListPlanetQuery('Earth');
+        $planets = $this->listPlanetQueryHandler->handle($query);
 
-        $this->assertCount(1, $planets);
-        $this->assertEquals('Earth', $planets[0]);
+        $this->assertCount(1, $planets->results());
+        $this->assertEquals('Earth', $planets->results()[0]->name());
     }
 }

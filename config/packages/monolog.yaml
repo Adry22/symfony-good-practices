@@ -29,24 +29,24 @@ when@dev:
                 channels: ['main_log']
                 formatter: monolog.formatter.json
 
-when@test:
-    monolog:
-        handlers:
-            main:
-                type: fingers_crossed
-                action_level: error
-                handler: nested
-                excluded_http_codes: [404, 405]
-                channels: ["!event"]
-            nested:
-                type: stream
-                path: "%kernel.logs_dir%/%kernel.environment%.log"
-                level: debug
-            main_log:
-                type: rotation_file
-                path: "%kernel.logs_dir%/main_log_%kernel.environment%.log"
-                channels: [ 'main_log' ]
-                formatter: monolog.formatter.json
+#when@test:
+#    monolog:
+#        handlers:
+#            main:
+#                type: fingers_crossed
+#                action_level: error
+#                handler: nested
+#                excluded_http_codes: [404, 405]
+#                channels: ["!event"]
+#            nested:
+#                type: stream
+#                path: "%kernel.logs_dir%/%kernel.environment%.log"
+#                level: debug
+#            main_log:
+#                type: rotation_file
+#                path: "%kernel.logs_dir%/main_log_%kernel.environment%.log"
+#                channels: [ 'main_log' ]
+#                formatter: monolog.formatter.json
 
 when@prod:
     monolog:

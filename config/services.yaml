@@ -30,3 +30,35 @@ services:
     Universe\Shared\Controller\ApiExceptionListener:
         tags:
             - { name: kernel.event_listener, event: kernel.exception, method: onException }
+
+    Universe\Shared\Bus\Command\TacticianCommandBus:
+        arguments:
+            - '@tactician.commandbus.command'
+
+    Universe\Shared\Bus\Query\TacticianQueryBus:
+        arguments:
+            - '@tactician.commandbus.query'
+
+    command_handlers:
+        namespace: Universe\
+        resource: '%kernel.project_dir%/src/Universe/**/Command/**/*CommandHandler.php'
+        tags:
+            - { name: tactician.handler, typehints: true, bus: command }
+
+    query_handlers:
+        namespace: Universe\
+        resource: '%kernel.project_dir%/src/Universe/**/Query/**/*QueryHandler.php'
+        tags:
+            - { name: tactician.handler, typehints: true, bus: query }
+
+#    _instanceof:
+#        Universe\Shared\Bus\Command\CommandHandler:
+#            tags:
+#                - { name: tactician.handler, typehints: true, bus: command }
+#
+#        Universe\Shared\Bus\Query\QueryHandler:
+#            tags:
+#                - { name: tactician.handler, typehints: true, bus: query }
+
+
+

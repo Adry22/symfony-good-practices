@@ -1,19 +1,20 @@
 <?php
-
-namespace Tests\Universe\User\UseCase;
+declare(strict_types=1);
+namespace Tests\Universe\User\Command;
 
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Tests\Common\Builder\User\UserBuilder;
 use Tests\Common\Controller\BaseWebTestCase;
 use Universe\Shared\Mailer\MailtrapEmailSender;
+use Universe\User\Command\RegisterUser\RegisterUserCommand;
+use Universe\User\Command\RegisterUser\RegisterUserCommandHandler;
 use Universe\User\Exception\UserEmailAlreadyExistsException;
 use Universe\User\Repository\UserRepository;
-use Universe\User\UseCase\RegisterUserUseCase;
 
-class RegisterUseCaseTest extends BaseWebTestCase
+class RegisterUserCommandHandlerTest extends BaseWebTestCase
 {
     private UserRepository $userRepository;
-    private RegisterUserUseCase $registerUserUseCase;
+    private RegisterUserCommandHandler $registerUserCommandHandler;
     private MailtrapEmailSender $mailtrapEmailSender;
     private UserPasswordHasherInterface $userPasswordHasherInterface;
     private UserBuilder $userBuilder;
@@ -28,7 +29,7 @@ class RegisterUseCaseTest extends BaseWebTestCase
 
         $this->userBuilder = new UserBuilder($this->entityManager);
 
-        $this->registerUserUseCase = new RegisterUserUseCase(
+        $this->registerUserCommandHandler = new RegisterUserCommandHandler(
             $this->userRepository,
             $this->mailtrapEmailSender,
             $this->userPasswordHasherInterface
@@ -45,13 +46,16 @@ class RegisterUseCaseTest extends BaseWebTestCase
             ->withPassword('password')
             ->build();
 
-        $this->registerUserUseCase->handle('email@test.com', 'password');
+        $command = new RegisterUserCommand('email@test.com', 'password');
+        $this->registerUserCommandHandler->handle($command);
     }
 
     /** @test */
     public function given_user_to_register_when_everything_is_ok_then_create_user(): void
     {
-        $this->registerUserUseCase->handle('email@test.com', 'password');
+        $command = new RegisterUserCommand('email@test.com', 'password');
+        $this->registerUserCommandHandler->handle($command);
+        $this->entityManager->flush();
 
         $users = $this->userRepository->findAll();
 

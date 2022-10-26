@@ -66,4 +66,9 @@ Symfony app with some examples of good practices
     
     6.2 - Custom channel main_log
 
+**7 - Command and Query bus**
+
+    7.1 - Tactician bundle
+    
+    7.2 - Tactician doctrine (rollback in case of fail)
 
