@@ -10,6 +10,8 @@
         "doctrine/doctrine-bundle": "^2.7",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.13",
+        "friendsofsymfony/rest-bundle": "^3.4",
+        "jms/serializer-bundle": "^5.0",
         "league/tactician-bundle": "^1.4",
         "league/tactician-doctrine": "^1.2",
         "lexik/jwt-authentication-bundle": "^2.16",

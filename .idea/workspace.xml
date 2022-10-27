@@ -2,38 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f8e620-9122-4eff-803a-4fd55ece371f" name="Changes" comment="End to end testing with Behat and Mink">
-      <change afterPath="$PROJECT_DIR$/config/packages/config.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanetQuery.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanetResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanetResult.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Bus/Command/Command.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Bus/Command/CommandBus.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Bus/Command/CommandHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Bus/Command/TacticianCommandBus.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Bus/Query/Query.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Bus/Query/QueryBus.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Bus/Query/QueryHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Bus/Query/Result.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Bus/Query/TacticianQueryBus.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/User/Command/RegisterUser/RegisterUserCommand.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/symfony-good-practices.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony-good-practices.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/monolog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/monolog.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Controller/ListPlanetsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Controller/ListPlanetsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/UseCase/ListPlanetsUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanetQueryHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Universe/User/Controller/RegisterUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Controller/RegisterUserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/User/UseCase/RegisterUserUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Command/RegisterUser/RegisterUserCommandHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Universe/Planet/Controller/ListPlanetsControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/Planet/Controller/ListPlanetsControllerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Universe/Planet/UseCase/ListPlanetUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/Planet/Query/ListPlanetQueryHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Universe/User/UseCase/RegisterUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/User/Command/RegisterUserCommandHandlerTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,6 +187,13 @@
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
       <path value="$PROJECT_DIR$/vendor/brick/math" />
       <path value="$PROJECT_DIR$/vendor/league/tactician-doctrine" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/rest-bundle" />
+      <path value="$PROJECT_DIR$/vendor/willdurand/negotiation" />
+      <path value="$PROJECT_DIR$/vendor/willdurand/jsonp-callback-validator" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpdoc-parser" />
+      <path value="$PROJECT_DIR$/vendor/jms/serializer-bundle" />
+      <path value="$PROJECT_DIR$/vendor/jms/serializer" />
+      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
     </include_path>
   </component>
   <component name="ProjectId" id="2E5Z1pWmR0N63UlEdu1i6hD7AWG" />
@@ -222,7 +208,7 @@
     <property name="credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm" value="Docker Compose" />
     <property name="credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm" value="Docker Compose" />
     <property name="js.buildTools.grunt.grunt-cli.package" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Fynkus/fynkus" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="inlay.hints" />
@@ -241,7 +227,7 @@
       <recent name="$PROJECT_DIR$/tests/features/planets" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.ListPlanetQueryHandlerTest">
+  <component name="RunManager" selected="PHPUnit.RegisterUserControllerTest">
     <configuration name="ListPlanetQueryHandlerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Universe\Planet\Query\ListPlanetQueryHandlerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Query/ListPlanetQueryHandlerTest.php" scope="Class" />
       <method v="2" />
@@ -285,9 +271,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.ListPlanetQueryHandlerTest" />
         <item itemvalue="PHPUnit.RegisterUserControllerTest" />
         <item itemvalue="PHPUnit.RegisterUserCommandHandlerTest" />
+        <item itemvalue="PHPUnit.ListPlanetQueryHandlerTest" />
         <item itemvalue="PHPUnit.ListPlanetsControllerTest" />
         <item itemvalue="PHPUnit.ListPlanetsControllerTest.should_return_data_when_everything_is_correct" />
       </list>
@@ -326,7 +312,8 @@
       <workItem from="1666624713955" duration="3669000" />
       <workItem from="1666628419944" duration="647000" />
       <workItem from="1666708740604" duration="4244000" />
-      <workItem from="1666793185969" duration="3006000" />
+      <workItem from="1666793185969" duration="3178000" />
+      <workItem from="1666877334549" duration="1274000" />
     </task>
     <task id="LOCAL-00001" summary="Change namespace from App to Universe. Create Universe entity and fixtures">
       <created>1661887470130</created>

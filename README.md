@@ -72,3 +72,9 @@ Symfony app with some examples of good practices
     
     7.2 - Tactician doctrine (rollback in case of fail)
 
+**8 - Serialization**
+
+    8.1 - FOSRestBundle
+
+    8.2 - JMSSerializerBundle
+

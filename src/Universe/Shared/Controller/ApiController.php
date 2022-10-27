@@ -3,11 +3,11 @@ declare(strict_types=1);
 
 namespace Universe\Shared\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use FOS\RestBundle\Controller\AbstractFOSRestController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
-abstract class ApiController extends AbstractController
+abstract class ApiController extends AbstractFOSRestController
 {
     public function __construct(
         ApiExceptionsHttpStatusCodeMapping $apiExceptionsHttpStatusCodeMapping

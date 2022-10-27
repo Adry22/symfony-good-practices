@@ -61,28 +61,28 @@ class ListPlanetsControllerTest extends BaseWebApiTestCase
         $this->assertEquals('Planets not found exception', $content['message']);
     }
 
-//    /** @test */
-//    public function should_return_data_when_everything_is_correct(): void
-//    {
-//        $user = $this->userBuilder
-//            ->withEmail('test@email.com')
-//            ->withPassword('password')
-//            ->build();
-//
-//        $this->planetBuilder
-//            ->withName('Mars')
-//            ->build();
-//
-//        $parameters = [
-//            'name' => 'Mars'
-//        ];
-//
-//        $this->loginUser($user);
-//        $this->getRequestJson(self::URL, $parameters);
-//
-//        $content = json_decode($this->client->getResponse()->getContent(), true);
-//
-//        $this->assertCount(1, $content);
-//        $this->assertEquals('Mars', $content[0]);
-//    }
+    /** @test */
+    public function should_return_data_when_everything_is_correct(): void
+    {
+        $user = $this->userBuilder
+            ->withEmail('test@email.com')
+            ->withPassword('password')
+            ->build();
+
+        $this->planetBuilder
+            ->withName('Mars')
+            ->build();
+
+        $parameters = [
+            'name' => 'Mars'
+        ];
+
+        $this->loginUser($user);
+        $this->getRequestJson(self::URL, $parameters);
+
+        $content = json_decode($this->client->getResponse()->getContent(), true);
+
+        $this->assertCount(1, $content);
+        $this->assertEquals('Mars', $content[0]['name']);
+    }
 }

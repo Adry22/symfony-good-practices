@@ -33,7 +33,7 @@ class RegisterUserController extends ApiController
      * @param Request $request
      * @return JsonResponse
      */
-    public function action(Request $request, ): JsonResponse
+    public function action(Request $request, ): Response
     {
         $email = $this->getParameterOrFail($request, 'email');
         $password = $this->getParameterOrFail($request, 'password');
@@ -41,7 +41,7 @@ class RegisterUserController extends ApiController
         $command = new RegisterUserCommand($email, $password);
         $this->commandBus->handle($command);
 
-        return $this->json('OK');
+        return $this->handleView($this->view(null, Response::HTTP_OK));
     }
 
     protected function exceptions(): array

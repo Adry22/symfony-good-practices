@@ -31,14 +31,14 @@ final class ListPlanetsController extends ApiController
      * @param Request $request
      * @return JsonResponse
      */
-    public function action(Request $request): JsonResponse
+    public function action(Request $request): Response
     {
         $name = $this->getParameterOrFail($request, 'name');
 
         $query = new ListPlanetQuery($name);
         $planets = $this->queryBus->handle($query);
 
-        return $this->json($planets->results());
+        return $this->handleView($this->view($planets->results(), Response::HTTP_OK));
     }
 
     protected function exceptions(): array
