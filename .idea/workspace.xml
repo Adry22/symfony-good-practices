@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f8e620-9122-4eff-803a-4fd55ece371f" name="Changes" comment="End to end testing with Behat and Mink">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/symfony-good-practices.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony-good-practices.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Controller/ListPlanetsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Controller/ListPlanetsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/User/Controller/RegisterUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Controller/RegisterUserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Universe/Planet/Controller/ListPlanetsControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/Planet/Controller/ListPlanetsControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -313,7 +303,7 @@
       <workItem from="1666628419944" duration="647000" />
       <workItem from="1666708740604" duration="4244000" />
       <workItem from="1666793185969" duration="3178000" />
-      <workItem from="1666877334549" duration="1274000" />
+      <workItem from="1666877334549" duration="1609000" />
     </task>
     <task id="LOCAL-00001" summary="Change namespace from App to Universe. Create Universe entity and fixtures">
       <created>1661887470130</created>
