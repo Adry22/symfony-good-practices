@@ -6,9 +6,13 @@ use Universe\Planet\Entity\Planet;
 use Universe\Planet\Exception\PlanetsNotFoundException;
 use Universe\Planet\Repository\PlanetRepository;
 use Universe\Shared\Bus\Query\QueryHandler;
+use Universe\Shared\DataClump\PaginationLimits;
 
 final class ListPlanetQueryHandler implements QueryHandler
 {
+    public const DEFAULT_OFFSET = 0;
+    public const DEFAULT_LIMIT = 30;
+
     private PlanetRepository $planetRepository;
 
     public function __construct(
@@ -22,8 +26,13 @@ final class ListPlanetQueryHandler implements QueryHandler
      */
     public function handle(ListPlanetQuery $query): ListPlanetResult
     {
-        $planets = $this->planetRepository->findByName($query->name());
-        $this->checkAtLeastOnePlanetFound($planets);
+        $offset = $query->offset() ?? self::DEFAULT_OFFSET;
+        $limit = $query->limit() ?? self::DEFAULT_LIMIT;
+
+        $paginationLimits = new PaginationLimits($offset, $limit);
+
+        $planets = $this->planetRepository->findByName($paginationLimits, $query->name());
+        $total = $this->planetRepository->countFindByName($query->name());
 
         $resources = array_map(
             function (Planet $planet) {
@@ -32,16 +41,6 @@ final class ListPlanetQueryHandler implements QueryHandler
             $planets
         );
 
-        return new ListPlanetResult($resources);
-    }
-
-    /**
-     * @throws PlanetsNotFoundException
-     */
-    private function checkAtLeastOnePlanetFound(array $planets): void
-    {
-        if (0 === sizeof($planets)) {
-            throw new PlanetsNotFoundException();
-        }
+        return new ListPlanetResult($paginationLimits, $total, $resources);
     }
 }

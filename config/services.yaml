@@ -27,9 +27,9 @@ services:
         resource: '%kernel.project_dir%/src/Universe/**/Controller/*'
         tags: [ 'controller.service_arguments' ]
 
-    Universe\Shared\Controller\ApiExceptionListener:
-        tags:
-            - { name: kernel.event_listener, event: kernel.exception, method: onException }
+#    Universe\Shared\Controller\ApiExceptionListener:
+#        tags:
+#            - { name: kernel.event_listener, event: kernel.exception, method: onException }
 
     Universe\Shared\Bus\Command\TacticianCommandBus:
         arguments:

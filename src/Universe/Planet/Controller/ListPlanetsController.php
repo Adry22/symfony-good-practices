@@ -7,22 +7,16 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Universe\Planet\Exception\PlanetsNotFoundException;
 use Universe\Planet\Query\ListPlanetQuery;
 use Universe\Shared\Bus\Query\QueryBus;
 use Universe\Shared\Controller\ApiController;
-use Universe\Shared\Controller\ApiExceptionsHttpStatusCodeMapping;
 
 final class ListPlanetsController extends ApiController
 {
     private QueryBus $queryBus;
 
-    public function __construct(
-        ApiExceptionsHttpStatusCodeMapping $apiExceptionsHttpStatusCodeMapping,
-        QueryBus $queryBus
-    )
+    public function __construct(QueryBus $queryBus)
     {
-        parent::__construct($apiExceptionsHttpStatusCodeMapping);
         $this->queryBus = $queryBus;
     }
 
@@ -34,17 +28,12 @@ final class ListPlanetsController extends ApiController
     public function action(Request $request): Response
     {
         $name = $this->getParameterOrFail($request, 'name');
+        $offset = $request->get('offset') ? (int) $request->get('offset') : null;
+        $limit = $request->get('limit') ? (int) $request->get('limit') : null;
 
-        $query = new ListPlanetQuery($name);
+        $query = new ListPlanetQuery($name, $offset, $limit);
         $planets = $this->queryBus->handle($query);
 
-        return $this->handleView($this->view($planets->results(), Response::HTTP_OK));
-    }
-
-    protected function exceptions(): array
-    {
-        return [
-            PlanetsNotFoundException::class => Response::HTTP_NOT_FOUND
-        ];
+        return $this->handleView($this->view($planets, Response::HTTP_OK));
     }
 }

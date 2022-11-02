@@ -9,13 +9,16 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 abstract class ApiController extends AbstractFOSRestController
 {
-    public function __construct(
-        ApiExceptionsHttpStatusCodeMapping $apiExceptionsHttpStatusCodeMapping
-    ) {
-        foreach ($this->exceptions() as $exceptionClass => $httpCode) {
-            $apiExceptionsHttpStatusCodeMapping->register($exceptionClass, $httpCode);
-        }
-    }
+//    public function __construct(
+//        ApiExceptionsHttpStatusCodeMapping $apiExceptionsHttpStatusCodeMapping
+//    ) {
+//        foreach ($this->exceptions() as $exceptionClass => $httpCode) {
+//            $apiExceptionsHttpStatusCodeMapping->register($exceptionClass, $httpCode);
+//        }
+//    }
+//
+//
+//    abstract protected function exceptions(): array;
 
     protected function getParameterOrFail(Request $request, string $key)
     {
@@ -27,6 +30,4 @@ abstract class ApiController extends AbstractFOSRestController
 
         return $parameter;
     }
-
-    abstract protected function exceptions(): array;
 }

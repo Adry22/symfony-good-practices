@@ -8,7 +8,6 @@ use Universe\Shared\Controller\ApiController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Universe\Shared\Controller\ApiExceptionsHttpStatusCodeMapping;
 use Universe\User\Command\RegisterUser\RegisterUserCommand;
 use Universe\User\Exception\UserEmailAlreadyExistsException;
 use Universe\User\Exception\UserMailNotValidException;
@@ -19,12 +18,8 @@ class RegisterUserController extends ApiController
     private CommandBus $commandBus;
 
     public function __construct(
-        ApiExceptionsHttpStatusCodeMapping $apiExceptionsHttpStatusCodeMapping,
         CommandBus $commandBus,
-    )
-    {
-        parent::__construct($apiExceptionsHttpStatusCodeMapping);
-
+    ) {
         $this->commandBus = $commandBus;
     }
 
@@ -44,12 +39,12 @@ class RegisterUserController extends ApiController
         return $this->handleView($this->view(null, Response::HTTP_OK));
     }
 
-    protected function exceptions(): array
-    {
-        return [
-            TransportExceptionInterface::class => Response::HTTP_NOT_FOUND,
-            UserMailNotValidException::class => Response::HTTP_BAD_REQUEST,
-            UserEmailAlreadyExistsException::class => Response::HTTP_BAD_REQUEST
-        ];
-    }
+//    protected function exceptions(): array
+//    {
+//        return [
+//            TransportExceptionInterface::class => Response::HTTP_NOT_FOUND,
+//            UserMailNotValidException::class => Response::HTTP_BAD_REQUEST,
+//            UserEmailAlreadyExistsException::class => Response::HTTP_BAD_REQUEST
+//        ];
+//    }
 }
