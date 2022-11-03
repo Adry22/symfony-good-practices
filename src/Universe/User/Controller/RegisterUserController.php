@@ -33,8 +33,24 @@ class RegisterUserController extends ApiController
         $email = $this->getParameterOrFail($request, 'email');
         $password = $this->getParameterOrFail($request, 'password');
 
-        $command = new RegisterUserCommand($email, $password);
-        $this->commandBus->handle($command);
+        try {
+            $command = new RegisterUserCommand($email, $password);
+            $this->commandBus->handle($command);
+        } catch (UserMailNotValidException $e) {
+            $message = [
+                'code' => Response::HTTP_BAD_REQUEST,
+                'message' => 'User email not valid',
+                'type' => 'UserMailNotValidException',
+            ];
+            return $this->handleView($this->view($message, Response::HTTP_BAD_REQUEST));
+        } catch (UserEmailAlreadyExistsException $e) {
+            $message = [
+                'code' => Response::HTTP_BAD_REQUEST,
+                'message' => 'User email already exists.',
+                'type' => 'UserEmailAlreadyExistsException',
+            ];
+            return $this->handleView($this->view($message, Response::HTTP_BAD_REQUEST));
+        }
 
         return $this->handleView($this->view(null, Response::HTTP_OK));
     }

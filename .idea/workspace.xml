@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f8e620-9122-4eff-803a-4fd55ece371f" name="Changes" comment="End to end testing with Behat and Mink">
-      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/DataClump/PaginationLimits.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Controller/ListPlanetsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Controller/ListPlanetsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanetQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanetQuery.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanetQueryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanetQueryHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanetResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanetResult.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Repository/PlanetRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Repository/PlanetRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiExceptionListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiExceptionListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiExceptionsHttpStatusCodeMapping.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiExceptionsHttpStatusCodeMapping.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Universe/User/Controller/RegisterUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Controller/RegisterUserController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -315,7 +306,8 @@
       <workItem from="1666708740604" duration="4244000" />
       <workItem from="1666793185969" duration="3178000" />
       <workItem from="1666877334549" duration="1678000" />
-      <workItem from="1667401497477" duration="1592000" />
+      <workItem from="1667401497477" duration="2014000" />
+      <workItem from="1667486088934" duration="341000" />
     </task>
     <task id="LOCAL-00001" summary="Change namespace from App to Universe. Create Universe entity and fixtures">
       <created>1661887470130</created>

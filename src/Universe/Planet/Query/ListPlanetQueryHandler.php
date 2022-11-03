@@ -3,7 +3,6 @@ declare(strict_types=1);
 namespace Universe\Planet\Query;
 
 use Universe\Planet\Entity\Planet;
-use Universe\Planet\Exception\PlanetsNotFoundException;
 use Universe\Planet\Repository\PlanetRepository;
 use Universe\Shared\Bus\Query\QueryHandler;
 use Universe\Shared\DataClump\PaginationLimits;
@@ -21,9 +20,6 @@ final class ListPlanetQueryHandler implements QueryHandler
         $this->planetRepository = $planetRepository;
     }
 
-    /**
-     * @throws PlanetsNotFoundException
-     */
     public function handle(ListPlanetQuery $query): ListPlanetResult
     {
         $offset = $query->offset() ?? self::DEFAULT_OFFSET;
