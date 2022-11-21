@@ -2,13 +2,13 @@
 declare(strict_types=1);
 namespace Tests\Universe\Planet\Query;
 
+use Exception;
 use Tests\Common\Builder\Planet\PlanetBuilder;
 use Tests\Common\Controller\BaseWebTestCase;
 use Universe\Planet\Exception\PlanetsNotFoundException;
-use Universe\Planet\Query\ListPlanetQuery;
-use Universe\Planet\Query\ListPlanetQueryHandler;
+use Universe\Planet\Query\ListPlanet\ListPlanetQuery;
+use Universe\Planet\Query\ListPlanet\ListPlanetQueryHandler;
 use Universe\Planet\Repository\PlanetRepository;
-use Exception;
 
 class ListPlanetQueryHandlerTest extends BaseWebTestCase
 {

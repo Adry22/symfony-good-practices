@@ -1,12 +1,15 @@
 FROM php:8.0-fpm
 
 RUN apt update \
-    && apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev zip vim nano \
+    && apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev zip vim nano libpng-dev libjpeg-dev libfreetype6-dev \
     && docker-php-ext-install intl opcache pdo pdo_mysql \
     && pecl install apcu \
     && docker-php-ext-enable apcu \
     && docker-php-ext-configure zip \
     && docker-php-ext-install zip
+
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd
 
 COPY php.ini /usr/local/etc/php
 

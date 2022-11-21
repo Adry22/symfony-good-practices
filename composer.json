@@ -15,6 +15,7 @@
         "league/tactician-bundle": "^1.4",
         "league/tactician-doctrine": "^1.2",
         "lexik/jwt-authentication-bundle": "^2.16",
+        "phpoffice/phpspreadsheet": "^1.25",
         "ramsey/uuid-doctrine": "^1.8",
         "symfony/console": "6.0.*",
         "symfony/dotenv": "6.0.*",

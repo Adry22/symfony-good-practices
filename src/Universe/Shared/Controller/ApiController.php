@@ -5,6 +5,7 @@ namespace Universe\Shared\Controller;
 
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 abstract class ApiController extends AbstractFOSRestController
@@ -29,5 +30,17 @@ abstract class ApiController extends AbstractFOSRestController
         }
 
         return $parameter;
+    }
+
+    public function binaryExcel(string $fileContent, string $filename): Response
+    {
+        return new Response(
+            $fileContent,
+            Response::HTTP_OK,
+            [
+                'Content-Type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                'Content-Disposition' => 'inline; filename="' . $filename . '.xlsx"',
+            ]
+        );
     }
 }

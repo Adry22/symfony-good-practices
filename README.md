@@ -78,3 +78,12 @@ Symfony app with some examples of good practices
 
     8.2 - JMSSerializerBundle
 
+**9 - Reports**
+    
+    9.1 - Formatter to format data
+
+    9.2 - Writer to write file
+
+    9.3 - Types
+        
+        9.3.1 - Xlsx with Spreadsheet

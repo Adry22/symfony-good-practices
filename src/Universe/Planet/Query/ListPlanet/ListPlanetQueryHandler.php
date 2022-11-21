@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace Universe\Planet\Query;
+namespace Universe\Planet\Query\ListPlanet;
 
 use Universe\Planet\Entity\Planet;
 use Universe\Planet\Repository\PlanetRepository;
@@ -27,7 +27,7 @@ final class ListPlanetQueryHandler implements QueryHandler
 
         $paginationLimits = new PaginationLimits($offset, $limit);
 
-        $planets = $this->planetRepository->findByName($paginationLimits, $query->name());
+        $planets = $this->planetRepository->findByName($query->name(), $paginationLimits);
         $total = $this->planetRepository->countFindByName($query->name());
 
         $resources = array_map(

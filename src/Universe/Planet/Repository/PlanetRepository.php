@@ -13,8 +13,8 @@ class PlanetRepository extends BaseRepository
     private const ROOT_ALIAS = 'planets';
 
     public function findByName(
-        PaginationLimits $paginationLimits,
-        ?string $name = null
+        ?string $name = null,
+        ?PaginationLimits $paginationLimits = null
     ): array {
         $queryBuilder = $this->createQueryBuilder(self::ROOT_ALIAS);
 
@@ -22,8 +22,10 @@ class PlanetRepository extends BaseRepository
             $queryBuilder = $this->applyName($queryBuilder, $name);
         }
 
-        $queryBuilder->setFirstResult($paginationLimits->offset());
-        $queryBuilder->setMaxResults($paginationLimits->limit());
+        if ($paginationLimits) {
+            $queryBuilder->setFirstResult($paginationLimits->offset());
+            $queryBuilder->setMaxResults($paginationLimits->limit());
+        }
 
         return $queryBuilder->getQuery()->getResult();
     }

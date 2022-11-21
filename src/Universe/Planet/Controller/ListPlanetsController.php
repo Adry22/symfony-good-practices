@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Universe\Planet\Query\ListPlanetQuery;
+use Universe\Planet\Query\ListPlanet\ListPlanetQuery;
 use Universe\Shared\Bus\Query\QueryBus;
 use Universe\Shared\Controller\ApiController;
 

@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace Universe\Planet\Query;
+namespace Universe\Planet\Query\ListPlanet;
 
 class ListPlanetResource
 {
