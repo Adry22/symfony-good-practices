@@ -10,20 +10,19 @@ use Universe\Shared\Mailer\MailtrapEmailSender;
 use Universe\User\Entity\User;
 use Universe\User\Exception\UserEmailAlreadyExistsException;
 use Universe\User\Exception\UserMailNotValidException;
-use Universe\User\Repository\UserRepository;
+use Universe\User\Repository\UserRepositoryInterface;
 
 class RegisterUserCommandHandler implements CommandHandler
 {
-    private UserRepository $userRepository;
+    private UserRepositoryInterface $userRepository;
     private MailtrapEmailSender $emailSender;
     private UserPasswordHasherInterface $userPasswordHasher;
 
     public function __construct(
-        UserRepository $userRepository,
+        UserRepositoryInterface $userRepository,
         MailtrapEmailSender $emailSender,
         UserPasswordHasherInterface $userPasswordHasher
-    )
-    {
+    ) {
         $this->userRepository = $userRepository;
         $this->emailSender = $emailSender;
         $this->userPasswordHasher = $userPasswordHasher;

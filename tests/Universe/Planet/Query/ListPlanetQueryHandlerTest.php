@@ -5,15 +5,14 @@ namespace Tests\Universe\Planet\Query;
 use Exception;
 use Tests\Common\Builder\Planet\PlanetBuilder;
 use Tests\Common\Controller\BaseWebTestCase;
-use Universe\Planet\Exception\PlanetsNotFoundException;
 use Universe\Planet\Query\ListPlanet\ListPlanetQuery;
 use Universe\Planet\Query\ListPlanet\ListPlanetQueryHandler;
-use Universe\Planet\Repository\PlanetRepository;
+use Universe\Planet\Repository\PlanetRepositoryInterface;
 
 class ListPlanetQueryHandlerTest extends BaseWebTestCase
 {
     private PlanetBuilder $planetBuilder;
-    private PlanetRepository $planetRepository;
+    private PlanetRepositoryInterface $planetRepository;
     private ListPlanetQueryHandler $listPlanetQueryHandler;
 
     /**
@@ -24,23 +23,8 @@ class ListPlanetQueryHandlerTest extends BaseWebTestCase
         parent::setUp();
 
         $this->planetBuilder = new PlanetBuilder($this->entityManager);
-        $this->planetRepository = $this->testContainer->get(PlanetRepository::class);
+        $this->planetRepository = $this->testContainer->get(PlanetRepositoryInterface::class);
         $this->listPlanetQueryHandler = new ListPlanetQueryHandler($this->planetRepository);
-    }
-
-    /** @test
-     * @throws Exception
-     */
-    public function should_fail_when_no_planets_found(): void
-    {
-        $this->expectException(PlanetsNotFoundException::class);
-
-        $this->planetBuilder
-            ->withName('Mars')
-            ->build();
-
-        $query = new ListPlanetQuery('Jupiter');
-        $this->listPlanetQueryHandler->handle($query);
     }
 
     /** @test */

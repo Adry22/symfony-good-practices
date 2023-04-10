@@ -1,32 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4f8e620-9122-4eff-803a-4fd55ece371f" name="Changes" comment="End to end testing with Behat and Mink">
-      <change afterPath="$PROJECT_DIR$/config/packages/common.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Planet/Controller/DownloadExcelPlanetsListController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Planet/Formatter/DownloadExcelPlanetListFormatter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/DownloadExcelPlanetList/DownloadExcelPlanetListQuery.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/DownloadExcelPlanetList/DownloadExcelPlanetListQueryHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/DownloadExcelPlanetList/DownloadExcelPlanetListResult.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Planet/Writer/DownloadExcelPlanetListWriter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Universe/Planet/Controller/DownloadExcelPlanetsListControllerTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Universe/Planet/Query/DownloadExcelPlanetListQueryHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/symfony-good-practices.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony-good-practices.iml" afterDir="false" />
+    <list default="true" id="f4f8e620-9122-4eff-803a-4fd55ece371f" name="Changes" comment="Download excel planets list">
+      <change afterPath="$PROJECT_DIR$/src/Universe/Planet/Repository/PlanetRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/User/Repository/UserRepositoryInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Controller/ListPlanetsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Controller/ListPlanetsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanetQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanet/ListPlanetQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanetQueryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanet/ListPlanetQueryHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanetResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanet/ListPlanetResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanetResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanet/ListPlanetResult.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Repository/PlanetRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Repository/PlanetRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Query/DownloadExcelPlanetList/DownloadExcelPlanetListQueryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/DownloadExcelPlanetList/DownloadExcelPlanetListQueryHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanet/ListPlanetQueryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanet/ListPlanetQueryHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Repository/PlanetRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Repository/DoctrinePlanetRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/User/Command/RegisterUser/RegisterUserCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Command/RegisterUser/RegisterUserCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/User/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Repository/DoctrineUserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Universe/Planet/Query/DownloadExcelPlanetListQueryHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/Planet/Query/DownloadExcelPlanetListQueryHandlerTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Universe/Planet/Query/ListPlanetQueryHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/Planet/Query/ListPlanetQueryHandlerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Universe/User/Command/RegisterUserCommandHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/User/Command/RegisterUserCommandHandlerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,22 +38,29 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/.env.test" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/config/bundles.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/tests/Common/Builder/Planet/PlanetBuilder.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/phpunit.xml.dist" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/bootstrap.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/.env" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/features/planets/get_planets.feature" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/config/packages/security.yaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/config/packages/doctrine.yaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/behat.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Behat/ApiContext.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Universe/Planet/Entity/Planet.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/docker/Dockerfile" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/docker-compose.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Common/Builder/Planet/PlanetBuilder.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/.env" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/config/packages/security.yaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Universe/Planet/Query/DownloadExcelPlanetListQueryHandlerTest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/migrations/Version20220830185751.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/config/packages/monolog.yaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Universe/Planet/Formatter/DownloadExcelPlanetListFormatter.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/public/index.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Universe/Planet/Query/DownloadExcelPlanetList/DownloadExcelPlanetListQueryHandler.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Universe/Planet/Controller/DownloadExcelPlanetsListControllerTest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/composer.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/config/services_test.yaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bin/console" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Kernel.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Universe/Planet/Controller/DownloadExcelPlanetsListController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
@@ -237,7 +231,7 @@
     <property name="credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm" value="Docker Compose" />
     <property name="credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm" value="Docker Compose" />
     <property name="js.buildTools.grunt.grunt-cli.package" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Fynkus/fynkus" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="inlay.hints" />
@@ -256,21 +250,21 @@
       <recent name="$PROJECT_DIR$/tests/features/planets" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.DownloadExcelPlanetsListControllerTest">
+  <component name="RunManager" selected="PHPUnit.RegisterUserControllerTest">
     <configuration name="DownloadExcelPlanetListQueryHandlerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Universe\Planet\Query\DownloadExcelPlanetListQueryHandlerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Query/DownloadExcelPlanetListQueryHandlerTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
-    <configuration name="DownloadExcelPlanetListQueryHandlerTest.given_a_list_of_planets_should_return_them_when_everything_is_ok" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Universe\Planet\Query\DownloadExcelPlanetListQueryHandlerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Query/DownloadExcelPlanetListQueryHandlerTest.php" method="given_a_list_of_planets_should_return_them_when_everything_is_ok" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="DownloadExcelPlanetsListControllerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Universe\Planet\Controller\DownloadExcelPlanetsListControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/DownloadExcelPlanetsListControllerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="DownloadExcelPlanetsListControllerTest.given_an_downloaded_excel_when_everything_is_ok_then_should_has_correct_filename" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Universe\Planet\Controller\DownloadExcelPlanetsListControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/DownloadExcelPlanetsListControllerTest.php" method="given_an_downloaded_excel_when_everything_is_ok_then_should_has_correct_filename" scope="Method" />
+    <configuration name="ListPlanetQueryHandlerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Universe\Planet\Query\ListPlanetQueryHandlerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Query/ListPlanetQueryHandlerTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="RegisterUserCommandHandlerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Universe\User\Command\RegisterUserCommandHandlerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/User/Command/RegisterUserCommandHandlerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="RegisterUserControllerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -292,19 +286,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="PHPUnit.RegisterUserControllerTest" />
       <item itemvalue="PHPUnit.DownloadExcelPlanetListQueryHandlerTest" />
-      <item itemvalue="PHPUnit.DownloadExcelPlanetListQueryHandlerTest.given_a_list_of_planets_should_return_them_when_everything_is_ok" />
-      <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest.given_an_downloaded_excel_when_everything_is_ok_then_should_has_correct_filename" />
       <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest" />
+      <item itemvalue="PHPUnit.ListPlanetQueryHandlerTest" />
+      <item itemvalue="PHPUnit.RegisterUserCommandHandlerTest" />
+      <item itemvalue="PHPUnit.RegisterUserControllerTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest" />
-        <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest.given_an_downloaded_excel_when_everything_is_ok_then_should_has_correct_filename" />
-        <item itemvalue="PHPUnit.DownloadExcelPlanetListQueryHandlerTest.given_a_list_of_planets_should_return_them_when_everything_is_ok" />
-        <item itemvalue="PHPUnit.DownloadExcelPlanetListQueryHandlerTest" />
         <item itemvalue="PHPUnit.RegisterUserControllerTest" />
+        <item itemvalue="PHPUnit.RegisterUserCommandHandlerTest" />
+        <item itemvalue="PHPUnit.ListPlanetQueryHandlerTest" />
+        <item itemvalue="PHPUnit.DownloadExcelPlanetListQueryHandlerTest" />
+        <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -348,7 +342,16 @@
       <workItem from="1667834531360" duration="1764000" />
       <workItem from="1668435511633" duration="2583000" />
       <workItem from="1668698019998" duration="2041000" />
-      <workItem from="1669040177048" duration="2653000" />
+      <workItem from="1669040177048" duration="2839000" />
+      <workItem from="1669098674040" duration="12000" />
+      <workItem from="1672139789157" duration="1105000" />
+      <workItem from="1672143959106" duration="1590000" />
+      <workItem from="1672145873688" duration="7149000" />
+      <workItem from="1672157872164" duration="1509000" />
+      <workItem from="1676295766059" duration="614000" />
+      <workItem from="1676359516354" duration="22000" />
+      <workItem from="1678118370142" duration="435000" />
+      <workItem from="1681135513631" duration="1837000" />
     </task>
     <task id="LOCAL-00001" summary="Change namespace from App to Universe. Create Universe entity and fixtures">
       <created>1661887470130</created>
@@ -364,7 +367,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664546905658</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Download excel planets list">
+      <created>1669042877269</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669042877269</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -384,6 +394,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Change namespace from App to Universe. Create Universe entity and fixtures" />
     <MESSAGE value="End to end testing with Behat and Mink" />
-    <option name="LAST_COMMIT_MESSAGE" value="End to end testing with Behat and Mink" />
+    <MESSAGE value="Download excel planets list" />
+    <option name="LAST_COMMIT_MESSAGE" value="Download excel planets list" />
   </component>
 </project>

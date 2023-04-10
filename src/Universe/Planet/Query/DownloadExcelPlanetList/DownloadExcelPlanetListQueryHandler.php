@@ -3,7 +3,7 @@ declare(strict_types=1);
 namespace Universe\Planet\Query\DownloadExcelPlanetList;
 
 use Universe\Planet\Formatter\DownloadExcelPlanetListFormatter;
-use Universe\Planet\Repository\PlanetRepository;
+use Universe\Planet\Repository\PlanetRepositoryInterface;
 use Universe\Planet\Writer\DownloadExcelPlanetListWriter;
 use Universe\Shared\Bus\Query\QueryHandler;
 
@@ -11,11 +11,11 @@ class DownloadExcelPlanetListQueryHandler implements QueryHandler
 {
     public const FILENAME = 'Listado de planetas';
 
-    private PlanetRepository $planetRepository;
+    private PlanetRepositoryInterface $planetRepository;
     private DownloadExcelPlanetListWriter $writer;
 
     public function __construct(
-        PlanetRepository $planetRepository,
+        PlanetRepositoryInterface $planetRepository,
         DownloadExcelPlanetListWriter $writer
     ) {
         $this->planetRepository = $planetRepository;

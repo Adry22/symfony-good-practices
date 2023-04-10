@@ -8,7 +8,7 @@ use Universe\Planet\Entity\Planet;
 use Universe\Shared\DataClump\PaginationLimits;
 use Universe\Shared\Repository\BaseRepository;
 
-class PlanetRepository extends BaseRepository
+class DoctrinePlanetRepository extends BaseRepository implements PlanetRepositoryInterface
 {
     private const ROOT_ALIAS = 'planets';
 

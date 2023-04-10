@@ -7,13 +7,13 @@ use Tests\Common\Builder\Planet\PlanetBuilder;
 use Tests\Common\Controller\BaseWebTestCase;
 use Universe\Planet\Query\DownloadExcelPlanetList\DownloadExcelPlanetListQuery;
 use Universe\Planet\Query\DownloadExcelPlanetList\DownloadExcelPlanetListQueryHandler;
-use Universe\Planet\Repository\PlanetRepository;
+use Universe\Planet\Repository\PlanetRepositoryInterface;
 use Universe\Planet\Writer\DownloadExcelPlanetListWriter;
 
 class DownloadExcelPlanetListQueryHandlerTest extends BaseWebTestCase
 {
     private PlanetBuilder $planetBuilder;
-    private PlanetRepository $planetRepository;
+    private PlanetRepositoryInterface $planetRepository;
     private DownloadExcelPlanetListQueryHandler $downloadExcelPlanetListQueryHandler;
 
     public function setUp(): void
@@ -21,7 +21,7 @@ class DownloadExcelPlanetListQueryHandlerTest extends BaseWebTestCase
         parent::setUp();
 
         $this->planetBuilder = new PlanetBuilder($this->entityManager);
-        $this->planetRepository = $this->testContainer->get(PlanetRepository::class);
+        $this->planetRepository = $this->testContainer->get(PlanetRepositoryInterface::class);
         $this->downloadExcelPlanetListWriter = $this->getMockBuilder(DownloadExcelPlanetListWriter::class)->disableOriginalConstructor()->getMock();
 
         $this->downloadExcelPlanetListQueryHandler = new DownloadExcelPlanetListQueryHandler(

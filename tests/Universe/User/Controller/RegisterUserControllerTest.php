@@ -5,20 +5,20 @@ namespace Tests\Universe\User\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Tests\Common\Builder\User\UserBuilder;
 use Tests\Common\Controller\BaseWebApiTestCase;
-use Universe\User\Repository\UserRepository;
+use Universe\User\Repository\UserRepositoryInterface;
 
 class RegisterUserControllerTest extends BaseWebApiTestCase
 {
     private const URL = '/register-user';
 
-    private UserRepository $userRepository;
+    private UserRepositoryInterface $userRepository;
     private UserBuilder $userBuilder;
 
     public function setUp(): void
     {
         parent::setUp();
 
-        $this->userRepository = $this->testContainer->get(UserRepository::class);
+        $this->userRepository = $this->testContainer->get(UserRepositoryInterface::class);
         $this->userBuilder = new UserBuilder($this->entityManager);
     }
 

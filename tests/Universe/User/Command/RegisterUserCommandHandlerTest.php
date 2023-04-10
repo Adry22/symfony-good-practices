@@ -9,11 +9,11 @@ use Universe\Shared\Mailer\MailtrapEmailSender;
 use Universe\User\Command\RegisterUser\RegisterUserCommand;
 use Universe\User\Command\RegisterUser\RegisterUserCommandHandler;
 use Universe\User\Exception\UserEmailAlreadyExistsException;
-use Universe\User\Repository\UserRepository;
+use Universe\User\Repository\UserRepositoryInterface;
 
 class RegisterUserCommandHandlerTest extends BaseWebTestCase
 {
-    private UserRepository $userRepository;
+    private UserRepositoryInterface $userRepository;
     private RegisterUserCommandHandler $registerUserCommandHandler;
     private MailtrapEmailSender $mailtrapEmailSender;
     private UserPasswordHasherInterface $userPasswordHasherInterface;
@@ -23,7 +23,7 @@ class RegisterUserCommandHandlerTest extends BaseWebTestCase
     {
         parent::setUp();
 
-        $this->userRepository = $this->testContainer->get(UserRepository::class);
+        $this->userRepository = $this->testContainer->get(UserRepositoryInterface::class);
         $this->mailtrapEmailSender = $this->testContainer->get(MailtrapEmailSender::class);
         $this->userPasswordHasherInterface = $this->testContainer->get(UserPasswordHasherInterface::class);
 

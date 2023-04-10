@@ -3,7 +3,7 @@ declare(strict_types=1);
 namespace Universe\Planet\Query\ListPlanet;
 
 use Universe\Planet\Entity\Planet;
-use Universe\Planet\Repository\PlanetRepository;
+use Universe\Planet\Repository\PlanetRepositoryInterface;
 use Universe\Shared\Bus\Query\QueryHandler;
 use Universe\Shared\DataClump\PaginationLimits;
 
@@ -12,10 +12,10 @@ final class ListPlanetQueryHandler implements QueryHandler
     public const DEFAULT_OFFSET = 0;
     public const DEFAULT_LIMIT = 30;
 
-    private PlanetRepository $planetRepository;
+    private PlanetRepositoryInterface $planetRepository;
 
     public function __construct(
-        PlanetRepository $planetRepository
+        PlanetRepositoryInterface $planetRepository
     ) {
         $this->planetRepository = $planetRepository;
     }

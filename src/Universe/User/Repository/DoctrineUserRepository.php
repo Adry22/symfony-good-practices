@@ -7,7 +7,7 @@ use Universe\Shared\Repository\BaseRepository;
 use Universe\User\Entity\User;
 use Doctrine\ORM\NonUniqueResultException;
 
-class UserRepository extends BaseRepository
+class DoctrineUserRepository extends BaseRepository implements UserRepositoryInterface
 {
     private const ROOT_ALIAS = 'users';
 
