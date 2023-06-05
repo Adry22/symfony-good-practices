@@ -13,7 +13,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Universe\User\Exception\UserMailNotValidException;
 
 /**
- * @ORM\Entity(repositoryClass="Universe\User\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="Universe\User\Repository\DoctrineUserRepository")
  * @Table(name="users")
  */
 final class User implements UserInterface, PasswordAuthenticatedUserInterface

@@ -87,3 +87,7 @@ Symfony app with some examples of good practices
     9.3 - Types
         
         9.3.1 - Xlsx with Spreadsheet
+
+**10 - Specification pattern**
+
+    10.1 - Specification pattern to filter data (example in ListPlanet)

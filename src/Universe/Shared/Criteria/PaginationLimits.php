@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Universe\Shared\DataClump;
+namespace Universe\Shared\Criteria;
 
 class PaginationLimits
 {

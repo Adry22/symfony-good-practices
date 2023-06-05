@@ -3,7 +3,7 @@ declare(strict_types=1);
 namespace Universe\Planet\Query\ListPlanet;
 
 use Universe\Shared\Bus\Query\Result;
-use Universe\Shared\DataClump\PaginationLimits;
+use Universe\Shared\Criteria\PaginationLimits;
 
 class ListPlanetResult implements Result
 {

@@ -1,16 +1,27 @@
 <?php
 declare(strict_types=1);
 
-namespace Universe\Planet\Repository;
+namespace Universe\Planet\Repository\Doctrine;
 
 use Doctrine\ORM\QueryBuilder;
 use Universe\Planet\Entity\Planet;
-use Universe\Shared\DataClump\PaginationLimits;
+use Universe\Planet\Repository\PlanetRepositoryInterface;
+use Universe\Shared\Criteria\Criteria;
+use Universe\Shared\Criteria\PaginationLimits;
 use Universe\Shared\Repository\BaseRepository;
 
 class DoctrinePlanetRepository extends BaseRepository implements PlanetRepositoryInterface
 {
     private const ROOT_ALIAS = 'planets';
+
+    public function findByCriteria(Criteria $criteria) {
+        return $criteria->specification()->satisfyingElementsFrom($this);
+    }
+
+    public function findAll(): array
+    {
+        return $this->findBy([]);
+    }
 
     public function findByName(
         ?string $name = null,
@@ -26,6 +37,7 @@ class DoctrinePlanetRepository extends BaseRepository implements PlanetRepositor
             $queryBuilder->setFirstResult($paginationLimits->offset());
             $queryBuilder->setMaxResults($paginationLimits->limit());
         }
+
 
         return $queryBuilder->getQuery()->getResult();
     }

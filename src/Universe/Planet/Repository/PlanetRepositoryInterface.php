@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Universe\Planet\Repository;
 
-use Universe\Shared\DataClump\PaginationLimits;
+use Universe\Shared\Criteria\PaginationLimits;
 
 interface PlanetRepositoryInterface
 {
@@ -12,4 +12,6 @@ interface PlanetRepositoryInterface
     public function countFindByName(?string $name = null): int;
 
     public function getEntityClassName(): string;
+
+    public function findAll(): array;
 }

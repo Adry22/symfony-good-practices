@@ -2,18 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f8e620-9122-4eff-803a-4fd55ece371f" name="Changes" comment="Download excel planets list">
-      <change afterPath="$PROJECT_DIR$/src/Universe/Planet/Repository/PlanetRepositoryInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/User/Repository/UserRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Planet/Repository/Criteria/ContainsPlanetName/ContainsPlanetNameSpecification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Criteria/Criteria.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Criteria/Order.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Criteria/Specification.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Query/DownloadExcelPlanetList/DownloadExcelPlanetListQueryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/DownloadExcelPlanetList/DownloadExcelPlanetListQueryHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanet/ListPlanetQueryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanet/ListPlanetQueryHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Repository/PlanetRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Repository/DoctrinePlanetRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/User/Command/RegisterUser/RegisterUserCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Command/RegisterUser/RegisterUserCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/User/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Repository/DoctrineUserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Universe/Planet/Query/DownloadExcelPlanetListQueryHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/Planet/Query/DownloadExcelPlanetListQueryHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Universe/Planet/Query/ListPlanetQueryHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/Planet/Query/ListPlanetQueryHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Universe/User/Command/RegisterUserCommandHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/User/Command/RegisterUserCommandHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanet/ListPlanetResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/ListPlanet/ListPlanetResult.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Repository/DoctrinePlanetRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Repository/Doctrine/DoctrinePlanetRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Repository/PlanetRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Repository/PlanetRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/Shared/DataClump/PaginationLimits.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Shared/Criteria/PaginationLimits.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/User/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Entity/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -351,7 +350,11 @@
       <workItem from="1676295766059" duration="614000" />
       <workItem from="1676359516354" duration="22000" />
       <workItem from="1678118370142" duration="435000" />
-      <workItem from="1681135513631" duration="1837000" />
+      <workItem from="1681135513631" duration="2614000" />
+      <workItem from="1681222223061" duration="2318000" />
+      <workItem from="1681280647944" duration="32000" />
+      <workItem from="1682404016388" duration="9000" />
+      <workItem from="1685972588144" duration="5818000" />
     </task>
     <task id="LOCAL-00001" summary="Change namespace from App to Universe. Create Universe entity and fixtures">
       <created>1661887470130</created>

@@ -3,9 +3,11 @@ declare(strict_types=1);
 namespace Universe\Planet\Query\ListPlanet;
 
 use Universe\Planet\Entity\Planet;
+use Universe\Planet\Repository\Criteria\ContainsPlanetName\ContainsPlanetNameSpecification;
 use Universe\Planet\Repository\PlanetRepositoryInterface;
 use Universe\Shared\Bus\Query\QueryHandler;
-use Universe\Shared\DataClump\PaginationLimits;
+use Universe\Shared\Criteria\Criteria;
+use Universe\Shared\Criteria\PaginationLimits;
 
 final class ListPlanetQueryHandler implements QueryHandler
 {
@@ -27,8 +29,21 @@ final class ListPlanetQueryHandler implements QueryHandler
 
         $paginationLimits = new PaginationLimits($offset, $limit);
 
-        $planets = $this->planetRepository->findByName($query->name(), $paginationLimits);
-        $total = $this->planetRepository->countFindByName($query->name());
+        // FIND BY CRITERIA
+        $criteria = new Criteria(
+            new ContainsPlanetNameSpecification($query->name(), $this->planetRepository),
+            null,
+            $paginationLimits
+        );
+
+        $planets = $this->planetRepository->findByCriteria($criteria);
+
+        $criteria = new Criteria(new ContainsPlanetNameSpecification($query->name(), $this->planetRepository));
+        $total = sizeof($this->planetRepository->findByCriteria($criteria));
+
+        // FIND IN REPO
+//        $planets = $this->planetRepository->findByName($query->name(), $paginationLimits);
+//        $total = $this->planetRepository->countFindByName($query->name());
 
         $resources = array_map(
             function (Planet $planet) {
