@@ -91,3 +91,7 @@ Symfony app with some examples of good practices
 **10 - Specification pattern**
 
     10.1 - Specification pattern to filter data (example in ListPlanet)
+
+**11 - Makefile**
+
+    11.1 - Makefile
