@@ -8,7 +8,6 @@ jobs:
       - image: mysql:8.0
         environment:
           MYSQL_DATABASE: universe
-          MYSQL_USER: root
           MYSQL_ALLOW_EMPTY_PASSWORD: true
 
     steps:
