@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: adrianjimenez/symfony_good_practices:v1
         environment:
-          DATABASE_URL: "mysql://root@127.0.0.1:3306/universe?serverVersion=8.0"
+          DATABASE_URL: "mysql://root@127.0.0.1:3306/universe_test?serverVersion=8.0"
           MYSQL_ALLOW_EMPTY_PASSWORD: true
 
       - image: mysql:8.0
