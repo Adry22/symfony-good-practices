@@ -30,6 +30,10 @@ jobs:
           paths:
             - ./vendor
 
+      - run:
+          name: Wait for Database Port
+          command: while ! nc -z 127.0.0.1 3306 ; do sleep 1 ; done
+
       - run: php bin/console doctrine:migrations:migrate --env=test --no-interaction
 
       - run: php bin/console doctrine:fixtures:load --env=test --no-interaction
