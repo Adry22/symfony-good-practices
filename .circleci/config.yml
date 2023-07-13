@@ -26,6 +26,7 @@ jobs:
 
       - run: composer install -n
 
+      # This should be in Dockerfile
       - run: apt-get install -y netcat
 
       - run:
@@ -35,6 +36,11 @@ jobs:
       - run: php bin/console doctrine:migrations:migrate --env=test --no-interaction
 
       - run: php bin/console doctrine:fixtures:load --env=test --no-interaction
+
+      # This should be in Dockerfile
+      - run:
+          name: Install Docker client
+          command: apk add docker-cli
 
       - run:
           name: Run tests
