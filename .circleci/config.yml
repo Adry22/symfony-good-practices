@@ -19,13 +19,17 @@ jobs:
           keys:
             - composer_{{ checksum "composer.lock" }}
 
-      - run: echo $DATABASE_URL
-
       - run:
           name: Clear cache
           command: rm -rf var/cache/*
 
       - run: composer install -n
+
+      - run: apt-get install -y netcat
+
+      - run:
+          name: Wait for Database Port
+          command: while ! nc -z 127.0.0.1 3306 ; do sleep 1 ; done
 
       - run: php bin/console doctrine:migrations:migrate --env=test --no-interaction
 
