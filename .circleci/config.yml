@@ -37,13 +37,9 @@ jobs:
 
       - run: php bin/console doctrine:fixtures:load --env=test --no-interaction
 
-      # This should be in Dockerfile
-      - setup_remote_docker:
-          version: 20.10.24
-
       - run:
           name: Run tests
-          command: make test
+          command: ./bin/phpunit -d memory_limit=-1
 
       - store_test_results:
           path: ./test-results
