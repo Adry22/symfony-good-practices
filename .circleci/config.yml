@@ -39,7 +39,7 @@ jobs:
 
       # This should be in Dockerfile
       - setup_remote_docker:
-          version: 24.0.4
+          version: 20.10.24
 
       - run:
           name: Run tests
