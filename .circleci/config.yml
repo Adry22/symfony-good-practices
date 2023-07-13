@@ -3,6 +3,8 @@ version: 2.1
 jobs:
   build:
     docker:
+      - image: adrianjimenez/symfony_good_practices:v1
+
       - image: mysql:8.0
         environment:
           MYSQL_DATABASE: universe
@@ -15,15 +17,17 @@ jobs:
       - restore_cache:
           keys:
             - composer_{{ checksum "composer.lock" }}
+
       - run:
           name: Clear cache
           command: rm -rf var/cache/*
 
       - run: composer install -n
 
-      - run: yarn install
-
-      - run: yarn encore production
+      - save_cache:
+          key: composer_{{ checksum "composer.lock" }}
+          paths:
+            - ./vendor
 
       - run: php bin/console doctrine:migrations:migrate --env=test --no-interaction
 
