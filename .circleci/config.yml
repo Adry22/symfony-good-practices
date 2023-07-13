@@ -19,8 +19,7 @@ jobs:
           keys:
             - composer_{{ checksum "composer.lock" }}
 
-      - run:
-          - command: cp .env.dist .env
+      - run: cp .env.dist .env
 
       - run:
           name: Clear cache
