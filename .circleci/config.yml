@@ -38,9 +38,8 @@ jobs:
       - run: php bin/console doctrine:fixtures:load --env=test --no-interaction
 
       # This should be in Dockerfile
-      - run:
-          name: Install Docker client
-          command: apk add docker-cli
+      - setup_remote_docker:
+          version: 24.0.4
 
       - run:
           name: Run tests
