@@ -33,8 +33,8 @@ class DownloadExcelPlanetsListController extends ApiController
             $result->fileContent(),
             Response::HTTP_OK,
             [
-                'Content-Type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-                'Content-Disposition' => 'inline; filename="' . $result->filename() . '.xlsx"',
+                'content-type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                'content-disposition' => 'inline; filename="' . $result->filename() . '.xlsx"',
             ]
         );
     }

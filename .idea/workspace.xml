@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f8e620-9122-4eff-803a-4fd55ece371f" name="Changes" comment="Download excel planets list">
-      <change beforePath="$PROJECT_DIR$/.circleci/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.circleci/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Controller/DownloadExcelPlanetsListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Controller/DownloadExcelPlanetsListController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,9 +240,13 @@
       <recent name="$PROJECT_DIR$/tests/features/planets" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.DownloadExcelPlanetsListControllerTest">
+  <component name="RunManager" selected="PHPUnit.DownloadExcelPlanetsListControllerTest.given_an_downloaded_excel_when_everything_is_ok_then_should_has_correct_filename">
     <configuration name="DownloadExcelPlanetsListControllerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Universe\Planet\Controller\DownloadExcelPlanetsListControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/DownloadExcelPlanetsListControllerTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="DownloadExcelPlanetsListControllerTest.given_an_downloaded_excel_when_everything_is_ok_then_should_has_correct_filename" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Universe\Planet\Controller\DownloadExcelPlanetsListControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/DownloadExcelPlanetsListControllerTest.php" method="given_an_downloaded_excel_when_everything_is_ok_then_should_has_correct_filename" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="DownloadExcelPlanetsListControllerTest.given_an_url_then_should_exists" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -252,10 +255,6 @@
     </configuration>
     <configuration name="ListPlanetQueryHandlerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Universe\Planet\Query\ListPlanetQueryHandlerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Query/ListPlanetQueryHandlerTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ListPlanetsControllerTest.should_fail_when_planet_not_exists" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Universe\Planet\Controller\ListPlanetsControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/ListPlanetsControllerTest.php" method="should_fail_when_planet_not_exists" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="ListPlanetsControllerTest.should_return_data_when_everything_is_correct" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -277,19 +276,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="PHPUnit.ListPlanetsControllerTest.should_fail_when_planet_not_exists" />
       <item itemvalue="PHPUnit.ListPlanetsControllerTest.should_return_data_when_everything_is_correct" />
       <item itemvalue="PHPUnit.ListPlanetQueryHandlerTest" />
       <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest" />
       <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest.given_an_url_then_should_exists" />
+      <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest.given_an_downloaded_excel_when_everything_is_ok_then_should_has_correct_filename" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest.given_an_downloaded_excel_when_everything_is_ok_then_should_has_correct_filename" />
         <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest" />
         <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest.given_an_url_then_should_exists" />
         <item itemvalue="PHPUnit.ListPlanetQueryHandlerTest" />
         <item itemvalue="PHPUnit.ListPlanetsControllerTest.should_return_data_when_everything_is_correct" />
-        <item itemvalue="PHPUnit.ListPlanetsControllerTest.should_fail_when_planet_not_exists" />
       </list>
     </recent_temporary>
   </component>
@@ -352,7 +351,7 @@
       <workItem from="1689176223556" duration="5200000" />
       <workItem from="1689234456797" duration="650000" />
       <workItem from="1689252672784" duration="11740000" />
-      <workItem from="1689265154299" duration="338000" />
+      <workItem from="1689265154299" duration="620000" />
     </task>
     <task id="LOCAL-00001" summary="Change namespace from App to Universe. Create Universe entity and fixtures">
       <created>1661887470130</created>
