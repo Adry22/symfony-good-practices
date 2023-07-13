@@ -4,6 +4,11 @@ jobs:
   build:
     docker:
       - image: adrianjimenez/symfony_good_practices:v1
+        environment:
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_DATABASE: universe
+          MYSQL_PORT: 3306
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
 
       - image: mysql:8.0
         environment:
