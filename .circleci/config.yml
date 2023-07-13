@@ -19,7 +19,7 @@ jobs:
           keys:
             - composer_{{ checksum "composer.lock" }}
 
-      - run: cp .env.dist .env
+      - run: echo $DATABASE_URL
 
       - run:
           name: Clear cache
