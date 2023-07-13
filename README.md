@@ -95,3 +95,9 @@ Symfony app with some examples of good practices
 **11 - Makefile**
 
     11.1 - Makefile
+
+**12 - Continuous integration**
+
+    12.1 - CircleCI
+    
+        12.2 - CircleCI config file
