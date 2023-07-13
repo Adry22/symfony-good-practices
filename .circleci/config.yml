@@ -26,6 +26,11 @@ jobs:
 
       - run: composer install -n
 
+      - save_cache:
+          key: composer_{{ checksum "composer.lock" }}
+          paths:
+            - ./vendor
+
       # This should be in Dockerfile
       - run: apt-get install -y netcat
 
@@ -46,8 +51,3 @@ jobs:
 
       - store_artifacts:
           path: ./test-results
-
-      - save_cache:
-          key: composer_{{ checksum "composer.lock" }}
-          paths:
-            - ./vendor

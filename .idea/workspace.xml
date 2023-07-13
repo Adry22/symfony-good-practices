@@ -241,13 +241,17 @@
       <recent name="$PROJECT_DIR$/tests/features/planets" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.ListPlanetQueryHandlerTest">
-    <configuration name="ListPlanetQueryHandlerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Universe\Planet\Query\ListPlanetQueryHandlerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Query/ListPlanetQueryHandlerTest.php" scope="Class" />
+  <component name="RunManager" selected="PHPUnit.DownloadExcelPlanetsListControllerTest">
+    <configuration name="DownloadExcelPlanetsListControllerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Universe\Planet\Controller\DownloadExcelPlanetsListControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/DownloadExcelPlanetsListControllerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="ListPlanetsControllerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Universe\Planet\Controller\ListPlanetsControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/ListPlanetsControllerTest.php" scope="Class" />
+    <configuration name="DownloadExcelPlanetsListControllerTest.given_an_url_then_should_exists" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Universe\Planet\Controller\DownloadExcelPlanetsListControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/DownloadExcelPlanetsListControllerTest.php" method="given_an_url_then_should_exists" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ListPlanetQueryHandlerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Universe\Planet\Query\ListPlanetQueryHandlerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Query/ListPlanetQueryHandlerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="ListPlanetsControllerTest.should_fail_when_planet_not_exists" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -256,10 +260,6 @@
     </configuration>
     <configuration name="ListPlanetsControllerTest.should_return_data_when_everything_is_correct" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Universe\Planet\Controller\ListPlanetsControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/ListPlanetsControllerTest.php" method="should_return_data_when_everything_is_correct" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="RegisterUserControllerTest.should_exists_url" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Universe\User\Controller\RegisterUserControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" method="should_exists_url" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="PhpBehatConfigurationType">
@@ -277,19 +277,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="PHPUnit.RegisterUserControllerTest.should_exists_url" />
-      <item itemvalue="PHPUnit.ListPlanetsControllerTest" />
       <item itemvalue="PHPUnit.ListPlanetsControllerTest.should_fail_when_planet_not_exists" />
       <item itemvalue="PHPUnit.ListPlanetsControllerTest.should_return_data_when_everything_is_correct" />
       <item itemvalue="PHPUnit.ListPlanetQueryHandlerTest" />
+      <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest" />
+      <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest.given_an_url_then_should_exists" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest" />
+        <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest.given_an_url_then_should_exists" />
         <item itemvalue="PHPUnit.ListPlanetQueryHandlerTest" />
         <item itemvalue="PHPUnit.ListPlanetsControllerTest.should_return_data_when_everything_is_correct" />
         <item itemvalue="PHPUnit.ListPlanetsControllerTest.should_fail_when_planet_not_exists" />
-        <item itemvalue="PHPUnit.ListPlanetsControllerTest" />
-        <item itemvalue="PHPUnit.RegisterUserControllerTest.should_exists_url" />
       </list>
     </recent_temporary>
   </component>
@@ -351,7 +351,8 @@
       <workItem from="1689056860741" duration="8000" />
       <workItem from="1689176223556" duration="5200000" />
       <workItem from="1689234456797" duration="650000" />
-      <workItem from="1689252672784" duration="9669000" />
+      <workItem from="1689252672784" duration="11740000" />
+      <workItem from="1689265154299" duration="338000" />
     </task>
     <task id="LOCAL-00001" summary="Change namespace from App to Universe. Create Universe entity and fixtures">
       <created>1661887470130</created>
