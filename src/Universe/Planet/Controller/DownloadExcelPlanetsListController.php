@@ -9,6 +9,7 @@ use Universe\Planet\Query\DownloadExcelPlanetList\DownloadExcelPlanetListResult;
 use Universe\Shared\Bus\Query\QueryBus;
 use Universe\Shared\Controller\ApiController;
 use Symfony\Component\Routing\Annotation\Route;
+use OpenApi\Annotations as OA;
 
 class DownloadExcelPlanetsListController extends ApiController
 {
@@ -20,8 +21,19 @@ class DownloadExcelPlanetsListController extends ApiController
     }
 
     /**
+     *
      * @Route("/download-excel-planets-list", methods={"GET"}, defaults={"_format"="json"})
      * @param Request $request
+     *
+     * @OA\Get(
+     *   path="/download-excel-planets-list",
+     *   description="Download excel planets list",
+     *   tags={"planet"},
+     *   @OA\Response(
+     *     response="200",
+     *     description="Binary file",
+     *   )
+     * )
      */
     public function action(Request $request)
     {

@@ -47,7 +47,7 @@ class RegisterUserControllerTest extends BaseWebApiTestCase
         $response = json_decode($response->getContent(), true);
 
         $this->assertEquals(400, $response['code']);
-        $this->assertEquals('User email already exists.', $response['message']);
+        $this->assertEquals('User email already exists', $response['message']);
         $this->assertEquals('UserEmailAlreadyExistsException', $response['type']);
     }
 

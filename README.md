@@ -101,3 +101,13 @@ Symfony app with some examples of good practices
     12.1 - CircleCI
     
         12.2 - CircleCI config file
+
+**13 - OpenAPI documentation**
+
+    13.1 - NelmioApiDocBundle
+
+        13.1.1 - Added documentation using annotations in Controllers    
+    
+    13.2 - Added symfony_good_practices_swagger in docker-compose to run Swagger UI in local
+
+    13.3 - Command in Makefile to generate OpenApi yaml in public/

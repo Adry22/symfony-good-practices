@@ -24,9 +24,37 @@ class RegisterUserController extends ApiController
     }
 
     /**
-     * @Route("/register-user", methods={"GET"}, defaults={"_format"="json"})
+     * @Route("/register-user", methods={"POST"}, defaults={"_format"="json"})
      * @param Request $request
      * @return JsonResponse
+     *
+     * @OA\Post(
+     *   path="/register-user",
+     *   description="Register user",
+     *   tags={"user"},
+     *   @OA\Parameter(
+     *      in="query",
+     *      name="email",
+     *      description="User email",
+     *      required=true,
+     *      @OA\Schema(type="string")
+     *   ),
+     *   @OA\Parameter(
+     *      in="query",
+     *      name="password",
+     *      description="User password",
+     *      required=true,
+     *      @OA\Schema(type="string")
+     *   ),
+     *   @OA\Response(
+     *     response="200",
+     *     description="Success",
+     *   ),
+     *   @OA\Response(
+     *     response="400",
+     *     description="User email not valid | User email already exists"
+     *   )
+     * )
      */
     public function action(Request $request, ): Response
     {
@@ -46,7 +74,7 @@ class RegisterUserController extends ApiController
         } catch (UserEmailAlreadyExistsException $e) {
             $message = [
                 'code' => Response::HTTP_BAD_REQUEST,
-                'message' => 'User email already exists.',
+                'message' => 'User email already exists',
                 'type' => 'UserEmailAlreadyExistsException',
             ];
             return $this->handleView($this->view($message, Response::HTTP_BAD_REQUEST));

@@ -39,6 +39,16 @@ services:
     volumes:
       - database_volume:/var/lib/mysql
 
+  symfony_good_practices_swagger:
+    image: swaggerapi/swagger-ui:v3.52.0
+    container_name: symfony_good_practices_swagger
+    ports:
+      - '9001:8080'
+    volumes:
+      - ./public:/swagger
+    environment:
+      - SWAGGER_JSON=/swagger/universe.yaml
+
   mailer:
     image: schickling/mailcatcher
     ports: ['1025', '1080']

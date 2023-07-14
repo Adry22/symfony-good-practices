@@ -19,9 +19,9 @@ run: ## Launches project in dev environment
 #
 # run_fixer: ## Fix code style errors
 # 	$(call exec_cmd,"symfony-good-practices/bin/phpcbf")
-#
-# build_doc: ## Generate open api documentation
-# 	$(call exec_cmd,"symfony-good-practices/composer run docs --quiet --no-interaction")
+
+build_doc: ## Generate Open API documentation
+	$(call exec_cmd,"cd symfony-good-practices && composer run docs --quiet --no-interaction")
 
 cc: ## Clear dev cache
 	$(call exec_cmd,"symfony-good-practices/bin/console cache:clear --no-warmup --env=dev")

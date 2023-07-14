@@ -11,6 +11,10 @@ RUN apt update \
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd
 
+# NODE CONFIGURATION
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - \
+    && apt install nodejs
+
 COPY php.ini /usr/local/etc/php
 
 WORKDIR /var/www

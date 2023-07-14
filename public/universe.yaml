@@ -1,0 +1,78 @@
+openapi: 3.0.0
+info:
+  title: 'Universe Web Api'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost:9000'
+    description: Development
+paths:
+  /download-excel-planets-list:
+    get:
+      tags:
+        - planet
+      description: 'Download excel planets list'
+      operationId: 309c91afc196dbe272a7e7ba4d25e46a
+      responses:
+        '200':
+          description: 'Binary file'
+  /planets:
+    get:
+      tags:
+        - planet
+      description: 'List planets'
+      operationId: 899591b48e34388dd9e004a520439138
+      parameters:
+        -
+          name: name
+          in: query
+          description: 'Planet name to filter'
+          required: true
+          schema:
+            type: string
+        -
+          name: offset
+          in: query
+          description: 'Offset to paginate results'
+          schema:
+            type: int
+        -
+          name: limit
+          in: query
+          description: 'Limit to paginate results'
+          schema:
+            type: int
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - { properties: { total: { type: integer }, offset: { type: integer }, limit: { type: integer }, results: { type: array, items: { properties: { name: { type: string } }, type: object } } }, type: object }
+  /register-user:
+    post:
+      tags:
+        - user
+      description: 'Register user'
+      operationId: 7d60ee61a63ed7fb4115e6c1dab7c3b0
+      parameters:
+        -
+          name: email
+          in: query
+          description: 'User email'
+          required: true
+          schema:
+            type: string
+        -
+          name: password
+          in: query
+          description: 'User password'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: 'User email not valid | User email already exists'

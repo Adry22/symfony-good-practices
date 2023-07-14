@@ -15,6 +15,7 @@
         "league/tactician-bundle": "^1.4",
         "league/tactician-doctrine": "^1.2",
         "lexik/jwt-authentication-bundle": "^2.16",
+        "nelmio/api-doc-bundle": "^4.11",
         "phpoffice/phpspreadsheet": "^1.25",
         "ramsey/uuid-doctrine": "^1.8",
         "symfony/console": "6.0.*",
@@ -88,6 +89,9 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "docs": [
+            "./vendor/bin/openapi src/Universe -o public/universe.yaml"
         ]
     },
     "conflict": {
