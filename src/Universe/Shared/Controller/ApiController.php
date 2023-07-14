@@ -32,6 +32,32 @@ abstract class ApiController extends AbstractFOSRestController
         return $parameter;
     }
 
+    protected function getBodyParameter(Request $request, $key, $defaultValue = null)
+    {
+        $data = json_decode($request->getContent(), true);
+
+        if (null === $data) {
+            $data = $request->request->all();
+        }
+
+        if (false === array_key_exists($key, $data)) {
+            return $defaultValue;
+        }
+
+        return $data[$key];
+    }
+
+    protected function getBodyParameterOrFail(Request $request, $key)
+    {
+        $parameter = $this->getBodyParameter($request, $key);
+
+        if (null === $parameter) {
+            throw new BadRequestHttpException('Invalid parameter ' . $key);
+        }
+
+        return $parameter;
+    }
+
     public function binaryExcel(string $fileContent, string $filename): Response
     {
         return new Response(

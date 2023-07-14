@@ -27,7 +27,7 @@ class RegisterUserControllerTest extends BaseWebApiTestCase
     {
         $parameters = ['email' => 'email@test.com', 'password' => 'password'];
 
-        $response = $this->getRequestJson(self::URL, $parameters);
+        $response = $this->postRequestJson(self::URL, $parameters);
 
         $this->assertNotEquals(Response::HTTP_NOT_FOUND, $response->getStatusCode());
     }
@@ -42,7 +42,7 @@ class RegisterUserControllerTest extends BaseWebApiTestCase
 
         $parameters = ['email' => 'email@test.com', 'password' => 'password'];
 
-        $response = $this->getRequestJson(self::URL, $parameters);
+        $response = $this->postRequestJson(self::URL, $parameters);
 
         $response = json_decode($response->getContent(), true);
 
@@ -56,7 +56,7 @@ class RegisterUserControllerTest extends BaseWebApiTestCase
     {
         $parameters = ['email' => 'email@test.com', 'password' => 'password'];
 
-        $this->getRequestJson(self::URL, $parameters);
+        $this->postRequestJson(self::URL, $parameters);
 
         $users = $this->userRepository->findAll();
 

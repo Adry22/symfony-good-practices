@@ -38,7 +38,7 @@ class RegisterUserController extends ApiController
      *      name="email",
      *      description="User email",
      *      required=true,
-     *      @OA\Schema(type="string")
+     *      @OA\Schema(type="email")
      *   ),
      *   @OA\Parameter(
      *      in="query",
@@ -59,8 +59,8 @@ class RegisterUserController extends ApiController
      */
     public function action(Request $request, ): Response
     {
-        $email = $this->getParameterOrFail($request, 'email');
-        $password = $this->getParameterOrFail($request, 'password');
+        $email = $this->getBodyParameterOrFail($request, 'email');
+        $password = $this->getBodyParameterOrFail($request, 'password');
 
         try {
             $command = new RegisterUserCommand($email, $password);

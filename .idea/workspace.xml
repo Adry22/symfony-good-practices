@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f8e620-9122-4eff-803a-4fd55ece371f" name="Changes" comment="Download excel planets list">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/universe.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/public/universe.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Universe/User/Controller/RegisterUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Controller/RegisterUserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,7 +251,7 @@
       <recent name="$PROJECT_DIR$/tests/features/planets" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.DownloadExcelPlanetsListControllerTest.given_an_downloaded_excel_when_everything_is_ok_then_should_has_correct_filename">
+  <component name="RunManager" selected="PHPUnit.RegisterUserControllerTest">
     <configuration name="DownloadExcelPlanetsListControllerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Universe\Planet\Controller\DownloadExcelPlanetsListControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/DownloadExcelPlanetsListControllerTest.php" scope="Class" />
       <method v="2" />
@@ -260,12 +264,12 @@
       <TestRunner class="Tests\Universe\Planet\Controller\DownloadExcelPlanetsListControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/DownloadExcelPlanetsListControllerTest.php" method="given_an_url_then_should_exists" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ListPlanetQueryHandlerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Universe\Planet\Query\ListPlanetQueryHandlerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Query/ListPlanetQueryHandlerTest.php" scope="Class" />
+    <configuration name="RegisterUserControllerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Universe\User\Controller\RegisterUserControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="ListPlanetsControllerTest.should_return_data_when_everything_is_correct" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Universe\Planet\Controller\ListPlanetsControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/ListPlanetsControllerTest.php" method="should_return_data_when_everything_is_correct" scope="Method" />
+    <configuration name="RegisterUserControllerTest.given_email_to_register_user_when_email_already_exists_then_fail" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Universe\User\Controller\RegisterUserControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" method="given_email_to_register_user_when_email_already_exists_then_fail" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="PhpBehatConfigurationType">
@@ -283,19 +287,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="PHPUnit.ListPlanetsControllerTest.should_return_data_when_everything_is_correct" />
-      <item itemvalue="PHPUnit.ListPlanetQueryHandlerTest" />
       <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest" />
       <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest.given_an_url_then_should_exists" />
       <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest.given_an_downloaded_excel_when_everything_is_ok_then_should_has_correct_filename" />
+      <item itemvalue="PHPUnit.RegisterUserControllerTest" />
+      <item itemvalue="PHPUnit.RegisterUserControllerTest.given_email_to_register_user_when_email_already_exists_then_fail" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.RegisterUserControllerTest" />
+        <item itemvalue="PHPUnit.RegisterUserControllerTest.given_email_to_register_user_when_email_already_exists_then_fail" />
         <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest.given_an_downloaded_excel_when_everything_is_ok_then_should_has_correct_filename" />
         <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest" />
         <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest.given_an_url_then_should_exists" />
-        <item itemvalue="PHPUnit.ListPlanetQueryHandlerTest" />
-        <item itemvalue="PHPUnit.ListPlanetsControllerTest.should_return_data_when_everything_is_correct" />
       </list>
     </recent_temporary>
   </component>
@@ -361,7 +365,7 @@
       <workItem from="1689265154299" duration="1767000" />
       <workItem from="1689315549906" duration="237000" />
       <workItem from="1689346132053" duration="2748000" />
-      <workItem from="1689357594961" duration="3651000" />
+      <workItem from="1689357594961" duration="3944000" />
     </task>
     <task id="LOCAL-00001" summary="Change namespace from App to Universe. Create Universe entity and fixtures">
       <created>1661887470130</created>

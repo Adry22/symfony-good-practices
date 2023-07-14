@@ -63,7 +63,7 @@ paths:
           description: 'User email'
           required: true
           schema:
-            type: string
+            type: email
         -
           name: password
           in: query
