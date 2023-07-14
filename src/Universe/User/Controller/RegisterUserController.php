@@ -12,6 +12,7 @@ use Universe\User\Command\RegisterUser\RegisterUserCommand;
 use Universe\User\Exception\UserEmailAlreadyExistsException;
 use Universe\User\Exception\UserMailNotValidException;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
+use OpenApi\Annotations as OA;
 
 class RegisterUserController extends ApiController
 {
