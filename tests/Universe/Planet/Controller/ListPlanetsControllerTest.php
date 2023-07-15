@@ -82,7 +82,7 @@ class ListPlanetsControllerTest extends BaseWebApiTestCase
 
         $content = json_decode($this->client->getResponse()->getContent(), true);
 
-        $this->assertEquals(1, sizeof($content['results']));
+        $this->assertCount(1, $content['results']);
         $this->assertEquals('Mars', $content['results'][0]['name']);
     }
 }
