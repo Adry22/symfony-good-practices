@@ -3,6 +3,7 @@
 namespace Tests\Common\Builder\User;
 
 use Doctrine\ORM\EntityManagerInterface;
+use Universe\Shared\ValueObject\Address\Address;
 use Universe\User\Entity\User;
 use Exception;
 
@@ -38,7 +39,9 @@ class UserBuilder
             throw new Exception('Password is required');
         }
 
-        $user = User::create($this->email);
+        $address = new Address('street', 'number', 'Madrid', 'country');
+
+        $user = User::create($this->email, $address);
         $user->setPassword($this->password);
 
         $this->entityManager->persist($user);

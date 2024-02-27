@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4f8e620-9122-4eff-803a-4fd55ece371f" name="Changes" comment="Download excel planets list" />
+    <list default="true" id="f4f8e620-9122-4eff-803a-4fd55ece371f" name="Changes" comment="Download excel planets list">
+      <change afterPath="$PROJECT_DIR$/migrations/Version20240227154538.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/ValueObject/Address/Address.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/ValueObject/Address/AddressCityIsNotValidException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/User/Command/RegisterUser/RegisterUserCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Command/RegisterUser/RegisterUserCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/User/Command/RegisterUser/RegisterUserCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Command/RegisterUser/RegisterUserCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/User/Controller/RegisterUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Controller/RegisterUserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/User/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Common/Builder/User/UserBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Common/Builder/User/UserBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -212,26 +228,38 @@
       <path value="$PROJECT_DIR$/vendor/nelmio/api-doc-bundle" />
       <path value="$PROJECT_DIR$/vendor/zircote/swagger-php" />
       <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/vendor/ezimuel/ringphp" />
+      <path value="$PROJECT_DIR$/vendor/ezimuel/guzzlestreams" />
+      <path value="$PROJECT_DIR$/vendor/nyholm/dsn" />
+      <path value="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch" />
+      <path value="$PROJECT_DIR$/vendor/react/promise" />
+      <path value="$PROJECT_DIR$/vendor/ruflin/elastica" />
     </include_path>
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2E5Z1pWmR0N63UlEdu1i6hD7AWG" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm" value="Docker Compose" />
-    <property name="credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm" value="Docker Compose" />
-    <property name="js.buildTools.grunt.grunt-cli.package" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="inlay.hints" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "PHPUnit.RegisterUserControllerTest.executor": "Run",
+    "PHPUnit.RegisterUserControllerTest.given_user_to_register_when_everything_is_ok_then_create_user.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/adrian/Proyectos/Codely/symfony-good-practices",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tests/features" />
@@ -254,16 +282,16 @@
       <TestRunner class="Tests\Universe\Planet\Controller\DownloadExcelPlanetsListControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/DownloadExcelPlanetsListControllerTest.php" method="given_an_downloaded_excel_when_everything_is_ok_then_should_has_correct_filename" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="DownloadExcelPlanetsListControllerTest.given_an_url_then_should_exists" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Universe\Planet\Controller\DownloadExcelPlanetsListControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/DownloadExcelPlanetsListControllerTest.php" method="given_an_url_then_should_exists" scope="Method" />
-      <method v="2" />
-    </configuration>
     <configuration name="RegisterUserControllerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Universe\User\Controller\RegisterUserControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="RegisterUserControllerTest.given_email_to_register_user_when_email_already_exists_then_fail" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Universe\User\Controller\RegisterUserControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" method="given_email_to_register_user_when_email_already_exists_then_fail" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="RegisterUserControllerTest.given_user_to_register_when_everything_is_ok_then_create_user" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Universe\User\Controller\RegisterUserControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" method="given_user_to_register_when_everything_is_ok_then_create_user" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="PhpBehatConfigurationType">
@@ -281,8 +309,8 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="PHPUnit.RegisterUserControllerTest.given_user_to_register_when_everything_is_ok_then_create_user" />
       <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest" />
-      <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest.given_an_url_then_should_exists" />
       <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest.given_an_downloaded_excel_when_everything_is_ok_then_should_has_correct_filename" />
       <item itemvalue="PHPUnit.RegisterUserControllerTest" />
       <item itemvalue="PHPUnit.RegisterUserControllerTest.given_email_to_register_user_when_email_already_exists_then_fail" />
@@ -290,12 +318,19 @@
     <recent_temporary>
       <list>
         <item itemvalue="PHPUnit.RegisterUserControllerTest" />
+        <item itemvalue="PHPUnit.RegisterUserControllerTest.given_user_to_register_when_everything_is_ok_then_create_user" />
         <item itemvalue="PHPUnit.RegisterUserControllerTest.given_email_to_register_user_when_email_already_exists_then_fail" />
         <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest.given_an_downloaded_excel_when_everything_is_ok_then_should_has_correct_filename" />
         <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest" />
-        <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest.given_an_url_then_should_exists" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-php-predefined-ba97393d7c68-6f8e3395a2b4-com.jetbrains.php.sharedIndexes-PS-233.14475.35" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -360,6 +395,8 @@
       <workItem from="1689315549906" duration="237000" />
       <workItem from="1689346132053" duration="2748000" />
       <workItem from="1689357594961" duration="4150000" />
+      <workItem from="1701239353021" duration="8000" />
+      <workItem from="1709046686547" duration="4206000" />
     </task>
     <task id="LOCAL-00001" summary="Change namespace from App to Universe. Create Universe entity and fixtures">
       <created>1661887470130</created>

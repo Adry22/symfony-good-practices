@@ -7,6 +7,7 @@ use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Universe\Shared\Bus\Command\CommandHandler;
 use Universe\Shared\Mailer\MailtrapEmailSender;
+use Universe\Shared\ValueObject\Address\Address;
 use Universe\User\Entity\User;
 use Universe\User\Exception\UserEmailAlreadyExistsException;
 use Universe\User\Exception\UserMailNotValidException;
@@ -38,7 +39,14 @@ class RegisterUserCommandHandler implements CommandHandler
     {
         $this->checkEmailNotExists($command->email());
 
-        $user = User::create($command->email());
+        $address = new Address(
+            $command->street(),
+            $command->number(),
+            $command->city(),
+            $command->country()
+        );
+
+        $user = User::create($command->email(), $address);
         $this->hashPassword($user, $command->password());
         $this->userRepository->save($user);
 

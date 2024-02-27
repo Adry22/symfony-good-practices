@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\Table;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Universe\Shared\ValueObject\Address\Address;
 use Universe\User\Exception\UserMailNotValidException;
 
 /**
@@ -36,11 +37,17 @@ final class User implements UserInterface, PasswordAuthenticatedUserInterface
     private string $password;
 
     /**
+     * @ORM\Embedded(class="Universe\Shared\ValueObject\Address\Address")
+     */
+    private ?Address $address = null;
+
+    /**
      * @throws UserMailNotValidException
      */
-    public static function create(string $email): self {
+    public static function create(string $email, Address $address): self {
         $user = new self();
         $user->setEmail($email);
+        $user->address = $address;
 
         return $user;
     }
@@ -85,5 +92,10 @@ final class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPassword(string $password): void
     {
         $this->password = $password;
+    }
+
+    public function address(): Address
+    {
+        return $this->address;
     }
 }

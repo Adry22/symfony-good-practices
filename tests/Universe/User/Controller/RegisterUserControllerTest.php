@@ -54,7 +54,14 @@ class RegisterUserControllerTest extends BaseWebApiTestCase
     /** @test */
     public function given_user_to_register_when_everything_is_ok_then_create_user(): void
     {
-        $parameters = ['email' => 'email@test.com', 'password' => 'password'];
+        $parameters = [
+            'email' => 'email@test.com',
+            'password' => 'password',
+            'street' => 'Street',
+            'number' => '2',
+            'city' => 'Madrid',
+            'country' => 'España',
+        ];
 
         $this->postRequestJson(self::URL, $parameters);
 
