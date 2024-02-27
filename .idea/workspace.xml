@@ -5,18 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4f8e620-9122-4eff-803a-4fd55ece371f" name="Changes" comment="Download excel planets list">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20240227154538.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/ValueObject/Address/Address.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/ValueObject/Address/AddressCityIsNotValidException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/User/Command/RegisterUser/RegisterUserCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Command/RegisterUser/RegisterUserCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/User/Command/RegisterUser/RegisterUserCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Command/RegisterUser/RegisterUserCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/User/Controller/RegisterUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Controller/RegisterUserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Universe/User/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/User/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Common/Builder/User/UserBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Common/Builder/User/UserBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Universe/User/Command/RegisterUserCommandHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/User/Command/RegisterUserCommandHandlerTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,6 +235,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "PHPUnit.RegisterUserCommandHandlerTest.executor": "Run",
     "PHPUnit.RegisterUserControllerTest.executor": "Run",
     "PHPUnit.RegisterUserControllerTest.given_user_to_register_when_everything_is_ok_then_create_user.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -273,13 +263,13 @@
       <recent name="$PROJECT_DIR$/tests/features/planets" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.RegisterUserControllerTest">
-    <configuration name="DownloadExcelPlanetsListControllerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Universe\Planet\Controller\DownloadExcelPlanetsListControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/DownloadExcelPlanetsListControllerTest.php" scope="Class" />
+  <component name="RunManager" selected="PHPUnit.RegisterUserCommandHandlerTest.given_user_to_register_when_everything_is_ok_then_create_user">
+    <configuration name="RegisterUserCommandHandlerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Universe\User\Command\RegisterUserCommandHandlerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/User/Command/RegisterUserCommandHandlerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="DownloadExcelPlanetsListControllerTest.given_an_downloaded_excel_when_everything_is_ok_then_should_has_correct_filename" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Universe\Planet\Controller\DownloadExcelPlanetsListControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/DownloadExcelPlanetsListControllerTest.php" method="given_an_downloaded_excel_when_everything_is_ok_then_should_has_correct_filename" scope="Method" />
+    <configuration name="RegisterUserCommandHandlerTest.given_user_to_register_when_everything_is_ok_then_create_user" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Universe\User\Command\RegisterUserCommandHandlerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/User/Command/RegisterUserCommandHandlerTest.php" method="given_user_to_register_when_everything_is_ok_then_create_user" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="RegisterUserControllerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -309,19 +299,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="PHPUnit.RegisterUserCommandHandlerTest" />
+      <item itemvalue="PHPUnit.RegisterUserCommandHandlerTest.given_user_to_register_when_everything_is_ok_then_create_user" />
       <item itemvalue="PHPUnit.RegisterUserControllerTest.given_user_to_register_when_everything_is_ok_then_create_user" />
-      <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest" />
-      <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest.given_an_downloaded_excel_when_everything_is_ok_then_should_has_correct_filename" />
       <item itemvalue="PHPUnit.RegisterUserControllerTest" />
       <item itemvalue="PHPUnit.RegisterUserControllerTest.given_email_to_register_user_when_email_already_exists_then_fail" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.RegisterUserCommandHandlerTest.given_user_to_register_when_everything_is_ok_then_create_user" />
+        <item itemvalue="PHPUnit.RegisterUserCommandHandlerTest" />
         <item itemvalue="PHPUnit.RegisterUserControllerTest" />
         <item itemvalue="PHPUnit.RegisterUserControllerTest.given_user_to_register_when_everything_is_ok_then_create_user" />
         <item itemvalue="PHPUnit.RegisterUserControllerTest.given_email_to_register_user_when_email_already_exists_then_fail" />
-        <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest.given_an_downloaded_excel_when_everything_is_ok_then_should_has_correct_filename" />
-        <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -396,7 +386,7 @@
       <workItem from="1689346132053" duration="2748000" />
       <workItem from="1689357594961" duration="4150000" />
       <workItem from="1701239353021" duration="8000" />
-      <workItem from="1709046686547" duration="4206000" />
+      <workItem from="1709046686547" duration="4514000" />
     </task>
     <task id="LOCAL-00001" summary="Change namespace from App to Universe. Create Universe entity and fixtures">
       <created>1661887470130</created>

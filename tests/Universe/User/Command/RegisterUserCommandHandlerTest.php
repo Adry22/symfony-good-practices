@@ -53,7 +53,15 @@ class RegisterUserCommandHandlerTest extends BaseWebTestCase
     /** @test */
     public function given_user_to_register_when_everything_is_ok_then_create_user(): void
     {
-        $command = new RegisterUserCommand('email@test.com', 'password');
+        $command = new RegisterUserCommand(
+            'email@test.com',
+            'password',
+            'street',
+            'number',
+            'Madrid',
+            'country'
+        );
+
         $this->registerUserCommandHandler->handle($command);
         $this->entityManager->flush();
 
