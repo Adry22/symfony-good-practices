@@ -5,7 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4f8e620-9122-4eff-803a-4fd55ece371f" name="Changes" comment="Download excel planets list">
-      <change beforePath="$PROJECT_DIR$/tests/Universe/User/Command/RegisterUserCommandHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/User/Command/RegisterUserCommandHandlerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/listings.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/listings/list_planets.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Planet/Controller/DownloadWordPlanetsListController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/DownloadWordPlanetList/DownloadWordPlanetListQuery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/DownloadWordPlanetList/DownloadWordPlanetListQueryHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/DownloadWordPlanetList/DownloadWordPlanetListResult.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Planet/Writer/DownloadWordPlanetListWriter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Universe/Shared/Writer/PhpWordWriter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Universe/Planet/Controller/DownloadWordPlanetsListControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Universe/Planet/Query/DownloadWordPlanetList/DownloadWordPlanetListQueryHandlerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/symfony-good-practices.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony-good-practices.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Controller/DownloadExcelPlanetsListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Controller/DownloadExcelPlanetsListController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Formatter/DownloadExcelPlanetListFormatter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Formatter/DownloadPlanetListFormatter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/Planet/Query/DownloadExcelPlanetList/DownloadExcelPlanetListQueryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Planet/Query/DownloadExcelPlanetList/DownloadExcelPlanetListQueryHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Universe/Shared/Controller/ApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Universe/Planet/Query/DownloadExcelPlanetListQueryHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/Planet/Query/DownloadExcelPlanetList/DownloadExcelPlanetListQueryHandlerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Universe/Planet/Query/ListPlanetQueryHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Universe/Planet/Query/ListPlanet/ListPlanetQueryHandlerTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,12 +238,8 @@
       <path value="$PROJECT_DIR$/vendor/nelmio/api-doc-bundle" />
       <path value="$PROJECT_DIR$/vendor/zircote/swagger-php" />
       <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
-      <path value="$PROJECT_DIR$/vendor/ezimuel/ringphp" />
-      <path value="$PROJECT_DIR$/vendor/ezimuel/guzzlestreams" />
-      <path value="$PROJECT_DIR$/vendor/nyholm/dsn" />
-      <path value="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch" />
-      <path value="$PROJECT_DIR$/vendor/react/promise" />
-      <path value="$PROJECT_DIR$/vendor/ruflin/elastica" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/math" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpword" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -235,18 +252,27 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "PHPUnit.DownloadExcelPlanetListQueryHandlerTest (1).executor": "Run",
+    "PHPUnit.DownloadExcelPlanetListQueryHandlerTest.executor": "Run",
+    "PHPUnit.DownloadExcelPlanetsListControllerTest.executor": "Run",
+    "PHPUnit.DownloadWordPlanetListQueryHandlerTest.executor": "Run",
+    "PHPUnit.DownloadWordPlanetsListControllerTest (1).executor": "Run",
+    "PHPUnit.DownloadWordPlanetsListControllerTest.executor": "Run",
     "PHPUnit.RegisterUserCommandHandlerTest.executor": "Run",
+    "PHPUnit.RegisterUserCommandHandlerTest.given_user_to_register_when_everything_is_ok_then_create_user.executor": "Run",
     "PHPUnit.RegisterUserControllerTest.executor": "Run",
     "PHPUnit.RegisterUserControllerTest.given_user_to_register_when_everything_is_ok_then_create_user.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary": "PHPUnit",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/adrian/Proyectos/Codely/symfony-good-practices",
+    "last_opened_file_path": "/home/adrian/Proyectos/Fynkus/fynkus",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "php.override.implement.member.chooser.php.doc": "NONE",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -263,25 +289,25 @@
       <recent name="$PROJECT_DIR$/tests/features/planets" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.RegisterUserCommandHandlerTest.given_user_to_register_when_everything_is_ok_then_create_user">
-    <configuration name="RegisterUserCommandHandlerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Universe\User\Command\RegisterUserCommandHandlerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/User/Command/RegisterUserCommandHandlerTest.php" scope="Class" />
+  <component name="RunManager" selected="PHPUnit.DownloadWordPlanetsListControllerTest (1)">
+    <configuration name="DownloadExcelPlanetListQueryHandlerTest (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Universe\Planet\Query\DownloadExcelPlanetList\DownloadExcelPlanetListQueryHandlerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Query/DownloadExcelPlanetList/DownloadExcelPlanetListQueryHandlerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="RegisterUserCommandHandlerTest.given_user_to_register_when_everything_is_ok_then_create_user" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Universe\User\Command\RegisterUserCommandHandlerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/User/Command/RegisterUserCommandHandlerTest.php" method="given_user_to_register_when_everything_is_ok_then_create_user" scope="Method" />
+    <configuration name="DownloadExcelPlanetsListControllerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Universe\Planet\Controller\DownloadExcelPlanetsListControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/DownloadExcelPlanetsListControllerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="RegisterUserControllerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Universe\User\Controller\RegisterUserControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" scope="Class" />
+    <configuration name="DownloadWordPlanetListQueryHandlerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Universe\Planet\Query\DownloadWordPlanetList\DownloadWordPlanetListQueryHandlerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Query/DownloadWordPlanetList/DownloadWordPlanetListQueryHandlerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="RegisterUserControllerTest.given_email_to_register_user_when_email_already_exists_then_fail" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Universe\User\Controller\RegisterUserControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" method="given_email_to_register_user_when_email_already_exists_then_fail" scope="Method" />
+    <configuration name="DownloadWordPlanetsListControllerTest (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Universe\Planet\Controller\DownloadWordPlanetsListControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/DownloadWordPlanetsListControllerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="RegisterUserControllerTest.given_user_to_register_when_everything_is_ok_then_create_user" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Universe\User\Controller\RegisterUserControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/User/Controller/RegisterUserControllerTest.php" method="given_user_to_register_when_everything_is_ok_then_create_user" scope="Method" />
+    <configuration name="DownloadWordPlanetsListControllerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Universe\Planet\Controller\DownloadWordPlanetsListControllerTest" configuration_file="/var/www/symfony-good-practices/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Universe/Planet/Controller/DownloadWordPlanetsListControllerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="PhpBehatConfigurationType">
@@ -299,26 +325,46 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="PHPUnit.RegisterUserCommandHandlerTest" />
-      <item itemvalue="PHPUnit.RegisterUserCommandHandlerTest.given_user_to_register_when_everything_is_ok_then_create_user" />
-      <item itemvalue="PHPUnit.RegisterUserControllerTest.given_user_to_register_when_everything_is_ok_then_create_user" />
-      <item itemvalue="PHPUnit.RegisterUserControllerTest" />
-      <item itemvalue="PHPUnit.RegisterUserControllerTest.given_email_to_register_user_when_email_already_exists_then_fail" />
+      <item itemvalue="PHPUnit.DownloadExcelPlanetListQueryHandlerTest (1)" />
+      <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest" />
+      <item itemvalue="PHPUnit.DownloadWordPlanetListQueryHandlerTest" />
+      <item itemvalue="PHPUnit.DownloadWordPlanetsListControllerTest" />
+      <item itemvalue="PHPUnit.DownloadWordPlanetsListControllerTest (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.RegisterUserCommandHandlerTest.given_user_to_register_when_everything_is_ok_then_create_user" />
-        <item itemvalue="PHPUnit.RegisterUserCommandHandlerTest" />
-        <item itemvalue="PHPUnit.RegisterUserControllerTest" />
-        <item itemvalue="PHPUnit.RegisterUserControllerTest.given_user_to_register_when_everything_is_ok_then_create_user" />
-        <item itemvalue="PHPUnit.RegisterUserControllerTest.given_email_to_register_user_when_email_already_exists_then_fail" />
+        <item itemvalue="PHPUnit.DownloadWordPlanetsListControllerTest (1)" />
+        <item itemvalue="PHPUnit.DownloadWordPlanetsListControllerTest" />
+        <item itemvalue="PHPUnit.DownloadExcelPlanetsListControllerTest" />
+        <item itemvalue="PHPUnit.DownloadWordPlanetListQueryHandlerTest" />
+        <item itemvalue="PHPUnit.DownloadExcelPlanetListQueryHandlerTest (1)" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-php-predefined-ba97393d7c68-6f8e3395a2b4-com.jetbrains.php.sharedIndexes-PS-233.14475.35" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-PS-241.15989.102" />
+        <option value="bundled-php-predefined-ba97393d7c68-c76157a7178b-com.jetbrains.php.sharedIndexes-PS-241.15989.102" />
+        <option value="php-lcobucci_jwt-37cbfb0ca1b6-8208bb97" />
+        <option value="php-symfony_cache-37cbfb0ca1b6-ce0fd2b9" />
+        <option value="php-symfony_config-37cbfb0ca1b6-ca61cbf3" />
+        <option value="php-symfony_console-37cbfb0ca1b6-529a397f" />
+        <option value="php-symfony_css_selector-37cbfb0ca1b6-b6135a15" />
+        <option value="php-symfony_error_handler-37cbfb0ca1b6-0fed3e78" />
+        <option value="php-symfony_finder-37cbfb0ca1b6-18267425" />
+        <option value="php-symfony_framework_bundle-37cbfb0ca1b6-7368f5b1" />
+        <option value="php-symfony_http_kernel-37cbfb0ca1b6-f6dc3ee6" />
+        <option value="php-symfony_mailer-37cbfb0ca1b6-cbfd9bb3" />
+        <option value="php-symfony_mime-37cbfb0ca1b6-2d5db70a" />
+        <option value="php-symfony_monolog_bridge-37cbfb0ca1b6-e7240858" />
+        <option value="php-symfony_property_access-37cbfb0ca1b6-cdc369a6" />
+        <option value="php-symfony_property_info-37cbfb0ca1b6-dd1584a5" />
+        <option value="php-symfony_security_core-37cbfb0ca1b6-3feb8eb2" />
+        <option value="php-symfony_string-37cbfb0ca1b6-6da9c235" />
+        <option value="php-symfony_twig_bridge-37cbfb0ca1b6-1f243b7a" />
+        <option value="php-symfony_validator-37cbfb0ca1b6-66fa5a2f" />
+        <option value="php-symfony_yaml-37cbfb0ca1b6-61027ce4" />
       </set>
     </attachedChunks>
   </component>
@@ -386,7 +432,10 @@
       <workItem from="1689346132053" duration="2748000" />
       <workItem from="1689357594961" duration="4150000" />
       <workItem from="1701239353021" duration="8000" />
-      <workItem from="1709046686547" duration="4514000" />
+      <workItem from="1709046686547" duration="4669000" />
+      <workItem from="1709100542227" duration="18000" />
+      <workItem from="1727776052999" duration="112000" />
+      <workItem from="1727789955849" duration="6319000" />
     </task>
     <task id="LOCAL-00001" summary="Change namespace from App to Universe. Create Universe entity and fixtures">
       <created>1661887470130</created>

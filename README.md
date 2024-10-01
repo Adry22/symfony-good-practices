@@ -86,7 +86,8 @@ Symfony app with some examples of good practices
 
     9.3 - Types
         
-        9.3.1 - Xlsx with Spreadsheet
+        9.3.1 - Xlsx with PhpOffice\PhpSpreadsheet
+        9.3.2 - Docx with PhpOffice\PhpWord
 
 **10 - Specification pattern**
 

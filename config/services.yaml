@@ -62,5 +62,10 @@ services:
 #            tags:
 #                - { name: tactician.handler, typehints: true, bus: query }
 
+    Universe\Planet\Writer\DownloadWordPlanetListWriter:
+        arguments:
+            - '%listing.planet.list%'
+            - '%temporal_folder%'
+
 
 

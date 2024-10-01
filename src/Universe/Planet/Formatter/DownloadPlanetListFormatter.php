@@ -2,7 +2,7 @@
 
 namespace Universe\Planet\Formatter;
 
-class DownloadExcelPlanetListFormatter
+class DownloadPlanetListFormatter
 {
     const NAME = 'name';
     const MAIN_TITLE = 'main_title';
@@ -19,7 +19,7 @@ class DownloadExcelPlanetListFormatter
         $result = [];
 
         $result['titles'] = [
-            self::MAIN_TITLE => 'Listado planetas'
+            self::MAIN_TITLE => 'Planets list'
         ];
 
         $result['columns'] = [

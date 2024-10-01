@@ -2,14 +2,14 @@
 declare(strict_types=1);
 namespace Universe\Planet\Query\DownloadExcelPlanetList;
 
-use Universe\Planet\Formatter\DownloadExcelPlanetListFormatter;
+use Universe\Planet\Formatter\DownloadPlanetListFormatter;
 use Universe\Planet\Repository\PlanetRepositoryInterface;
 use Universe\Planet\Writer\DownloadExcelPlanetListWriter;
 use Universe\Shared\Bus\Query\QueryHandler;
 
 class DownloadExcelPlanetListQueryHandler implements QueryHandler
 {
-    public const FILENAME = 'Listado de planetas';
+    public const FILENAME = 'planets_list';
 
     private PlanetRepositoryInterface $planetRepository;
     private DownloadExcelPlanetListWriter $writer;
@@ -26,7 +26,7 @@ class DownloadExcelPlanetListQueryHandler implements QueryHandler
     {
         $planets = $this->planetRepository->findAll();
 
-        $formatter = new DownloadExcelPlanetListFormatter($planets);
+        $formatter = new DownloadPlanetListFormatter($planets);
         $file = $this->writer->generate($formatter->toArray());
 
         return DownloadExcelPlanetListResult::create($this->makeFilename(), $file);

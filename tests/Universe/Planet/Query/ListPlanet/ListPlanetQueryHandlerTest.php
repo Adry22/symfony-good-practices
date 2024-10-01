@@ -1,12 +1,9 @@
 <?php
 declare(strict_types=1);
-namespace Tests\Universe\Planet\Query;
+namespace Universe\Planet\Query\ListPlanet;
 
-use Exception;
 use Tests\Common\Builder\Planet\PlanetBuilder;
 use Tests\Common\Controller\BaseWebTestCase;
-use Universe\Planet\Query\ListPlanet\ListPlanetQuery;
-use Universe\Planet\Query\ListPlanet\ListPlanetQueryHandler;
 use Universe\Planet\Repository\PlanetRepositoryInterface;
 
 class ListPlanetQueryHandlerTest extends BaseWebTestCase

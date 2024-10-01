@@ -17,6 +17,7 @@
         "lexik/jwt-authentication-bundle": "^2.16",
         "nelmio/api-doc-bundle": "^4.11",
         "phpoffice/phpspreadsheet": "^1.25",
+        "phpoffice/phpword": "^1.3",
         "ramsey/uuid-doctrine": "^1.8",
         "symfony/console": "6.0.*",
         "symfony/dotenv": "6.0.*",

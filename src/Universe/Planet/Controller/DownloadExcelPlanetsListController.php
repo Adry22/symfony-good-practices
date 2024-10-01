@@ -25,6 +25,7 @@ class DownloadExcelPlanetsListController extends ApiController
      * @Route("/download-excel-planets-list", methods={"GET"}, defaults={"_format"="json"})
      * @param Request $request
      *
+     * @return Response
      * @OA\Get(
      *   path="/download-excel-planets-list",
      *   description="Download excel planets list",
@@ -35,19 +36,12 @@ class DownloadExcelPlanetsListController extends ApiController
      *   )
      * )
      */
-    public function action(Request $request)
+    public function action(Request $request): Response
     {
         $query = new DownloadExcelPlanetListQuery();
         /** @var DownloadExcelPlanetListResult $result */
         $result = $this->queryBus->handle($query);
 
-        return new Response(
-            $result->fileContent(),
-            Response::HTTP_OK,
-            [
-                'content-type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-                'content-disposition' => 'inline; filename="' . $result->filename() . '.xlsx"',
-            ]
-        );
+        return $this->binaryExcel($result->fileContent(), $result->filename());
     }
 }

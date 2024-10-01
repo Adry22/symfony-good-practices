@@ -1,12 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Tests\Universe\Planet\Query;
+namespace Universe\Planet\Query\DownloadExcelPlanetList;
 
 use Tests\Common\Builder\Planet\PlanetBuilder;
 use Tests\Common\Controller\BaseWebTestCase;
-use Universe\Planet\Query\DownloadExcelPlanetList\DownloadExcelPlanetListQuery;
-use Universe\Planet\Query\DownloadExcelPlanetList\DownloadExcelPlanetListQueryHandler;
 use Universe\Planet\Repository\PlanetRepositoryInterface;
 use Universe\Planet\Writer\DownloadExcelPlanetListWriter;
 

@@ -1,0 +1,4 @@
+parameters:
+  listings.root: '%kernel.project_dir%/listings'
+
+  listing.planet.list: '%listings.root%/list_planets.docx'

@@ -69,4 +69,16 @@ abstract class ApiController extends AbstractFOSRestController
             ]
         );
     }
+
+    public function binaryWord(string $fileContent, string $filename): Response
+    {
+        return new Response(
+            $fileContent,
+            Response::HTTP_OK,
+            [
+                'Content-Type' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                'Content-Disposition' => 'inline; filename="' . $filename . '.docx"',
+            ]
+        );
+    }
 }
