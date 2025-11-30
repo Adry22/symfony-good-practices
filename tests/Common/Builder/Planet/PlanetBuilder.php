@@ -4,8 +4,8 @@ declare(strict_types=1);
 namespace Tests\Common\Builder\Planet;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Universe\Planet\Entity\Planet;
 use Exception;
+use Planet\Domain\Entity\Planet;
 
 class PlanetBuilder
 {

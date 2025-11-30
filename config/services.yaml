@@ -1,71 +1,37 @@
-# This file is the entry point to configure your own services.
-# Files in the packages/ subdirectory configure your dependencies.
-
-# Put parameters here that don't need to change on each machine where the app is deployed
-# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
 
 services:
-    # default configuration for services in *this* file
-    _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
-        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
-        bind:
-            $temporalFolder: '%temporal_folder%'
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    bind:
+      $temporalFolder: '%temporal_folder%'
 
-    # makes classes in src/ available to be used as services
-    # this creates a service per class whose id is the fully-qualified class name
-    Universe\:
-        resource: '../src/Universe'
-        exclude:
-            - '../src/Universe/DependencyInjection/'
-            - '../src/Universe/Entity/'
-            - '../src/Universe/Kernel.php'
+  # Contexts
+  Universe\:
+    resource: '../src/Universe'
+    exclude:
+      - '../src/Universe/DependencyInjection/'
+      - '../src/Universe/Entity/'
+      - '../src/Universe/Kernel.php'
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
-    universe_controllers:
-        namespace: Universe\
-        resource: '%kernel.project_dir%/src/Universe/**/Controller/*'
-        tags: [ 'controller.service_arguments' ]
+  Planet\:
+    resource: '../src/Planet'
+    exclude:
+      - '../src/Planet/Domain/Entity/'
 
-#    Universe\Shared\Controller\ApiExceptionListener:
-#        tags:
-#            - { name: kernel.event_listener, event: kernel.exception, method: onException }
+  # Buses
+  _instanceof:
+    Universe\Shared\Bus\Command\CommandHandler:
+      tags:
+        - { name: tactician.handler, typehints: true, bus: command }
 
-    Universe\Shared\Bus\Command\TacticianCommandBus:
-        arguments:
-            - '@tactician.commandbus.command'
+    Universe\Shared\Bus\Query\QueryHandler:
+      tags:
+        - { name: tactician.handler, typehints: true, bus: query }
 
-    Universe\Shared\Bus\Query\TacticianQueryBus:
-        arguments:
-            - '@tactician.commandbus.query'
-
-    command_handlers:
-        namespace: Universe\
-        resource: '%kernel.project_dir%/src/Universe/**/Command/**/*CommandHandler.php'
-        tags:
-            - { name: tactician.handler, typehints: true, bus: command }
-
-    query_handlers:
-        namespace: Universe\
-        resource: '%kernel.project_dir%/src/Universe/**/Query/**/*QueryHandler.php'
-        tags:
-            - { name: tactician.handler, typehints: true, bus: query }
-
-#    _instanceof:
-#        Universe\Shared\Bus\Command\CommandHandler:
-#            tags:
-#                - { name: tactician.handler, typehints: true, bus: command }
-#
-#        Universe\Shared\Bus\Query\QueryHandler:
-#            tags:
-#                - { name: tactician.handler, typehints: true, bus: query }
-
-    Universe\Planet\Writer\DownloadWordPlanetListWriter:
-        arguments:
-            - '%listing.planet.list%'
-            - '%temporal_folder%'
-
-
-
+  # Services
+  Planet\Infrastructure\Writer\DownloadWordPlanetListWriter:
+    arguments:
+      - '%listing.planet.list%'
+      - '%temporal_folder%'

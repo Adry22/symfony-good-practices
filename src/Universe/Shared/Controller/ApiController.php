@@ -21,7 +21,12 @@ abstract class ApiController extends AbstractFOSRestController
 //
 //    abstract protected function exceptions(): array;
 
-    protected function getParameterOrFail(Request $request, string $key)
+    protected function getQueryParameter(Request $request, string $key): ?string
+    {
+        return $request->get($key);
+    }
+
+    protected function getQueryParameterOrFail(Request $request, string $key)
     {
         $parameter = $request->get($key);
 

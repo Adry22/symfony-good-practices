@@ -16,6 +16,12 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Universe'
                 prefix: Universe
 
+            Planet:
+              is_bundle: false
+              type: annotation
+              dir: '%kernel.project_dir%/src/Planet'
+              prefix: Planet
+
 when@test:
     doctrine:
         dbal:
