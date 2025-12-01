@@ -35,6 +35,10 @@ jobs:
       - run: apt-get install -y netcat
 
       - run:
+          name: Mostrar extensiones PHP
+          command: php -m
+
+      - run:
           name: Wait for Database Port
           command: while ! nc -z 127.0.0.1 3306 ; do sleep 1 ; done
 
