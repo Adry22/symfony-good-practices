@@ -2,12 +2,12 @@
 
 namespace Planet\Application\Query\DownloadWordPlanetList;
 
+use Monolog\Test\TestCase;
 use Planet\Domain\Repository\PlanetRepositoryInterface;
 use Planet\Infrastructure\Writer\DownloadWordPlanetListWriter;
 use Tests\Common\Builder\Planet\PlanetBuilder;
-use Tests\Common\Controller\BaseWebTestCase;
 
-class DownloadWordPlanetListQueryHandlerTest extends BaseWebTestCase
+class DownloadWordPlanetListQueryHandlerTest extends TestCase
 {
     private PlanetBuilder $planetBuilder;
     private PlanetRepositoryInterface $planetRepository;
@@ -17,9 +17,9 @@ class DownloadWordPlanetListQueryHandlerTest extends BaseWebTestCase
     {
         parent::setUp();
 
-        $this->planetBuilder = new PlanetBuilder($this->entityManager);
-        $this->planetRepository = $this->testContainer->get(PlanetRepositoryInterface::class);
-        $this->downloadWordPlanetListWriter = $this->getMockBuilder(DownloadWordPlanetListWriter::class)->disableOriginalConstructor()->getMock();
+        $this->planetBuilder = new PlanetBuilder();
+        $this->planetRepository = $this->createMock(PlanetRepositoryInterface::class);
+        $this->downloadWordPlanetListWriter = $this->createMock(DownloadWordPlanetListWriter::class);
 
         $this->handler = new DownloadWordPlanetListQueryHandler(
             $this->planetRepository,
@@ -30,14 +30,19 @@ class DownloadWordPlanetListQueryHandlerTest extends BaseWebTestCase
     /** @test */
     public function given_a_list_of_planets_should_return_them_when_everything_is_ok(): void
     {
-        $this->planetBuilder
+        $mars = $this->planetBuilder
             ->withName('Mars')
             ->build();
 
-        $this->planetBuilder
+        $earth = $this->planetBuilder
             ->reset()
             ->withName('Earth')
             ->build();
+
+        $this->planetRepository
+            ->expects($this->once())
+            ->method('findAll')
+            ->willReturn([$mars, $earth]);
 
         $query = new DownloadWordPlanetListQuery();
 

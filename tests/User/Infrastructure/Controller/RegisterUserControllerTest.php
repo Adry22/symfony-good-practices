@@ -37,10 +37,13 @@ class RegisterUserControllerTest extends BaseWebApiTestCase
     /** @test */
     public function given_email_to_register_user_when_email_already_exists_then_fail(): void
     {
-        $this->userBuilder
+        $user = $this->userBuilder
             ->withEmail('email@test.com')
             ->withPassword('password')
             ->build();
+
+        $this->userRepository->save($user);
+        $this->userRepository->flush();
 
         $parameters = ['email' => 'email@test.com', 'password' => 'password'];
 

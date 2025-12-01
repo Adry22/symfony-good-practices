@@ -11,4 +11,8 @@ interface UserRepositoryInterface
     public function findByEmail(string $email): ?User;
 
     public function getEntityClassName(): string;
+
+    public function save($object): void;
+
+    public function findAll(): array;
 }

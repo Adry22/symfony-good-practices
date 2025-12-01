@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace User\Application\Command\RegisterUser;
 
+use Monolog\Test\TestCase;
 use Shared\Infrastructure\Mailer\MailtrapEmailSender;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Tests\Common\Builder\User\UserBuilder;
-use Tests\Common\Controller\BaseWebTestCase;
 use User\Domain\Repository\UserRepositoryInterface;
 
-class RegisterUserCommandHandlerTest extends BaseWebTestCase
+class RegisterUserCommandHandlerTest extends TestCase
 {
     private UserRepositoryInterface $userRepository;
     private RegisterUserCommandHandler $registerUserCommandHandler;
@@ -22,11 +22,11 @@ class RegisterUserCommandHandlerTest extends BaseWebTestCase
     {
         parent::setUp();
 
-        $this->userRepository = $this->testContainer->get(UserRepositoryInterface::class);
-        $this->mailtrapEmailSender = $this->testContainer->get(MailtrapEmailSender::class);
-        $this->userPasswordHasherInterface = $this->testContainer->get(UserPasswordHasherInterface::class);
+        $this->userRepository = $this->createMock(UserRepositoryInterface::class);
+        $this->mailtrapEmailSender = $this->createMock(MailtrapEmailSender::class);
+        $this->userPasswordHasherInterface = $this->createMock(UserPasswordHasherInterface::class);
 
-        $this->userBuilder = new UserBuilder($this->entityManager);
+        $this->userBuilder = new UserBuilder();
 
         $this->registerUserCommandHandler = new RegisterUserCommandHandler(
             $this->userRepository,
@@ -40,10 +40,15 @@ class RegisterUserCommandHandlerTest extends BaseWebTestCase
     {
         $this->expectException(UserEmailAlreadyExistsException::class);
 
-        $this->userBuilder
+        $user = $this->userBuilder
             ->withEmail('email@test.com')
             ->withPassword('password')
             ->build();
+
+        $this->userRepository
+            ->expects($this->once())
+            ->method('findByEmail')
+            ->willReturn($user);
 
         $command = new RegisterUserCommand('email@test.com', 'password');
         $this->registerUserCommandHandler->handle($command);
@@ -52,6 +57,11 @@ class RegisterUserCommandHandlerTest extends BaseWebTestCase
     /** @test */
     public function given_user_to_register_when_everything_is_ok_then_create_user(): void
     {
+        $user = $this->userBuilder
+            ->withEmail('email@test.com')
+            ->withPassword('password')
+            ->build();
+
         $command = new RegisterUserCommand(
             'email@test.com',
             'password',
@@ -61,12 +71,21 @@ class RegisterUserCommandHandlerTest extends BaseWebTestCase
             'country'
         );
 
+        $this->userRepository
+            ->expects($this->once())
+            ->method('save')
+            ->with($user);
+
+        $this->userPasswordHasherInterface
+            ->expects($this->once())
+            ->method('hashPassword')
+            ->willReturn('password');
+
+        $this->mailtrapEmailSender
+            ->expects($this->once())
+            ->method('sendTo')
+            ->with('email@test.com');
+
         $this->registerUserCommandHandler->handle($command);
-        $this->entityManager->flush();
-
-        $users = $this->userRepository->findAll();
-
-        $this->assertCount(1, $users);
-        $this->assertEquals('email@test.com', $users[0]->email());
     }
 }

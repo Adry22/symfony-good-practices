@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Planet\Application\Query\DownloadExcelPlanetList;
 
+use Monolog\Test\TestCase;
 use Planet\Domain\Repository\PlanetRepositoryInterface;
 use Planet\Infrastructure\Writer\DownloadExcelPlanetListWriter;
 use Tests\Common\Builder\Planet\PlanetBuilder;
-use Tests\Common\Controller\BaseWebTestCase;
 
-class DownloadExcelPlanetListQueryHandlerTest extends BaseWebTestCase
+class DownloadExcelPlanetListQueryHandlerTest extends TestCase
 {
     private PlanetBuilder $planetBuilder;
     private PlanetRepositoryInterface $planetRepository;
@@ -19,9 +19,9 @@ class DownloadExcelPlanetListQueryHandlerTest extends BaseWebTestCase
     {
         parent::setUp();
 
-        $this->planetBuilder = new PlanetBuilder($this->entityManager);
-        $this->planetRepository = $this->testContainer->get(PlanetRepositoryInterface::class);
-        $this->downloadExcelPlanetListWriter = $this->getMockBuilder(DownloadExcelPlanetListWriter::class)->disableOriginalConstructor()->getMock();
+        $this->planetBuilder = new PlanetBuilder();
+        $this->planetRepository = $this->createMock(PlanetRepositoryInterface::class);
+        $this->downloadExcelPlanetListWriter = $this->createMock(DownloadExcelPlanetListWriter::class);
 
         $this->downloadExcelPlanetListQueryHandler = new DownloadExcelPlanetListQueryHandler(
             $this->planetRepository,
@@ -32,14 +32,19 @@ class DownloadExcelPlanetListQueryHandlerTest extends BaseWebTestCase
     /** @test */
     public function given_a_list_of_planets_should_return_them_when_everything_is_ok(): void
     {
-        $this->planetBuilder
+        $mars = $this->planetBuilder
             ->withName('Mars')
             ->build();
 
-        $this->planetBuilder
+        $earth = $this->planetBuilder
             ->reset()
             ->withName('Earth')
             ->build();
+
+        $this->planetRepository
+            ->expects($this->once())
+            ->method('findAll')
+            ->willReturn([$mars, $earth]);
 
         $query = new DownloadExcelPlanetListQuery();
 

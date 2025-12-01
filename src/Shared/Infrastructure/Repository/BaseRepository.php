@@ -21,7 +21,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
 
     abstract public function getEntityClassName();
 
-    public function save($object)
+    public function save($object): void
     {
         $this->em->persist($object);
     }

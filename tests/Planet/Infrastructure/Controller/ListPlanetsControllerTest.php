@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Planet\Infrastructure\Controller;
 
+use Planet\Domain\Repository\PlanetRepositoryInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Tests\Common\Builder\Planet\PlanetBuilder;
 use Tests\Common\Builder\User\UserBuilder;
@@ -15,13 +16,15 @@ class ListPlanetsControllerTest extends BaseWebApiTestCase
 
     private PlanetBuilder $planetBuilder;
     private UserBuilder $userBuilder;
+    private PlanetRepositoryInterface $planetRepository;
 
     public function setUp(): void
     {
         parent::setUp();
 
-        $this->planetBuilder = new PlanetBuilder($this->entityManager);
-        $this->userBuilder = new UserBuilder($this->entityManager);
+        $this->planetBuilder = new PlanetBuilder();
+        $this->userBuilder = new UserBuilder();
+        $this->planetRepository = $this->testContainer->get(PlanetRepositoryInterface::class);
     }
 
     /** @test */
@@ -44,13 +47,18 @@ class ListPlanetsControllerTest extends BaseWebApiTestCase
             ->withPassword('password')
             ->build();
 
-        $this->planetBuilder
+        $mars = $this->planetBuilder
             ->withName('Mars')
             ->build();
 
-        $this->planetBuilder
+        $this->planetRepository->save($mars);
+
+        $earth = $this->planetBuilder
             ->withName('Earth')
             ->build();
+
+        $this->planetRepository->save($earth);
+        $this->planetRepository->flush();
 
         $this->loginUser($user);
         $this->getRequestJson(self::URL);
@@ -70,9 +78,18 @@ class ListPlanetsControllerTest extends BaseWebApiTestCase
             ->withPassword('password')
             ->build();
 
-        $this->planetBuilder
+        $mars = $this->planetBuilder
             ->withName('Mars')
             ->build();
+
+        $this->planetRepository->save($mars);
+
+        $earth = $this->planetBuilder
+            ->withName('Earth')
+            ->build();
+
+        $this->planetRepository->save($earth);
+        $this->planetRepository->flush();
 
         $parameters = [
             'name' => 'Mars'

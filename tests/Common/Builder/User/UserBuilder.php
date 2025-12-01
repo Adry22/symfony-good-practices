@@ -4,20 +4,18 @@ declare(strict_types=1);
 
 namespace Tests\Common\Builder\User;
 
-use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use User\Domain\Entity\User;
 use User\Domain\ValueObject\Address\Address;
 
 class UserBuilder
 {
-    private EntityManagerInterface $entityManager;
     private ?string $email;
     private ?string $password;
 
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct()
     {
-        $this->entityManager = $entityManager;
+        $this->reset();
     }
 
     public function reset(): self
@@ -45,9 +43,6 @@ class UserBuilder
 
         $user = User::create($this->email, $address);
         $user->setPassword($this->password);
-
-        $this->entityManager->persist($user);
-        $this->entityManager->flush();
 
         return $user;
     }

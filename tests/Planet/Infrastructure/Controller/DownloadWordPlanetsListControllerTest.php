@@ -18,17 +18,13 @@ class DownloadWordPlanetsListControllerTest extends BaseWebApiTestCase
     {
         parent::setUp();
 
-        $this->planetBuilder = new PlanetBuilder($this->entityManager);
-        $this->userBuilder = new UserBuilder($this->entityManager);
+        $this->planetBuilder = new PlanetBuilder();
+        $this->userBuilder = new UserBuilder();
     }
 
     /** @test */
     public function given_an_url_then_should_exists(): void
     {
-        $this->planetBuilder
-            ->withName('Mars')
-            ->build();
-
         $response = $this->getRequestJson(self::URL);
 
         $this->assertNotEquals(Response::HTTP_NOT_FOUND, $response->getStatusCode());
@@ -37,30 +33,24 @@ class DownloadWordPlanetsListControllerTest extends BaseWebApiTestCase
     /** @test */
     public function given_an_user_should_fail_when_is_not_logged(): void
     {
-        $this->planetBuilder
-            ->withName('Mars')
-            ->build();
-
         $response = $this->getRequestJson(self::URL);
 
         $this->assertNotEquals(Response::HTTP_FORBIDDEN, $response->getStatusCode());
     }
 
     /** @test */
-    public function given_a_list_of_planets_when_everything_is_ok_then_file_download_should_not_be_empty(): void
+    public function given_a_list_of_planets_when_everything_is_ok_then_file_download_should_has_correct_filename(): void
     {
         $user = $this->userBuilder
             ->withEmail('test@email.com')
             ->withPassword('password')
             ->build();
 
-        $this->planetBuilder
-            ->withName('Mars')
-            ->build();
-
         $this->loginUser($user);
         $response = $this->getRequestJson(self::URL);
 
-        $this->assertNotEmpty($response->getContent());
+        $this->assertSame('application/vnd.openxmlformats-officedocument.wordprocessingml.document', $response->headers->get('Content-Type'));
+        $this->assertSame('inline; filename="planets_list.docx"', $response->headers->get('Content-Disposition'));
+
     }
 }

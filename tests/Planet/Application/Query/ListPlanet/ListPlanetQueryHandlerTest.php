@@ -4,39 +4,41 @@ declare(strict_types=1);
 
 namespace Planet\Application\Query\ListPlanet;
 
+use Monolog\Test\TestCase;
 use Planet\Domain\Repository\PlanetRepositoryInterface;
 use Tests\Common\Builder\Planet\PlanetBuilder;
-use Tests\Common\Controller\BaseWebTestCase;
 
-class ListPlanetQueryHandlerTest extends BaseWebTestCase
+class ListPlanetQueryHandlerTest extends TestCase
 {
     private PlanetBuilder $planetBuilder;
     private PlanetRepositoryInterface $planetRepository;
     private ListPlanetQueryHandler $listPlanetQueryHandler;
 
-    /**
-     * @throws \Doctrine\DBAL\Exception
-     */
     public function setUp(): void
     {
         parent::setUp();
 
-        $this->planetBuilder = new PlanetBuilder($this->entityManager);
-        $this->planetRepository = $this->testContainer->get(PlanetRepositoryInterface::class);
+        $this->planetBuilder = new PlanetBuilder();
+        $this->planetRepository = $this->createMock(PlanetRepositoryInterface::class);
         $this->listPlanetQueryHandler = new ListPlanetQueryHandler($this->planetRepository);
     }
 
     /** @test */
     public function should_return_all_planets_when_no_filter(): void
     {
-        $this->planetBuilder
+        $mars = $this->planetBuilder
             ->withName('Mars')
             ->build();
 
-        $this->planetBuilder
+        $earth = $this->planetBuilder
             ->reset()
             ->withName('Earth')
             ->build();
+
+        $this->planetRepository
+            ->expects($this->exactly(2))
+            ->method('findByCriteria')
+            ->willReturn([$mars, $earth]);
 
         $query = new ListPlanetQuery();
         $planets = $this->listPlanetQueryHandler->handle($query);
@@ -52,10 +54,15 @@ class ListPlanetQueryHandlerTest extends BaseWebTestCase
             ->withName('Mars')
             ->build();
 
-        $this->planetBuilder
+        $earth = $this->planetBuilder
             ->reset()
             ->withName('Earth')
             ->build();
+
+        $this->planetRepository
+            ->expects($this->exactly(2))
+            ->method('findByCriteria')
+            ->willReturn([$earth]);
 
         $query = new ListPlanetQuery('Earth');
         $planets = $this->listPlanetQueryHandler->handle($query);

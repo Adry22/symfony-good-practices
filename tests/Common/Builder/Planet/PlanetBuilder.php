@@ -1,20 +1,19 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Tests\Common\Builder\Planet;
 
-use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Planet\Domain\Entity\Planet;
 
 class PlanetBuilder
 {
-    private EntityManagerInterface $entityManager;
     private ?string $name;
 
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct()
     {
-        $this->entityManager = $entityManager;
+        $this->reset();
     }
 
     public function reset(): self
@@ -27,16 +26,14 @@ class PlanetBuilder
     /**
      * @throws Exception
      */
-    public function build()
+    public function build(): Planet
     {
         if (null === $this->name) {
             throw new Exception('Name is required');
         }
 
-        $planet = Planet::create($this->name);
+        return Planet::create($this->name);
 
-        $this->entityManager->persist($planet);
-        $this->entityManager->flush();
     }
 
     public function withName(string $name): self
