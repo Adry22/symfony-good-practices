@@ -25,6 +25,11 @@ class DoctrineUserRepository extends BaseRepository implements UserRepositoryInt
         return $queryBuilder->getQuery()->getOneOrNullResult();
     }
 
+    public function findAll(): array
+    {
+        return $this->repository->findBy([]);
+    }
+
     private function applyEmail(QueryBuilder $queryBuilder, string $email): QueryBuilder
     {
         return $queryBuilder->andWhere(self::ROOT_ALIAS . '.email = :email')
