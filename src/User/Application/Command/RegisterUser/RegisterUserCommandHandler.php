@@ -2,12 +2,12 @@
 
 namespace User\Application\Command\RegisterUser;
 
+use Shared\Domain\Bus\Command\CommandHandler;
+use Shared\Domain\ValueObject\Address\Address;
+use Shared\Domain\ValueObject\Address\AddressCityIsNotValidException;
+use Shared\Infrastructure\Mailer\MailtrapEmailSender;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Universe\Shared\Bus\Command\CommandHandler;
-use Universe\Shared\Mailer\MailtrapEmailSender;
-use Universe\Shared\ValueObject\Address\Address;
-use Universe\Shared\ValueObject\Address\AddressCityIsNotValidException;
 use User\Domain\Entity\User;
 use User\Domain\Exception\UserMailNotValidException;
 use User\Domain\Repository\UserRepositoryInterface;

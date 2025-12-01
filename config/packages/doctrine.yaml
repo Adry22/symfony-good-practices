@@ -10,11 +10,11 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
         mappings:
-            Universe:
-                is_bundle: false
-                type: annotation
-                dir: '%kernel.project_dir%/src/Universe'
-                prefix: Universe
+            Shared:
+              is_bundle: false
+              type: annotation
+              dir: '%kernel.project_dir%/src/Shared/Domain'
+              prefix: Shared
 
             Planet:
               is_bundle: false

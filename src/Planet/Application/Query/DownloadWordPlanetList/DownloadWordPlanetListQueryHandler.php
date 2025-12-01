@@ -7,7 +7,7 @@ namespace Planet\Application\Query\DownloadWordPlanetList;
 use Planet\Domain\Formatter\DownloadPlanetListFormatter;
 use Planet\Domain\Repository\PlanetRepositoryInterface;
 use Planet\Domain\Writer\DownloadWordPlanetListWriterInterface;
-use Universe\Shared\Bus\Query\QueryHandler;
+use Shared\Domain\Bus\Query\QueryHandler;
 
 class DownloadWordPlanetListQueryHandler implements QueryHandler
 {

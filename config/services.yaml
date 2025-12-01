@@ -8,12 +8,8 @@ services:
       $temporalFolder: '%temporal_folder%'
 
   # Contexts
-  Universe\:
-    resource: '../src/Universe'
-    exclude:
-      - '../src/Universe/DependencyInjection/'
-      - '../src/Universe/Entity/'
-      - '../src/Universe/Kernel.php'
+  Shared\:
+    resource: '../src/Shared'
 
   Planet\:
     resource: '../src/Planet'
@@ -27,11 +23,11 @@ services:
 
   # Buses
   _instanceof:
-    Universe\Shared\Bus\Command\CommandHandler:
+    Shared\Domain\Bus\Command\CommandHandler:
       tags:
         - { name: tactician.handler, typehints: true, bus: command }
 
-    Universe\Shared\Bus\Query\QueryHandler:
+    Shared\Domain\Bus\Query\QueryHandler:
       tags:
         - { name: tactician.handler, typehints: true, bus: query }
 

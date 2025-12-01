@@ -8,7 +8,7 @@ security:
     providers:
         user_provider:
             entity:
-                class: User\Entity\User
+                class: User\Domain\Entity\User
                 property: email
     firewalls:
         login:

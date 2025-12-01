@@ -5,7 +5,7 @@ namespace Planet\Infrastructure\Writer;
 use PhpOffice\PhpWord\Exception\Exception;
 use PhpOffice\PhpWord\TemplateProcessor;
 use Planet\Domain\Writer\DownloadWordPlanetListWriterInterface;
-use Universe\Shared\Writer\PhpWordWriter;
+use Shared\Infrastructure\Writer\PhpWordWriter;
 
 class DownloadWordPlanetListWriter extends PhpWordWriter implements DownloadWordPlanetListWriterInterface
 {

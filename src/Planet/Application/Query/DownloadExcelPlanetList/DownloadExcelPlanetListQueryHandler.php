@@ -8,7 +8,7 @@ use Planet\Domain\Formatter\DownloadPlanetListFormatter;
 use Planet\Domain\Repository\PlanetRepositoryInterface;
 use Planet\Domain\Writer\DownloadExcelPlanetListWriterInterface;
 use Planet\Infrastructure\Writer\DownloadExcelPlanetListWriter;
-use Universe\Shared\Bus\Query\QueryHandler;
+use Shared\Domain\Bus\Query\QueryHandler;
 
 class DownloadExcelPlanetListQueryHandler implements QueryHandler
 {

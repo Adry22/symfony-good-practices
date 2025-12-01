@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Planet\Infrastructure\Repository;
@@ -6,9 +7,9 @@ namespace Planet\Infrastructure\Repository;
 use Doctrine\ORM\QueryBuilder;
 use Planet\Domain\Entity\Planet;
 use Planet\Domain\Repository\PlanetRepositoryInterface;
-use Universe\Shared\Criteria\Criteria;
-use Universe\Shared\Criteria\PaginationLimits;
-use Universe\Shared\Repository\BaseRepository;
+use Shared\Domain\Criteria\Criteria;
+use Shared\Domain\Criteria\PaginationLimits;
+use Shared\Infrastructure\Repository\BaseRepository;
 
 class DoctrinePlanetRepository extends BaseRepository implements PlanetRepositoryInterface
 {
@@ -20,7 +21,7 @@ class DoctrinePlanetRepository extends BaseRepository implements PlanetRepositor
 
     public function findAll(): array
     {
-        return $this->findBy([]);
+        return $this->repository->findBy([]);
     }
 
     public function findByName(

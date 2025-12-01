@@ -6,7 +6,7 @@ namespace User\Infrastructure\Repository;
 
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\QueryBuilder;
-use Universe\Shared\Repository\BaseRepository;
+use Shared\Infrastructure\Repository\BaseRepository;
 use User\Domain\Entity\User;
 use User\Domain\Repository\UserRepositoryInterface;
 

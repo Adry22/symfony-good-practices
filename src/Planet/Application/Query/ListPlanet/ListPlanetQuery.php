@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Planet\Application\Query\ListPlanet;
 
-use Universe\Shared\Bus\Query\Query;
+use Shared\Infrastructure\Bus\Query\Query;
 
 class ListPlanetQuery extends Query
 {

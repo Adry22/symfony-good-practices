@@ -1,13 +1,15 @@
 <?php
+
 declare(strict_types=1);
+
 namespace Planet\Application\Query\ListPlanet;
 
 use Planet\Domain\Entity\Planet;
 use Planet\Domain\Repository\PlanetRepositoryInterface;
 use Planet\Infrastructure\Repository\Criteria\ContainsPlanetName\ContainsPlanetNameSpecification;
-use Universe\Shared\Bus\Query\QueryHandler;
-use Universe\Shared\Criteria\Criteria;
-use Universe\Shared\Criteria\PaginationLimits;
+use Shared\Domain\Bus\Query\QueryHandler;
+use Shared\Domain\Criteria\Criteria;
+use Shared\Domain\Criteria\PaginationLimits;
 
 final class ListPlanetQueryHandler implements QueryHandler
 {

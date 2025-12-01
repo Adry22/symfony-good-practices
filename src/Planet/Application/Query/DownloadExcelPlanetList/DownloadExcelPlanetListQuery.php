@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Planet\Application\Query\DownloadExcelPlanetList;
 
-use Universe\Shared\Bus\Query\Query;
+use Shared\Infrastructure\Bus\Query\Query;
 
 class DownloadExcelPlanetListQuery extends Query
 {

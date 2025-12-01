@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Tests\Common\Builder\User;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Universe\Shared\ValueObject\Address\Address;
-use User\Domain\Entity\User;
 use Exception;
+use Shared\Domain\ValueObject\Address\Address;
+use User\Domain\Entity\User;
 
 class UserBuilder
 {

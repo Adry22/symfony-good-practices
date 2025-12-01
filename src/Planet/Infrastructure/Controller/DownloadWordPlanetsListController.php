@@ -1,15 +1,17 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Planet\Infrastructure\Controller;
 
 use OpenApi\Annotations as OA;
 use Planet\Application\Query\DownloadWordPlanetList\DownloadWordPlanetListQuery;
 use Planet\Application\Query\DownloadWordPlanetList\DownloadWordPlanetListResult;
+use Shared\Domain\Bus\Query\QueryBus;
+use Shared\Infrastructure\Controller\ApiController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Universe\Shared\Bus\Query\QueryBus;
-use Universe\Shared\Controller\ApiController;
 
 class DownloadWordPlanetsListController extends ApiController
 {

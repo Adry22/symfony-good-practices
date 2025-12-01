@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Planet\Domain\Repository;
 
-use Universe\Shared\Criteria\PaginationLimits;
+use Shared\Domain\Criteria\PaginationLimits;
 
 interface PlanetRepositoryInterface
 {

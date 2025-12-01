@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace User\Infrastructure\Controller;
 
 use OpenApi\Annotations as OA;
+use Shared\Domain\Bus\Command\CommandBus;
+use Shared\Infrastructure\Controller\ApiController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Universe\Shared\Bus\Command\CommandBus;
-use Universe\Shared\Controller\ApiController;
 use User\Application\Command\RegisterUser\RegisterUserCommand;
-use User\Domain\Exception\UserMailNotValidException;
 use User\Application\Command\RegisterUser\UserEmailAlreadyExistsException;
+use User\Domain\Exception\UserMailNotValidException;
 
 class RegisterUserController extends ApiController
 {

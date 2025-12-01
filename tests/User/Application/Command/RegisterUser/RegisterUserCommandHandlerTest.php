@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace User\Application\Command\RegisterUser;
 
+use Shared\Infrastructure\Mailer\MailtrapEmailSender;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Tests\Common\Builder\User\UserBuilder;
 use Tests\Common\Controller\BaseWebTestCase;
-use Universe\Shared\Mailer\MailtrapEmailSender;
 use User\Domain\Repository\UserRepositoryInterface;
 
 class RegisterUserCommandHandlerTest extends BaseWebTestCase

@@ -8,9 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
+use Shared\Domain\ValueObject\Address\Address;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Universe\Shared\ValueObject\Address\Address;
 use User\Domain\Exception\UserMailNotValidException;
 
 /**
@@ -37,7 +37,7 @@ final class User implements UserInterface, PasswordAuthenticatedUserInterface
     private string $password;
 
     /**
-     * @ORM\Embedded(class="Universe\Shared\ValueObject\Address\Address")
+     * @ORM\Embedded(class="Shared\Domain\ValueObject\Address\Address")
      */
     private ?Address $address = null;
 

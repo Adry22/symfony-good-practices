@@ -1,11 +1,12 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Planet\Infrastructure\Repository\Criteria\ContainsPlanetName;
 
 use Planet\Domain\Entity\Planet;
 use Planet\Domain\Repository\PlanetRepositoryInterface;
-use Universe\Shared\Criteria\Specification;
+use Shared\Domain\Criteria\Specification;
 
 class ContainsPlanetNameSpecification implements Specification
 {

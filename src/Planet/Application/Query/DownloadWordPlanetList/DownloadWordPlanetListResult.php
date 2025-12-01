@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Planet\Application\Query\DownloadWordPlanetList;
 
-use Universe\Shared\Bus\Query\Result;
+use Shared\Domain\Bus\Query\Result;
 
 class DownloadWordPlanetListResult implements Result
 {

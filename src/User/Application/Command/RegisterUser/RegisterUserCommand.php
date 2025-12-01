@@ -2,7 +2,7 @@
 
 namespace User\Application\Command\RegisterUser;
 
-use Universe\Shared\Bus\Command\Command;
+use Shared\Infrastructure\Bus\Command\Command;
 
 class RegisterUserCommand extends Command
 {

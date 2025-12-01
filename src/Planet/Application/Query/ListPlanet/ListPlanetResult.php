@@ -1,9 +1,11 @@
 <?php
+
 declare(strict_types=1);
+
 namespace Planet\Application\Query\ListPlanet;
 
-use Universe\Shared\Bus\Query\Result;
-use Universe\Shared\Criteria\PaginationLimits;
+use Shared\Domain\Bus\Query\Result;
+use Shared\Domain\Criteria\PaginationLimits;
 
 class ListPlanetResult implements Result
 {
