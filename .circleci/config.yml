@@ -35,8 +35,11 @@ jobs:
       - run: apt-get install -y netcat
 
       - run:
-          name: Mostrar extensiones PHP
-          command: php -m
+          name: Activar APP_DEBUG
+          command: |
+            echo "APP_ENV=test" >> .env.test.local
+            echo "APP_DEBUG=1" >> .env.test.local
+
 
       - run:
           name: Wait for Database Port
@@ -49,6 +52,16 @@ jobs:
       - run:
           name: Run tests
           command: ./bin/phpunit -d memory_limit=-1
+
+      - run:
+          name: Mostrar logs de Symfony
+          command: |
+            if [ -f var/log/test.log ]; then
+              echo "----- Symfony test.log -----"
+              cat var/log/test.log
+            else
+              echo "No hay test.log"
+            fi
 
       - store_test_results:
           path: ./test-results
