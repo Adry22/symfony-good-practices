@@ -1,6 +1,8 @@
 <?php
 
-namespace Universe\User\Exception;
+declare(strict_types=1);
+
+namespace User\Domain\Exception;
 
 use Exception;
 

@@ -1,11 +1,13 @@
 <?php
+
 declare(strict_types=1);
-namespace Tests\Universe\User\Controller;
+
+namespace User\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Tests\Common\Builder\User\UserBuilder;
 use Tests\Common\Controller\BaseWebApiTestCase;
-use Universe\User\Repository\UserRepositoryInterface;
+use User\Domain\Repository\UserRepositoryInterface;
 
 class RegisterUserControllerTest extends BaseWebApiTestCase
 {

@@ -1,11 +1,14 @@
 <?php
 
-namespace Universe\User\Repository;
+declare(strict_types=1);
 
+namespace User\Infrastructure\Repository;
+
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\QueryBuilder;
 use Universe\Shared\Repository\BaseRepository;
-use Universe\User\Entity\User;
-use Doctrine\ORM\NonUniqueResultException;
+use User\Domain\Entity\User;
+use User\Domain\Repository\UserRepositoryInterface;
 
 class DoctrineUserRepository extends BaseRepository implements UserRepositoryInterface
 {

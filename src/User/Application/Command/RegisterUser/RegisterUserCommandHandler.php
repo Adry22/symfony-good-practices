@@ -1,17 +1,16 @@
 <?php
 
-namespace Universe\User\Command\RegisterUser;
+namespace User\Application\Command\RegisterUser;
 
-use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Universe\Shared\Bus\Command\CommandHandler;
 use Universe\Shared\Mailer\MailtrapEmailSender;
 use Universe\Shared\ValueObject\Address\Address;
-use Universe\User\Entity\User;
-use Universe\User\Exception\UserEmailAlreadyExistsException;
-use Universe\User\Exception\UserMailNotValidException;
-use Universe\User\Repository\UserRepositoryInterface;
+use Universe\Shared\ValueObject\Address\AddressCityIsNotValidException;
+use User\Domain\Entity\User;
+use User\Domain\Exception\UserMailNotValidException;
+use User\Domain\Repository\UserRepositoryInterface;
 
 class RegisterUserCommandHandler implements CommandHandler
 {
@@ -30,10 +29,9 @@ class RegisterUserCommandHandler implements CommandHandler
     }
 
     /**
-     * @throws NonUniqueResultException
      * @throws TransportExceptionInterface
      * @throws UserEmailAlreadyExistsException
-     * @throws UserMailNotValidException
+     * @throws UserMailNotValidException|AddressCityIsNotValidException
      */
     public function handle(RegisterUserCommand $command): void
     {
@@ -54,7 +52,6 @@ class RegisterUserCommandHandler implements CommandHandler
     }
 
     /**
-     * @throws NonUniqueResultException
      * @throws UserEmailAlreadyExistsException
      */
     private function checkEmailNotExists(string $email): void

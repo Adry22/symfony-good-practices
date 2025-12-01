@@ -1,6 +1,6 @@
 <?php
 
-namespace Universe\User\Command\RegisterUser;
+namespace User\Application\Command\RegisterUser;
 
 use Universe\Shared\Bus\Command\Command;
 

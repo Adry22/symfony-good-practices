@@ -8,7 +8,7 @@ security:
     providers:
         user_provider:
             entity:
-                class: Universe\User\Entity\User
+                class: User\Entity\User
                 property: email
     firewalls:
         login:
@@ -19,6 +19,11 @@ security:
                 check_path: /login
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
+
+        register:
+          pattern: ^/register-user
+          stateless: true
+          security: false
 
 #        api:
 #            pattern:   ^/api

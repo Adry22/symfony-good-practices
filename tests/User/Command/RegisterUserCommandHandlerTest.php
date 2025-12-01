@@ -1,15 +1,17 @@
 <?php
+
 declare(strict_types=1);
-namespace Tests\Universe\User\Command;
+
+namespace User\Command;
 
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Tests\Common\Builder\User\UserBuilder;
 use Tests\Common\Controller\BaseWebTestCase;
 use Universe\Shared\Mailer\MailtrapEmailSender;
-use Universe\User\Command\RegisterUser\RegisterUserCommand;
-use Universe\User\Command\RegisterUser\RegisterUserCommandHandler;
-use Universe\User\Exception\UserEmailAlreadyExistsException;
-use Universe\User\Repository\UserRepositoryInterface;
+use User\Application\Command\RegisterUser\RegisterUserCommand;
+use User\Application\Command\RegisterUser\RegisterUserCommandHandler;
+use User\Application\Command\RegisterUser\UserEmailAlreadyExistsException;
+use User\Domain\Repository\UserRepositoryInterface;
 
 class RegisterUserCommandHandlerTest extends BaseWebTestCase
 {

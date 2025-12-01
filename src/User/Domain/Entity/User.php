@@ -1,21 +1,21 @@
 <?php
+
 declare(strict_types=1);
 
-namespace Universe\User\Entity;
+namespace User\Domain\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
-use Doctrine\ORM\Mapping\Table;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Universe\Shared\ValueObject\Address\Address;
-use Universe\User\Exception\UserMailNotValidException;
+use User\Domain\Exception\UserMailNotValidException;
 
 /**
- * @ORM\Entity(repositoryClass="Universe\User\Repository\DoctrineUserRepository")
- * @Table(name="users")
+ * @ORM\Entity()
+ * @ORM\Table(name="users")
  */
 final class User implements UserInterface, PasswordAuthenticatedUserInterface
 {

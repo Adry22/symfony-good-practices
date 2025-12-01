@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Common\Builder\User;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Universe\Shared\ValueObject\Address\Address;
-use Universe\User\Entity\User;
+use User\Domain\Entity\User;
 use Exception;
 
 class UserBuilder

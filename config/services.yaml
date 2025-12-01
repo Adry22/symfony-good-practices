@@ -20,6 +20,11 @@ services:
     exclude:
       - '../src/Planet/Domain/Entity/'
 
+  User\:
+    resource: '../src/User'
+    exclude:
+      - '../src/User/Domain/Entity/'
+
   # Buses
   _instanceof:
     Universe\Shared\Bus\Command\CommandHandler:

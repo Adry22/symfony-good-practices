@@ -1,9 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
-namespace Universe\User\Repository;
+namespace User\Domain\Repository;
 
-use Universe\User\Entity\User;
+use User\Domain\Entity\User;
 
 interface UserRepositoryInterface
 {
