@@ -6,8 +6,8 @@ namespace Tests\Common\Builder\User;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Shared\Domain\ValueObject\Address\Address;
 use User\Domain\Entity\User;
+use User\Domain\ValueObject\Address\Address;
 
 class UserBuilder
 {

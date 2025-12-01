@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Shared\Domain\ValueObject\Address;
+namespace User\Domain\ValueObject\Address;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -29,7 +29,7 @@ class Address
     ];
 
     /**
-     * @throws AddressCityIsNotValidException
+     * @throws AddressInvalidArgumentException
      */
     public function __construct(
         ?string $street = null,
@@ -46,15 +46,15 @@ class Address
     }
 
     /**
-     * @throws AddressCityIsNotValidException
+     * @throws AddressInvalidArgumentException
      */
     private function checkIsValidCity(?string $city = null): void {
         if (!in_array($city, self::VALID_CITIES)) {
-            throw new AddressCityIsNotValidException();
+            throw new AddressInvalidArgumentException();
         }
     }
 
-    public function __toString(): string
+    public function toString(): string
     {
         return sprintf(
             '%s %s, %s, %s',

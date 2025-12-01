@@ -3,14 +3,14 @@
 namespace User\Application\Command\RegisterUser;
 
 use Shared\Domain\Bus\Command\CommandHandler;
-use Shared\Domain\ValueObject\Address\Address;
-use Shared\Domain\ValueObject\Address\AddressCityIsNotValidException;
 use Shared\Infrastructure\Mailer\MailtrapEmailSender;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use User\Domain\Entity\User;
 use User\Domain\Exception\UserMailNotValidException;
 use User\Domain\Repository\UserRepositoryInterface;
+use User\Domain\ValueObject\Address\Address;
+use User\Domain\ValueObject\Address\AddressInvalidArgumentException;
 
 class RegisterUserCommandHandler implements CommandHandler
 {
@@ -31,7 +31,7 @@ class RegisterUserCommandHandler implements CommandHandler
     /**
      * @throws TransportExceptionInterface
      * @throws UserEmailAlreadyExistsException
-     * @throws UserMailNotValidException|AddressCityIsNotValidException
+     * @throws UserMailNotValidException|AddressInvalidArgumentException
      */
     public function handle(RegisterUserCommand $command): void
     {
