@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace User\Controller;
+namespace User\Infrastructure\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Tests\Common\Builder\User\UserBuilder;
