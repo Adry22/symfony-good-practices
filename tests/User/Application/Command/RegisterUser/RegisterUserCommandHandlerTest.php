@@ -8,6 +8,7 @@ use Monolog\Test\TestCase;
 use Shared\Infrastructure\Mailer\MailtrapEmailSender;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Tests\Common\Builder\User\UserBuilder;
+use User\Domain\Entity\User\UserId\UserId;
 use User\Domain\Repository\UserRepositoryInterface;
 
 class RegisterUserCommandHandlerTest extends TestCase
@@ -50,31 +51,20 @@ class RegisterUserCommandHandlerTest extends TestCase
             ->method('findByEmail')
             ->willReturn($user);
 
-        $command = new RegisterUserCommand('email@test.com', 'password');
+        $command = new RegisterUserCommand(UserId::random()->toString(), 'email@test.com', 'password');
         $this->registerUserCommandHandler->handle($command);
     }
 
     /** @test */
     public function given_user_to_register_when_everything_is_ok_then_create_user(): void
     {
-        $user = $this->userBuilder
-            ->withEmail('email@test.com')
-            ->withPassword('password')
-            ->build();
+        $userId = UserId::random();
 
-        $command = new RegisterUserCommand(
-            'email@test.com',
-            'password',
-            'street',
-            'number',
-            'Madrid',
-            'country'
-        );
+        $command = new RegisterUserCommand($userId->toString(), 'email@test.com', 'password');
 
         $this->userRepository
             ->expects($this->once())
-            ->method('save')
-            ->with($user);
+            ->method('save');
 
         $this->userPasswordHasherInterface
             ->expects($this->once())

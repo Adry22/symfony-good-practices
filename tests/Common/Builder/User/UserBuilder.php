@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace Tests\Common\Builder\User;
 
 use Exception;
-use User\Domain\Entity\User;
-use User\Domain\ValueObject\Address\Address;
+use User\Domain\Entity\User\User;
+use User\Domain\Entity\User\UserId\UserId;
 
 class UserBuilder
 {
+    private UserId $id;
     private ?string $email;
     private ?string $password;
 
@@ -20,6 +21,7 @@ class UserBuilder
 
     public function reset(): self
     {
+        $this->id = UserId::random();
         $this->email = null;
         $this->password = null;
 
@@ -39,12 +41,17 @@ class UserBuilder
             throw new Exception('Password is required');
         }
 
-        $address = new Address('street', 'number', 'Madrid', 'country');
-
-        $user = User::create($this->email, $address);
+        $user = User::create(UserId::random(), $this->email);
         $user->setPassword($this->password);
 
         return $user;
+    }
+
+    public function withId(UserId $id): self
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     public function withEmail(string $email): self

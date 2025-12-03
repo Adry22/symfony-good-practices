@@ -1,22 +1,22 @@
 <?php declare(strict_types=1);
 
-namespace User\Domain\ValueObject\Address;
+namespace User\Domain\Entity\User\Address;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /** @ORM\Embeddable */
 class Address
 {
-    /** @ORM\Column(type="string") */
+    /** @ORM\Column(type="string", nullable=true) */
     private ?string $street;
 
-    /** @ORM\Column(type="string") */
+    /** @ORM\Column(type="string", nullable=true) */
     private ?string $number;
 
-    /** @ORM\Column(type="string") */
+    /** @ORM\Column(type="string", nullable=true) */
     private ?string $city;
 
-    /** @ORM\Column(type="string") */
+    /** @ORM\Column(type="string", nullable=true) */
     private ?string $country;
 
     public const VALID_CITIES = [

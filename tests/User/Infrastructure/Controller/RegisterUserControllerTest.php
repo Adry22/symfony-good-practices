@@ -7,11 +7,12 @@ namespace User\Infrastructure\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Tests\Common\Builder\User\UserBuilder;
 use Tests\Common\Controller\BaseWebApiTestCase;
+use User\Domain\Entity\User\UserId\UserId;
 use User\Domain\Repository\UserRepositoryInterface;
 
 class RegisterUserControllerTest extends BaseWebApiTestCase
 {
-    private const URL = '/register-user';
+    private const URL = '/register-user/{uuid}';
 
     private UserRepositoryInterface $userRepository;
     private UserBuilder $userBuilder;
@@ -21,7 +22,7 @@ class RegisterUserControllerTest extends BaseWebApiTestCase
         parent::setUp();
 
         $this->userRepository = $this->testContainer->get(UserRepositoryInterface::class);
-        $this->userBuilder = new UserBuilder($this->entityManager);
+        $this->userBuilder = new UserBuilder();
     }
 
     /** @test */
@@ -29,7 +30,7 @@ class RegisterUserControllerTest extends BaseWebApiTestCase
     {
         $parameters = ['email' => 'email@test.com', 'password' => 'password'];
 
-        $response = $this->postRequestJson(self::URL, $parameters);
+        $response = $this->postRequestJson($this->generateUrl(UserId::random()->toString()), $parameters);
 
         $this->assertNotEquals(Response::HTTP_NOT_FOUND, $response->getStatusCode());
     }
@@ -47,7 +48,7 @@ class RegisterUserControllerTest extends BaseWebApiTestCase
 
         $parameters = ['email' => 'email@test.com', 'password' => 'password'];
 
-        $response = $this->postRequestJson(self::URL, $parameters);
+        $response = $this->postRequestJson($this->generateUrl(UserId::random()->toString()), $parameters);
 
         $response = json_decode($response->getContent(), true);
 
@@ -68,11 +69,16 @@ class RegisterUserControllerTest extends BaseWebApiTestCase
             'country' => 'España',
         ];
 
-        $this->postRequestJson(self::URL, $parameters);
+        $this->postRequestJson($this->generateUrl(UserId::random()->toString()), $parameters);
 
         $users = $this->userRepository->findAll();
 
         $this->assertCount(1, $users);
         $this->assertEquals('email@test.com', $users[0]->email());
+    }
+
+    private function generateUrl(string $uuid): string
+    {
+        return str_replace('{uuid}', $uuid, self::URL);
     }
 }

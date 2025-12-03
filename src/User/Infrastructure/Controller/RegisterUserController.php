@@ -26,7 +26,7 @@ class RegisterUserController extends ApiController
     }
 
     /**
-     * @Route("/register-user", methods={"POST"}, defaults={"_format"="json"})
+     * @Route("/register-user/{uuid}", methods={"POST"}, defaults={"_format"="json"})
      * @param Request $request
      * @return JsonResponse
      *
@@ -58,24 +58,16 @@ class RegisterUserController extends ApiController
      *   )
      * )
      */
-    public function action(Request $request): Response
+    public function action(Request $request, string $uuid): Response
     {
         $email = $this->getBodyParameterOrFail($request, 'email');
         $password = $this->getBodyParameterOrFail($request, 'password');
 
-        $street = $this->getBodyParameter($request, 'street');
-        $number = $this->getBodyParameter($request, 'number');
-        $city = $this->getBodyParameter($request, 'city');
-        $country = $this->getBodyParameter($request, 'country');
-
         try {
             $command = new RegisterUserCommand(
+                $uuid,
                 $email,
-                $password,
-                $street,
-                $number,
-                $city,
-                $country
+                $password
             );
             $this->commandBus->handle($command);
         } catch (UserMailNotValidException $e) {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace User\Domain\Repository;
 
-use User\Domain\Entity\User;
+use User\Domain\Entity\User\User;
 
 interface UserRepositoryInterface
 {

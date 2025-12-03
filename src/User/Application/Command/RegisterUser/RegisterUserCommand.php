@@ -7,21 +7,20 @@ use Shared\Infrastructure\Bus\Command\Command;
 class RegisterUserCommand extends Command
 {
     public function __construct(
+        string $uuid,
         string $email,
-        string $password,
-        ?string $street = null,
-        ?string $number = null,
-        ?string $city = null,
-        ?string $country = null
+        string $password
     ) {
         parent::__construct([
+            'uuid' => $uuid,
             'email' => $email,
             'password' => $password,
-            'street' => $street,
-            'number' => $number,
-            'city' => $city,
-            'country' => $country,
         ]);
+    }
+
+    public function uuid(): string
+    {
+        return $this->data['uuid'];
     }
 
     public function email(): string
@@ -32,25 +31,5 @@ class RegisterUserCommand extends Command
     public function password(): string
     {
         return $this->data['password'];
-    }
-
-    public function street(): ?string
-    {
-        return $this->data['street'];
-    }
-
-    public function number(): ?string
-    {
-        return $this->data['number'];
-    }
-
-    public function city(): ?string
-    {
-        return $this->data['city'];
-    }
-
-    public function country(): ?string
-    {
-        return $this->data['country'];
     }
 }

@@ -2,17 +2,19 @@
 
 declare(strict_types=1);
 
-namespace User\Domain\Entity;
+namespace User\Domain\Entity\User;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Column;
-use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use User\Domain\Entity\User\Address\Address;
+use User\Domain\Entity\User\UserId\UserId;
 use User\Domain\Exception\UserMailNotValidException;
-use User\Domain\ValueObject\Address\Address;
 
+// TODO: Divide entities in domain and infrastructure cause of ORM annotations
+// TODO: User php attributes instead of annotations
 /**
  * @ORM\Entity()
  * @ORM\Table(name="users")
@@ -21,10 +23,9 @@ final class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
      * @Id()
-     * @Column(type="integer")
-     * @GeneratedValue()
+     * @Column(type="user_id")
      */
-    private int $id;
+    private UserId $id;
 
     /**
      * @Column(type="string", nullable=false)
@@ -37,19 +38,32 @@ final class User implements UserInterface, PasswordAuthenticatedUserInterface
     private string $password;
 
     /**
-     * @ORM\Embedded(class="User\Domain\ValueObject\Address\Address")
+     * @ORM\Embedded(class="User\Domain\Entity\User\UserProfile")
      */
-    private ?Address $address = null;
+    private UserProfile $profile;
+
+    private function __construct(UserId $id, string $email, UserProfile $profile)
+    {
+        $this->id = $id;
+        $this->email = $email;
+        $this->profile = $profile;
+    }
 
     /**
      * @throws UserMailNotValidException
      */
-    public static function create(string $email, Address $address): self {
-        $user = new self();
+    public static function create(UserId $id, string $email): self {
+        $profile = UserProfile::empty();
+
+        $user = new self($id, $email, $profile);
         $user->setEmail($email);
-        $user->address = $address;
 
         return $user;
+    }
+
+    public function updateProfile(Address $address, string $name): void
+    {
+        $this->profile->update($address, $name);
     }
 
     public function email(): string
@@ -94,8 +108,13 @@ final class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->password = $password;
     }
 
-    public function address(): Address
+    public function id(): UserId
     {
-        return $this->address;
+        return $this->id;
+    }
+
+    public function profile(): UserProfile
+    {
+        return $this->profile;
     }
 }

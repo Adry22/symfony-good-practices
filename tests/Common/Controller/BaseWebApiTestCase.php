@@ -4,7 +4,7 @@ namespace Tests\Common\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use User\Domain\Entity\User;
+use User\Domain\Entity\User\User;
 
 class BaseWebApiTestCase extends BaseWebTestCase
 {
