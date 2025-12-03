@@ -7,7 +7,7 @@ namespace Shared\Infrastructure\Bus\Command;
 use League\Tactician\CommandBus as TacticianBus;
 use Shared\Domain\Bus\Command\CommandBus;
 
-class TacticianCommandBus implements CommandBus
+final class TacticianCommandBus implements CommandBus
 {
     private TacticianBus $commandBus;
 
@@ -16,8 +16,8 @@ class TacticianCommandBus implements CommandBus
         $this->commandBus = $commandBus;
     }
 
-    public function handle(Command $command): void
+    public function handle(Command $command)
     {
-        $this->commandBus->handle($command);
+        return $this->commandBus->handle($command);
     }
 }

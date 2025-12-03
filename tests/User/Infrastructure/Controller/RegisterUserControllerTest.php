@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace User\Infrastructure\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mime\Email;
 use Tests\Common\Builder\User\UserBuilder;
 use Tests\Common\Controller\BaseWebApiTestCase;
 use User\Domain\Entity\User\UserId\UserId;
@@ -75,6 +76,33 @@ class RegisterUserControllerTest extends BaseWebApiTestCase
 
         $this->assertCount(1, $users);
         $this->assertEquals('email@test.com', $users[0]->email());
+    }
+
+    /** @test */
+    public function given_user_to_register_when_everything_is_ok_then_send_welcome_email(): void
+    {
+        $this->client->enableProfiler();
+
+        $parameters = [
+            'email' => 'email@test.com',
+            'password' => 'password',
+            'street' => 'Street',
+            'number' => '2',
+            'city' => 'Madrid',
+            'country' => 'España',
+        ];
+
+        $this->postRequestJson($this->generateUrl(UserId::random()->toString()), $parameters);
+
+        $mailCollector = $this->client->getProfile()->getCollector('mailer');
+        $messages = $mailCollector->getEvents()->getMessages();
+        $this->assertCount(1, $messages);
+
+        /** @var Email $message */
+        $message = $messages[0];
+
+        $this->assertSame('email@test.com', $message->getTo()[0]->getAddress());
+        $this->assertSame('good-practices@symfonyproject.com', $message->getFrom()[0]->getAddress());
     }
 
     private function generateUrl(string $uuid): string

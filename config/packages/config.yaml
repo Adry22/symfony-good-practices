@@ -4,6 +4,7 @@ tactician:
     command:
       middleware:
         - tactician.middleware.locking
+        - Shared\Infrastructure\Bus\Middleware\DomainEventPublisherMiddleware
         - tactician.middleware.doctrine
         - tactician.commandbus.command.middleware.command_handler
 

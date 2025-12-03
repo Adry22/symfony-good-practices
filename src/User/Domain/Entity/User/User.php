@@ -7,11 +7,13 @@ namespace User\Domain\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Id;
+use Shared\Domain\Aggregate\AggregateRoot;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use User\Domain\Entity\User\Address\Address;
 use User\Domain\Entity\User\Address\AddressInvalidArgumentException;
 use User\Domain\Entity\User\UserId\UserId;
+use User\Domain\Event\UserRegistered;
 use User\Domain\Exception\UserMailNotValidException;
 
 // TODO: Divide entities in domain and infrastructure cause of ORM annotations
@@ -20,7 +22,7 @@ use User\Domain\Exception\UserMailNotValidException;
  * @ORM\Entity()
  * @ORM\Table(name="users")
  */
-final class User implements UserInterface, PasswordAuthenticatedUserInterface
+final class User extends AggregateRoot implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
      * @Id()
@@ -58,6 +60,11 @@ final class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         $user = new self($id, $email, $profile);
         $user->setEmail($email);
+
+        $user->record(new UserRegistered(
+            $id->toString(),
+            $email
+        ));
 
         return $user;
     }

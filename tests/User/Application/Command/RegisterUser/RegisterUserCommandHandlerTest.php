@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace User\Application\Command\RegisterUser;
 
 use Monolog\Test\TestCase;
-use Shared\Infrastructure\Mailer\MailtrapEmailSender;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Tests\Common\Builder\User\UserBuilder;
 use User\Domain\Entity\User\UserId\UserId;
@@ -15,7 +14,6 @@ class RegisterUserCommandHandlerTest extends TestCase
 {
     private UserRepositoryInterface $userRepository;
     private RegisterUserCommandHandler $registerUserCommandHandler;
-    private MailtrapEmailSender $mailtrapEmailSender;
     private UserPasswordHasherInterface $userPasswordHasherInterface;
     private UserBuilder $userBuilder;
 
@@ -24,14 +22,12 @@ class RegisterUserCommandHandlerTest extends TestCase
         parent::setUp();
 
         $this->userRepository = $this->createMock(UserRepositoryInterface::class);
-        $this->mailtrapEmailSender = $this->createMock(MailtrapEmailSender::class);
         $this->userPasswordHasherInterface = $this->createMock(UserPasswordHasherInterface::class);
 
         $this->userBuilder = new UserBuilder();
 
         $this->registerUserCommandHandler = new RegisterUserCommandHandler(
             $this->userRepository,
-            $this->mailtrapEmailSender,
             $this->userPasswordHasherInterface
         );
     }
@@ -71,11 +67,12 @@ class RegisterUserCommandHandlerTest extends TestCase
             ->method('hashPassword')
             ->willReturn('password');
 
-        $this->mailtrapEmailSender
-            ->expects($this->once())
-            ->method('sendTo')
-            ->with('email@test.com');
+        $user = $this->registerUserCommandHandler->handle($command);
 
-        $this->registerUserCommandHandler->handle($command);
+        $this->assertSame('email@test.com', $user->email());
+
+        $events = $user->pullEvents();
+        $this->assertCount(1, $events);
+        $this->assertSame('user.registered', $events[0]::name());
     }
 }

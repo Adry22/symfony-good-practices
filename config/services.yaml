@@ -31,6 +31,15 @@ services:
       tags:
         - { name: tactician.handler, typehints: true, bus: query }
 
+  # Event Bus
+  Shared\Domain\Bus\Event\EventBus:
+    class: Shared\Infrastructure\Bus\Event\InMemoryEventBus
+
+  # Middleware
+  Shared\Infrastructure\Bus\Middleware\DomainEventPublisherMiddleware:
+    tags:
+      - { name: tactician.middleware, bus: command }
+
   # Services
   Planet\Infrastructure\Writer\DownloadWordPlanetListWriter:
     arguments:

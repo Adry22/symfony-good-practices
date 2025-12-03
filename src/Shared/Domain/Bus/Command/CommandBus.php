@@ -8,5 +8,5 @@ use Shared\Infrastructure\Bus\Command\Command;
 
 interface CommandBus
 {
-    public function handle(Command $command): void;
+    public function handle(Command $command);
 }

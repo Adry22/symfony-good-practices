@@ -3,8 +3,6 @@
 namespace User\Application\Command\RegisterUser;
 
 use Shared\Domain\Bus\Command\CommandHandler;
-use Shared\Infrastructure\Mailer\MailtrapEmailSender;
-use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use User\Domain\Entity\User\User;
 use User\Domain\Entity\User\UserId\UserId;
@@ -16,18 +14,16 @@ class RegisterUserCommandHandler implements CommandHandler
 {
     public function __construct(
         private UserRepositoryInterface $userRepository,
-        private MailtrapEmailSender $emailSender,
         private UserPasswordHasherInterface $userPasswordHasher
     ) {
     }
 
     /**
-     * @throws TransportExceptionInterface
      * @throws UserEmailAlreadyExistsException
      * @throws UserMailNotValidException
      * @throws UserIdInvalidArgumentException
      */
-    public function handle(RegisterUserCommand $command): void
+    public function handle(RegisterUserCommand $command): User
     {
         $this->checkEmailNotExists($command->email());
 
@@ -36,7 +32,7 @@ class RegisterUserCommandHandler implements CommandHandler
 
         $this->userRepository->save($user);
 
-        $this->emailSender->sendTo($user->email());
+        return $user;
     }
 
     /**
