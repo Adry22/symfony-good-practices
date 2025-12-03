@@ -6,19 +6,15 @@ namespace Planet\Application\Query\ListPlanet;
 
 use Monolog\Test\TestCase;
 use Planet\Domain\Repository\PlanetRepositoryInterface;
-use Tests\Common\Builder\Planet\PlanetBuilder;
+use Tests\Common\Builder\BuilderFactory;
 
 class ListPlanetQueryHandlerTest extends TestCase
 {
-    private PlanetBuilder $planetBuilder;
-    private PlanetRepositoryInterface $planetRepository;
-    private ListPlanetQueryHandler $listPlanetQueryHandler;
-
     public function setUp(): void
     {
         parent::setUp();
 
-        $this->planetBuilder = new PlanetBuilder();
+        $this->builderFactory = new BuilderFactory();
         $this->planetRepository = $this->createMock(PlanetRepositoryInterface::class);
         $this->listPlanetQueryHandler = new ListPlanetQueryHandler($this->planetRepository);
     }
@@ -26,12 +22,11 @@ class ListPlanetQueryHandlerTest extends TestCase
     /** @test */
     public function should_return_all_planets_when_no_filter(): void
     {
-        $mars = $this->planetBuilder
+        $mars = $this->builderFactory->planet()
             ->withName('Mars')
             ->build();
 
-        $earth = $this->planetBuilder
-            ->reset()
+        $earth = $this->builderFactory->planet()
             ->withName('Earth')
             ->build();
 
@@ -50,12 +45,11 @@ class ListPlanetQueryHandlerTest extends TestCase
     /** @test */
     public function should_return_planet_filtered(): void
     {
-        $this->planetBuilder
+        $this->builderFactory->planet()
             ->withName('Mars')
             ->build();
 
-        $earth = $this->planetBuilder
-            ->reset()
+        $earth = $this->builderFactory->planet()
             ->withName('Earth')
             ->build();
 

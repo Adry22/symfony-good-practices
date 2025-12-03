@@ -9,19 +9,7 @@ use Planet\Domain\Entity\Planet;
 
 final class PlanetBuilder
 {
-    private ?string $name;
-
-    public function __construct()
-    {
-        $this->reset();
-    }
-
-    public function reset(): self
-    {
-        $this->name = null;
-
-        return $this;
-    }
+    private ?string $name = null;
 
     /**
      * @throws Exception

@@ -5,23 +5,15 @@ declare(strict_types=1);
 namespace Planet\Infrastructure\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
-use Tests\Common\Builder\Planet\PlanetBuilder;
-use Tests\Common\Builder\User\UserBuilder;
 use Tests\Common\Controller\BaseWebApiTestCase;
 
 class DownloadExcelPlanetsListControllerTest extends BaseWebApiTestCase
 {
     private const URL = '/download-excel-planets-list';
 
-    private PlanetBuilder $planetBuilder;
-    private UserBuilder $userBuilder;
-
     public function setUp(): void
     {
         parent::setUp();
-
-        $this->planetBuilder = new PlanetBuilder();
-        $this->userBuilder = new UserBuilder();
     }
 
     /** @test */

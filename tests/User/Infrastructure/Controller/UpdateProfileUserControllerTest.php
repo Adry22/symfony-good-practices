@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace User\Infrastructure\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
-use Tests\Common\Builder\User\UserBuilder;
-use Tests\Common\Builder\User\UserProfileBuilder;
 use Tests\Common\Controller\BaseWebApiTestCase;
 use User\Domain\Entity\User\Address\Address;
 use User\Domain\Entity\User\UserId\UserId;
@@ -17,15 +15,12 @@ class UpdateProfileUserControllerTest extends BaseWebApiTestCase
     private const URL = '/user/{uuid}/update-profile';
 
     private UserRepositoryInterface $userRepository;
-    private UserBuilder $userBuilder;
 
     public function setUp(): void
     {
         parent::setUp();
 
         $this->userRepository = $this->testContainer->get(UserRepositoryInterface::class);
-        $this->userBuilder = new UserBuilder();
-        $this->userProfileBuilder = new UserProfileBuilder();
     }
 
     /** @test */
@@ -39,7 +34,7 @@ class UpdateProfileUserControllerTest extends BaseWebApiTestCase
     /** @test */
     public function should_fail_when_user_not_found(): void
     {
-        $user = $this->userBuilder
+        $user = $this->builderFactory()->user()
             ->withId(UserId::random())
             ->withEmail('email@test.com')
             ->withPassword('password')
@@ -58,12 +53,12 @@ class UpdateProfileUserControllerTest extends BaseWebApiTestCase
     /** @test */
     public function should_update_user_profile_when_everything_is_correct(): void
     {
-        $userProfile = $this->userProfileBuilder
+        $userProfile = $this->builderFactory()->userProfile()
             ->withAddress(new Address('Old Street', '456', 'Barcelona', 'Old Country'))
             ->withName('Old name')
             ->build();
 
-        $user = $this->userBuilder
+        $user = $this->builderFactory()->user()
             ->withId(UserId::random())
             ->withEmail('email@test.com')
             ->withPassword('password')

@@ -12,24 +12,14 @@ use User\Domain\Entity\User\UserProfile;
 final class UserBuilder
 {
     private UserId $id;
-    private ?string $email;
-    private ?string $password;
+    private ?string $email = null;
+    private ?string $password = null;
     private UserProfile $profile;
 
     public function __construct()
     {
-        $this->reset();
-    }
-
-    // TODO: Remove reset method and use a new instance of the builder instead
-    public function reset(): self
-    {
         $this->id = UserId::random();
-        $this->email = null;
-        $this->password = null;
         $this->profile = (new UserProfileBuilder())->build();
-
-        return $this;
     }
 
     /**

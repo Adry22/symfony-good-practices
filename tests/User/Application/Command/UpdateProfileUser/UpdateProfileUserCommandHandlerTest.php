@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace User\Application\Command\UpdateProfileUser;
 
 use Monolog\Test\TestCase;
-use Tests\Common\Builder\User\UserBuilder;
-use Tests\Common\Builder\User\UserProfileBuilder;
+use Tests\Common\Builder\BuilderFactory;
 use User\Domain\Entity\User\Address\Address;
 use User\Domain\Entity\User\UserId\UserId;
 use User\Domain\Entity\User\UserNotFoundException;
@@ -20,8 +19,7 @@ class UpdateProfileUserCommandHandlerTest extends TestCase
 
         $this->userRepository = $this->createMock(UserRepositoryInterface::class);
 
-        $this->userBuilder = new UserBuilder();
-        $this->userProfileBuilder = new UserProfileBuilder();
+        $this->builderFactory = new BuilderFactory();
 
         $this->commandHandler = new UpdateProfileUserCommandHandler($this->userRepository);
     }
@@ -51,12 +49,12 @@ class UpdateProfileUserCommandHandlerTest extends TestCase
     /** @test */
     public function should_update_profile_when_everything_is_correct(): void
     {
-        $userProfile = $this->userProfileBuilder
+        $userProfile = $this->builderFactory->userProfile()
             ->withAddress(new Address('Old Street', '456', 'Barcelona', 'Old Country'))
             ->withName('Old name')
             ->build();
 
-        $user = $this->userBuilder
+        $user = $this->builderFactory->user()
             ->withEmail('email@test.com')
             ->withPassword('password')
             ->withProfile($userProfile)

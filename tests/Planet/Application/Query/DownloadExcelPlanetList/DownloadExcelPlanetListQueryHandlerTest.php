@@ -7,19 +7,15 @@ namespace Planet\Application\Query\DownloadExcelPlanetList;
 use Monolog\Test\TestCase;
 use Planet\Domain\Repository\PlanetRepositoryInterface;
 use Planet\Infrastructure\Writer\DownloadExcelPlanetListWriter;
-use Tests\Common\Builder\Planet\PlanetBuilder;
+use Tests\Common\Builder\BuilderFactory;
 
 class DownloadExcelPlanetListQueryHandlerTest extends TestCase
 {
-    private PlanetBuilder $planetBuilder;
-    private PlanetRepositoryInterface $planetRepository;
-    private DownloadExcelPlanetListQueryHandler $downloadExcelPlanetListQueryHandler;
-
     public function setUp(): void
     {
         parent::setUp();
 
-        $this->planetBuilder = new PlanetBuilder();
+        $this->builderFactory = new BuilderFactory();
         $this->planetRepository = $this->createMock(PlanetRepositoryInterface::class);
         $this->downloadExcelPlanetListWriter = $this->createMock(DownloadExcelPlanetListWriter::class);
 
@@ -32,12 +28,11 @@ class DownloadExcelPlanetListQueryHandlerTest extends TestCase
     /** @test */
     public function given_a_list_of_planets_should_return_them_when_everything_is_ok(): void
     {
-        $mars = $this->planetBuilder
+        $mars = $this->builderFactory->planet()
             ->withName('Mars')
             ->build();
 
-        $earth = $this->planetBuilder
-            ->reset()
+        $earth = $this->builderFactory->planet()
             ->withName('Earth')
             ->build();
 

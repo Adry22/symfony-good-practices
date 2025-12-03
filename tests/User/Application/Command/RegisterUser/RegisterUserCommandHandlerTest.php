@@ -6,17 +6,12 @@ namespace User\Application\Command\RegisterUser;
 
 use Monolog\Test\TestCase;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Tests\Common\Builder\User\UserBuilder;
+use Tests\Common\Builder\BuilderFactory;
 use User\Domain\Entity\User\UserId\UserId;
 use User\Domain\Repository\UserRepositoryInterface;
 
 class RegisterUserCommandHandlerTest extends TestCase
 {
-    private UserRepositoryInterface $userRepository;
-    private RegisterUserCommandHandler $registerUserCommandHandler;
-    private UserPasswordHasherInterface $userPasswordHasherInterface;
-    private UserBuilder $userBuilder;
-
     public function setUp(): void
     {
         parent::setUp();
@@ -24,7 +19,7 @@ class RegisterUserCommandHandlerTest extends TestCase
         $this->userRepository = $this->createMock(UserRepositoryInterface::class);
         $this->userPasswordHasherInterface = $this->createMock(UserPasswordHasherInterface::class);
 
-        $this->userBuilder = new UserBuilder();
+        $this->builderFactory = new BuilderFactory();
 
         $this->registerUserCommandHandler = new RegisterUserCommandHandler(
             $this->userRepository,
@@ -37,7 +32,7 @@ class RegisterUserCommandHandlerTest extends TestCase
     {
         $this->expectException(UserEmailAlreadyExistsException::class);
 
-        $user = $this->userBuilder
+        $user = $this->builderFactory->user()
             ->withEmail('email@test.com')
             ->withPassword('password')
             ->build();

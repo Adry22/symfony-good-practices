@@ -5,19 +5,15 @@ namespace Planet\Application\Query\DownloadWordPlanetList;
 use Monolog\Test\TestCase;
 use Planet\Domain\Repository\PlanetRepositoryInterface;
 use Planet\Infrastructure\Writer\DownloadWordPlanetListWriter;
-use Tests\Common\Builder\Planet\PlanetBuilder;
+use Tests\Common\Builder\BuilderFactory;
 
 class DownloadWordPlanetListQueryHandlerTest extends TestCase
 {
-    private PlanetBuilder $planetBuilder;
-    private PlanetRepositoryInterface $planetRepository;
-    private DownloadWordPlanetListQueryHandler $handler;
-
     public function setUp(): void
     {
         parent::setUp();
 
-        $this->planetBuilder = new PlanetBuilder();
+        $this->builderFactory = new BuilderFactory();
         $this->planetRepository = $this->createMock(PlanetRepositoryInterface::class);
         $this->downloadWordPlanetListWriter = $this->createMock(DownloadWordPlanetListWriter::class);
 
@@ -30,12 +26,11 @@ class DownloadWordPlanetListQueryHandlerTest extends TestCase
     /** @test */
     public function given_a_list_of_planets_should_return_them_when_everything_is_ok(): void
     {
-        $mars = $this->planetBuilder
+        $mars = $this->builderFactory->planet()
             ->withName('Mars')
             ->build();
 
-        $earth = $this->planetBuilder
-            ->reset()
+        $earth = $this->builderFactory->planet()
             ->withName('Earth')
             ->build();
 

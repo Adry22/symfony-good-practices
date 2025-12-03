@@ -11,6 +11,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Tests\Common\Builder\BuilderFactory;
 
 class BaseWebTestCase extends WebTestCase
 {
@@ -31,6 +32,8 @@ class BaseWebTestCase extends WebTestCase
     /** @var Connection */
     protected $connection;
 
+    private BuilderFactory $builderFactory;
+
     public function setUp(): void
     {
         $this->client = static::createClient();
@@ -39,6 +42,7 @@ class BaseWebTestCase extends WebTestCase
         $this->entityManager = $this->testContainer->get('doctrine')->getManager();
         $this->connection = $this->entityManager->getConnection();
         $this->platform = $this->connection->getDatabasePlatform();
+        $this->builderFactory = new BuilderFactory();
 
         $this->configureORM();
         $this->purgeDataBase();
@@ -73,5 +77,10 @@ class BaseWebTestCase extends WebTestCase
         if ($this->platform instanceof MySqlPlatform) {
             $this->connection->executeStatement('SET FOREIGN_KEY_CHECKS = 1;');
         }
+    }
+
+    public function builderFactory(): BuilderFactory
+    {
+        return $this->builderFactory;
     }
 }

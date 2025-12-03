@@ -6,7 +6,6 @@ namespace User\Infrastructure\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mime\Email;
-use Tests\Common\Builder\User\UserBuilder;
 use Tests\Common\Controller\BaseWebApiTestCase;
 use User\Domain\Entity\User\UserId\UserId;
 use User\Domain\Repository\UserRepositoryInterface;
@@ -16,14 +15,12 @@ class RegisterUserControllerTest extends BaseWebApiTestCase
     private const URL = '/register-user/{uuid}';
 
     private UserRepositoryInterface $userRepository;
-    private UserBuilder $userBuilder;
 
     public function setUp(): void
     {
         parent::setUp();
 
         $this->userRepository = $this->testContainer->get(UserRepositoryInterface::class);
-        $this->userBuilder = new UserBuilder();
     }
 
     /** @test */
@@ -39,7 +36,7 @@ class RegisterUserControllerTest extends BaseWebApiTestCase
     /** @test */
     public function given_email_to_register_user_when_email_already_exists_then_fail(): void
     {
-        $user = $this->userBuilder
+        $user = $this->builderFactory()->user()
             ->withEmail('email@test.com')
             ->withPassword('password')
             ->build();

@@ -6,31 +6,23 @@ namespace Planet\Infrastructure\Controller;
 
 use Planet\Domain\Repository\PlanetRepositoryInterface;
 use Symfony\Component\HttpFoundation\Response;
-use Tests\Common\Builder\Planet\PlanetBuilder;
-use Tests\Common\Builder\User\UserBuilder;
 use Tests\Common\Controller\BaseWebApiTestCase;
 
 class ListPlanetsControllerTest extends BaseWebApiTestCase
 {
     private const URL = '/planets';
 
-    private PlanetBuilder $planetBuilder;
-    private UserBuilder $userBuilder;
-    private PlanetRepositoryInterface $planetRepository;
-
     public function setUp(): void
     {
         parent::setUp();
 
-        $this->planetBuilder = new PlanetBuilder();
-        $this->userBuilder = new UserBuilder();
         $this->planetRepository = $this->testContainer->get(PlanetRepositoryInterface::class);
     }
 
     /** @test */
     public function should_exists_url(): void
     {
-        $this->planetBuilder
+        $this->builderFactory()->planet()
             ->withName('Mars')
             ->build();
 
@@ -42,18 +34,18 @@ class ListPlanetsControllerTest extends BaseWebApiTestCase
     /** @test */
     public function should_return_data_without_filter_when_there_is_no_filter(): void
     {
-        $user = $this->userBuilder
+        $user = $this->builderFactory()->user()
             ->withEmail('test@email.com')
             ->withPassword('password')
             ->build();
 
-        $mars = $this->planetBuilder
+        $mars = $this->builderFactory()->planet()
             ->withName('Mars')
             ->build();
 
         $this->planetRepository->save($mars);
 
-        $earth = $this->planetBuilder
+        $earth = $this->builderFactory()->planet()
             ->withName('Earth')
             ->build();
 
@@ -73,18 +65,18 @@ class ListPlanetsControllerTest extends BaseWebApiTestCase
     /** @test */
     public function should_return_data_filtered_when_everything_is_correct(): void
     {
-        $user = $this->userBuilder
+        $user = $this->builderFactory()->user()
             ->withEmail('test@email.com')
             ->withPassword('password')
             ->build();
 
-        $mars = $this->planetBuilder
+        $mars = $this->builderFactory()->planet()
             ->withName('Mars')
             ->build();
 
         $this->planetRepository->save($mars);
 
-        $earth = $this->planetBuilder
+        $earth = $this->builderFactory()->planet()
             ->withName('Earth')
             ->build();
 
