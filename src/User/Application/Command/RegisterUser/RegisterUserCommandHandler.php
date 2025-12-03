@@ -47,10 +47,9 @@ class RegisterUserCommandHandler implements CommandHandler
         }
     }
 
-    private function hashPassword(User $user, string $password): void {
+    private function hashPassword(User $user, string $password): void
+    {
         $passwordHashed = $this->userPasswordHasher->hashPassword($user, $password);
-
-        // TODO: setPassword shouldnt exists, should set password when create user
         $user->setPassword($passwordHashed);
     }
 }
