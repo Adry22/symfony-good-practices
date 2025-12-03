@@ -92,7 +92,7 @@
             "@auto-scripts"
         ],
         "docs": [
-            "./vendor/bin/openapi src/Universe -o public/universe.yaml"
+            "./vendor/bin/openapi src -o public/universe.yaml"
         ]
     },
     "conflict": {

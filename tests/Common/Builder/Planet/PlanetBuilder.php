@@ -7,7 +7,7 @@ namespace Tests\Common\Builder\Planet;
 use Exception;
 use Planet\Domain\Entity\Planet;
 
-class PlanetBuilder
+final class PlanetBuilder
 {
     private ?string $name;
 

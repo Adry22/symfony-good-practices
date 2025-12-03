@@ -37,7 +37,9 @@ class Address
         ?string $city = null,
         ?string $country = null
     ) {
-        $this->checkIsValidCity($city);
+        if (null !== $city) {
+            $this->checkIsValidCity($city);
+        }
 
         $this->street = $street;
         $this->number = $number;

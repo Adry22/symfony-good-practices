@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping\Id;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use User\Domain\Entity\User\Address\Address;
+use User\Domain\Entity\User\Address\AddressInvalidArgumentException;
 use User\Domain\Entity\User\UserId\UserId;
 use User\Domain\Exception\UserMailNotValidException;
 
@@ -61,9 +62,20 @@ final class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $user;
     }
 
-    public function updateProfile(Address $address, string $name): void
-    {
-        $this->profile->update($address, $name);
+    /**
+     * @throws AddressInvalidArgumentException
+     */
+    public function updateProfile(
+        ?string $street = null,
+        ?string $number = null,
+        ?string $city = null,
+        ?string $country = null,
+        ?string $name = null
+    ): void {
+        $this->profile->update(
+            new Address($street, $number, $city, $country),
+            $name
+        );
     }
 
     public function email(): string

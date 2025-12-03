@@ -12,7 +12,16 @@ paths:
       tags:
         - planet
       description: 'Download excel planets list'
-      operationId: 309c91afc196dbe272a7e7ba4d25e46a
+      operationId: c5b6dd177d26caf9f6ff674cccf286ea
+      responses:
+        '200':
+          description: 'Binary file'
+  /download-word-planets-list:
+    get:
+      tags:
+        - planet
+      description: 'Download word planets list'
+      operationId: 79f8981e10cef38fd4b1b115802c7fae
       responses:
         '200':
           description: 'Binary file'
@@ -21,7 +30,7 @@ paths:
       tags:
         - planet
       description: 'List planets'
-      operationId: 899591b48e34388dd9e004a520439138
+      operationId: dad0dedb46c818af8a1a1ab3590f5675
       parameters:
         -
           name: name
@@ -50,12 +59,12 @@ paths:
               schema:
                 allOf:
                   - { properties: { total: { type: integer }, offset: { type: integer }, limit: { type: integer }, results: { type: array, items: { properties: { name: { type: string } }, type: object } } }, type: object }
-  /register-user:
+  '/register-user/{uuid}':
     post:
       tags:
         - user
       description: 'Register user'
-      operationId: 7d60ee61a63ed7fb4115e6c1dab7c3b0
+      operationId: ae521d0d1ec2a3bbf493e1a4fa9d5899
       parameters:
         -
           name: email
@@ -63,7 +72,7 @@ paths:
           description: 'User email'
           required: true
           schema:
-            type: email
+            type: string
         -
           name: password
           in: query
@@ -75,4 +84,44 @@ paths:
         '200':
           description: Success
         '400':
-          description: 'User email not valid | User email already exists'
+          description: 'Bad Request'
+  '/user/{uuid}/update-profile':
+    post:
+      tags:
+        - user
+      description: 'Update profile user'
+      operationId: f6addf7958e00d546074d33fc07e1b38
+      parameters:
+        -
+          name: street
+          in: query
+          description: 'User street'
+          required: false
+          schema:
+            type: string
+        -
+          name: number
+          in: query
+          description: 'User number'
+          required: false
+          schema:
+            type: string
+        -
+          name: city
+          in: query
+          description: 'User city'
+          required: false
+          schema:
+            type: string
+        -
+          name: country
+          in: query
+          description: 'User country'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: 'User not found'

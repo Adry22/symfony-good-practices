@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace User\Application\Command\RegisterUser;
 
 use Shared\Infrastructure\Bus\Command\Command;

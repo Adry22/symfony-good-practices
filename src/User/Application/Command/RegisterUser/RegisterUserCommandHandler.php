@@ -14,18 +14,11 @@ use User\Domain\Repository\UserRepositoryInterface;
 
 class RegisterUserCommandHandler implements CommandHandler
 {
-    private UserRepositoryInterface $userRepository;
-    private MailtrapEmailSender $emailSender;
-    private UserPasswordHasherInterface $userPasswordHasher;
-
     public function __construct(
-        UserRepositoryInterface $userRepository,
-        MailtrapEmailSender $emailSender,
-        UserPasswordHasherInterface $userPasswordHasher
+        private UserRepositoryInterface $userRepository,
+        private MailtrapEmailSender $emailSender,
+        private UserPasswordHasherInterface $userPasswordHasher
     ) {
-        $this->userRepository = $userRepository;
-        $this->emailSender = $emailSender;
-        $this->userPasswordHasher = $userPasswordHasher;
     }
 
     /**

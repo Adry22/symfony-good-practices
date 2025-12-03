@@ -2,11 +2,9 @@
 
 declare(strict_types=1);
 
-namespace User\Domain\Entity\User;
+namespace User\Domain\Entity\User\Address;
 
 use Monolog\Test\TestCase;
-use User\Domain\Entity\User\Address\Address;
-use User\Domain\Entity\User\Address\AddressInvalidArgumentException;
 
 class AddressTest extends TestCase
 {

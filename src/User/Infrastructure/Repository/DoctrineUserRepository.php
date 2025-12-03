@@ -8,6 +8,8 @@ use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\QueryBuilder;
 use Shared\Infrastructure\Repository\BaseRepository;
 use User\Domain\Entity\User\User;
+use User\Domain\Entity\User\UserId\UserId;
+use User\Domain\Entity\User\UserNotFoundException;
 use User\Domain\Repository\UserRepositoryInterface;
 
 class DoctrineUserRepository extends BaseRepository implements UserRepositoryInterface
@@ -28,6 +30,25 @@ class DoctrineUserRepository extends BaseRepository implements UserRepositoryInt
     public function findAll(): array
     {
         return $this->repository->findBy([]);
+    }
+
+    /**
+     * @throws UserNotFoundException
+     */
+    public function findByIdOrFail(UserId $id): User
+    {
+        $user = $this->findById($id);
+
+        if (null === $user) {
+            throw new UserNotFoundException();
+        }
+
+        return $user;
+    }
+
+    private function findById(UserId $id): ?User
+    {
+        return $this->repository->findOneBy(['id' => $id]);
     }
 
     private function applyEmail(QueryBuilder $queryBuilder, string $email): QueryBuilder

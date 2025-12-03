@@ -23,7 +23,7 @@ class UserProfile
      */
     private ?Address $address;
 
-    private function __construct(
+    public function __construct(
         ?Address $address,
         ?string $name
     ) {

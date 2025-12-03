@@ -7,7 +7,6 @@ namespace User\Infrastructure\Controller;
 use OpenApi\Annotations as OA;
 use Shared\Domain\Bus\Command\CommandBus;
 use Shared\Infrastructure\Controller\ApiController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,21 +16,14 @@ use User\Domain\Exception\UserMailNotValidException;
 
 class RegisterUserController extends ApiController
 {
-    private CommandBus $commandBus;
-
-    public function __construct(
-        CommandBus $commandBus,
-    ) {
-        $this->commandBus = $commandBus;
+    public function __construct(private CommandBus $commandBus) {
     }
 
     /**
      * @Route("/register-user/{uuid}", methods={"POST"}, defaults={"_format"="json"})
-     * @param Request $request
-     * @return JsonResponse
      *
      * @OA\Post(
-     *   path="/register-user",
+     *   path="/register-user/{uuid}",
      *   description="Register user",
      *   tags={"user"},
      *   @OA\Parameter(
@@ -39,7 +31,7 @@ class RegisterUserController extends ApiController
      *      name="email",
      *      description="User email",
      *      required=true,
-     *      @OA\Schema(type="email")
+     *      @OA\Schema(type="string")
      *   ),
      *   @OA\Parameter(
      *      in="query",
@@ -49,13 +41,13 @@ class RegisterUserController extends ApiController
      *      @OA\Schema(type="string")
      *   ),
      *   @OA\Response(
-     *     response="200",
-     *     description="Success",
-     *   ),
-     *   @OA\Response(
-     *     response="400",
-     *     description="User email not valid | User email already exists"
-     *   )
+     *      response="200",
+     *      description="Success",
+     *    ),
+     *    @OA\Response(
+     *      response="400",
+     *      description="Bad Request"
+     *    )
      * )
      */
     public function action(Request $request, string $uuid): Response

@@ -7,23 +7,27 @@ namespace Tests\Common\Builder\User;
 use Exception;
 use User\Domain\Entity\User\User;
 use User\Domain\Entity\User\UserId\UserId;
+use User\Domain\Entity\User\UserProfile;
 
-class UserBuilder
+final class UserBuilder
 {
     private UserId $id;
     private ?string $email;
     private ?string $password;
+    private UserProfile $profile;
 
     public function __construct()
     {
         $this->reset();
     }
 
+    // TODO: Remove reset method and use a new instance of the builder instead
     public function reset(): self
     {
         $this->id = UserId::random();
         $this->email = null;
         $this->password = null;
+        $this->profile = (new UserProfileBuilder())->build();
 
         return $this;
     }
@@ -65,6 +69,12 @@ class UserBuilder
     {
         $this->password = $password;
 
+        return $this;
+    }
+
+    public function withProfile(UserProfile $profile): self
+    {
+        $this->profile = $profile;
         return $this;
     }
 }
