@@ -4,28 +4,19 @@ declare(strict_types=1);
 
 namespace Planet\Domain\Entity;
 
-use Doctrine\ORM\Mapping\Column;
-use Doctrine\ORM\Mapping\Entity;
-use Doctrine\ORM\Mapping\GeneratedValue;
-use Doctrine\ORM\Mapping\Id;
-use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @Entity()
- * @Table(name="planets")
- */
-class Planet
+#[ORM\Entity()]
+#[ORM\Table(name:"planets")]
+final class Planet
 {
-    /**
-     * @Id()
-     * @Column(type="integer")
-     * @GeneratedValue()
-     */
+    // TODO: Fields as Value objects
+    #[ORM\Id]
+    #[ORM\Column(type:"integer", unique: true)]
+    #[ORM\GeneratedValue]
     private int $id;
 
-    /**
-     * @Column(type="string", nullable=false)
-     */
+    #[ORM\Column(type:"string")]
     private string $name;
 
     private function __construct() {}

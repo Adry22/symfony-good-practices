@@ -8,7 +8,6 @@ use OpenApi\Annotations as OA;
 use Planet\Application\Query\ListPlanet\ListPlanetQuery;
 use Shared\Domain\Bus\Query\QueryBus;
 use Shared\Infrastructure\Controller\ApiController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,10 +21,8 @@ final class ListPlanetsController extends ApiController
         $this->queryBus = $queryBus;
     }
 
+    #[Route('/planets', methods: ['GET'], defaults: ['_format' => 'json'])]
     /**
-     * @Route("/planets", methods={"GET"}, defaults={"_format"="json"})
-     * @param Request $request
-     * @return JsonResponse
      *
      * @OA\Get(
      *   path="/planets",

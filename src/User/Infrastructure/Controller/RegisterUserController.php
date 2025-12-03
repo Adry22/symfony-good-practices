@@ -19,8 +19,8 @@ class RegisterUserController extends ApiController
     public function __construct(private CommandBus $commandBus) {
     }
 
+    #[Route('/register-user/{uuid}', methods: ['POST'], defaults: ['_format' => 'json'])]
     /**
-     * @Route("/register-user/{uuid}", methods={"POST"}, defaults={"_format"="json"})
      *
      * @OA\Post(
      *   path="/register-user/{uuid}",

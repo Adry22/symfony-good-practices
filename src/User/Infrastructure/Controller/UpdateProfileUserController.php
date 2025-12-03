@@ -20,10 +20,8 @@ class UpdateProfileUserController extends ApiController
     {
     }
 
+    #[Route('/user/{uuid}/update-profile', methods: ['POST'], defaults: ['_format' => 'json'])]
     /**
-     * @Route("/user/{uuid}/update-profile", methods={"POST"}, defaults={"_format"="json"})
-     * @param Request $request
-     * @return JsonResponse
      *
      * @OA\Post(
      *   path="/user/{uuid}/update-profile",

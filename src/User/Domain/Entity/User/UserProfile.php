@@ -5,22 +5,15 @@ declare(strict_types=1);
 namespace User\Domain\Entity\User;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\Column;
 use User\Domain\Entity\User\Address\Address;
 
-/**
- * @ORM\Embeddable()
- */
-class UserProfile
+#[ORM\Embeddable]
+final class UserProfile
 {
-    /**
-     * @Column(type="string", nullable=true)
-     */
+    #[ORM\Column(type:"string", nullable: true)]
     private ?string $name;
 
-    /**
-     * @ORM\Embedded(class="User\Domain\Entity\User\Address\Address")
-     */
+    #[ORM\Embedded(class: Address::class)]
     private ?Address $address;
 
     public function __construct(

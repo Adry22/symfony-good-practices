@@ -19,12 +19,9 @@ class DownloadWordPlanetsListController extends ApiController
     {
     }
 
+    #[Route('/download-word-planets-list', methods: ['GET'], defaults: ['_format' => 'json'])]
     /**
      *
-     * @Route("/download-word-planets-list", methods={"GET"}, defaults={"_format"="json"})
-     * @param Request $request
-     *
-     * @return Response
      * @OA\Get(
      *   path="/download-word-planets-list",
      *   description="Download word planets list",

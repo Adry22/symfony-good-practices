@@ -22,12 +22,9 @@ class DownloadExcelPlanetsListController extends ApiController
         $this->queryBus = $queryBus;
     }
 
+    #[Route('/download-excel-planets-list', methods: ['GET'], defaults: ['_format' => 'json'])]
     /**
      *
-     * @Route("/download-excel-planets-list", methods={"GET"}, defaults={"_format"="json"})
-     * @param Request $request
-     *
-     * @return Response
      * @OA\Get(
      *   path="/download-excel-planets-list",
      *   description="Download excel planets list",

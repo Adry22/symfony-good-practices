@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace User\Domain\Entity\User;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\Column;
-use Doctrine\ORM\Mapping\Id;
 use Shared\Domain\Aggregate\AggregateRoot;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -16,33 +14,21 @@ use User\Domain\Entity\User\UserId\UserId;
 use User\Domain\Event\UserRegistered;
 use User\Domain\Exception\UserMailNotValidException;
 
-// TODO: Divide entities in domain and infrastructure cause of ORM annotations
-// TODO: User php attributes instead of annotations
-/**
- * @ORM\Entity()
- * @ORM\Table(name="users")
- */
+#[ORM\Entity()]
+#[ORM\Table(name:"users")]
 final class User extends AggregateRoot implements UserInterface, PasswordAuthenticatedUserInterface
 {
-    /**
-     * @Id()
-     * @Column(type="user_id")
-     */
+    #[ORM\Id]
+    #[ORM\Column(type:"user_id")]
     private UserId $id;
 
-    /**
-     * @Column(type="string", nullable=false)
-     */
+    #[ORM\Column(type:"string")]
     private string $email;
 
-    /**
-     * @Column(type="string", nullable=false)
-     */
+    #[ORM\Column(type:"string")]
     private string $password;
 
-    /**
-     * @ORM\Embedded(class="User\Domain\Entity\User\UserProfile")
-     */
+    #[ORM\Embedded(class: UserProfile::class)]
     private UserProfile $profile;
 
     private function __construct(UserId $id, string $email, UserProfile $profile)
@@ -55,7 +41,8 @@ final class User extends AggregateRoot implements UserInterface, PasswordAuthent
     /**
      * @throws UserMailNotValidException
      */
-    public static function create(UserId $id, string $email): self {
+    public static function create(UserId $id, string $email): self
+    {
         $profile = UserProfile::empty();
 
         $user = new self($id, $email, $profile);
@@ -78,7 +65,8 @@ final class User extends AggregateRoot implements UserInterface, PasswordAuthent
         ?string $city = null,
         ?string $country = null,
         ?string $name = null
-    ): void {
+    ): void
+    {
         $this->profile->update(
             new Address($street, $number, $city, $country),
             $name
