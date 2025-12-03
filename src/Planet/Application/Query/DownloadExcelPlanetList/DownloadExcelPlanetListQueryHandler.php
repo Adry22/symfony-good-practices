@@ -7,7 +7,6 @@ namespace Planet\Application\Query\DownloadExcelPlanetList;
 use Planet\Domain\Formatter\DownloadPlanetListFormatter;
 use Planet\Domain\Repository\PlanetRepositoryInterface;
 use Planet\Domain\Writer\DownloadExcelPlanetListWriterInterface;
-use Planet\Infrastructure\Writer\DownloadExcelPlanetListWriter;
 use Shared\Domain\Bus\Query\QueryHandler;
 
 class DownloadExcelPlanetListQueryHandler implements QueryHandler
@@ -19,7 +18,7 @@ class DownloadExcelPlanetListQueryHandler implements QueryHandler
 
     public function __construct(
         PlanetRepositoryInterface $planetRepository,
-        DownloadExcelPlanetListWriter $writer
+        DownloadExcelPlanetListWriterInterface $writer
     ) {
         $this->planetRepository = $planetRepository;
         $this->writer = $writer;

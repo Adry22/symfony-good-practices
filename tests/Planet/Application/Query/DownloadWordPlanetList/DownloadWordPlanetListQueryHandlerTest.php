@@ -4,7 +4,7 @@ namespace Planet\Application\Query\DownloadWordPlanetList;
 
 use Monolog\Test\TestCase;
 use Planet\Domain\Repository\PlanetRepositoryInterface;
-use Planet\Infrastructure\Writer\DownloadWordPlanetListWriter;
+use Planet\Domain\Writer\DownloadWordPlanetListWriterInterface;
 use Tests\Common\Builder\BuilderFactory;
 
 class DownloadWordPlanetListQueryHandlerTest extends TestCase
@@ -15,7 +15,7 @@ class DownloadWordPlanetListQueryHandlerTest extends TestCase
 
         $this->builderFactory = new BuilderFactory();
         $this->planetRepository = $this->createMock(PlanetRepositoryInterface::class);
-        $this->downloadWordPlanetListWriter = $this->createMock(DownloadWordPlanetListWriter::class);
+        $this->downloadWordPlanetListWriter = $this->createMock(DownloadWordPlanetListWriterInterface::class);
 
         $this->handler = new DownloadWordPlanetListQueryHandler(
             $this->planetRepository,
@@ -54,7 +54,7 @@ class DownloadWordPlanetListQueryHandlerTest extends TestCase
     {
         $this->downloadWordPlanetListWriter
             ->expects($this->once())
-            ->method('generate')
+            ->method('write')
             ->willReturnCallback($callback);
 
         $this->handler->handle($query);

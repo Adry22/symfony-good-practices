@@ -18,6 +18,15 @@ class DownloadWordPlanetListWriter extends PhpWordWriter implements DownloadWord
         parent::__construct($template, $folder, self::FILENAME);
     }
 
+    public function write(array $data): string
+    {
+        return $this->generate(
+            [
+                'planets' => $data['planets']
+            ]
+        );
+    }
+
     /**
      * @throws Exception
      */

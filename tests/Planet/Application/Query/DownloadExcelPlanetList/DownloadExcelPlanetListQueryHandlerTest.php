@@ -6,7 +6,7 @@ namespace Planet\Application\Query\DownloadExcelPlanetList;
 
 use Monolog\Test\TestCase;
 use Planet\Domain\Repository\PlanetRepositoryInterface;
-use Planet\Infrastructure\Writer\DownloadExcelPlanetListWriter;
+use Planet\Domain\Writer\DownloadExcelPlanetListWriterInterface;
 use Tests\Common\Builder\BuilderFactory;
 
 class DownloadExcelPlanetListQueryHandlerTest extends TestCase
@@ -17,7 +17,7 @@ class DownloadExcelPlanetListQueryHandlerTest extends TestCase
 
         $this->builderFactory = new BuilderFactory();
         $this->planetRepository = $this->createMock(PlanetRepositoryInterface::class);
-        $this->downloadExcelPlanetListWriter = $this->createMock(DownloadExcelPlanetListWriter::class);
+        $this->downloadExcelPlanetListWriter = $this->createMock(DownloadExcelPlanetListWriterInterface::class);
 
         $this->downloadExcelPlanetListQueryHandler = new DownloadExcelPlanetListQueryHandler(
             $this->planetRepository,

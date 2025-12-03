@@ -24,7 +24,7 @@ class DownloadWordPlanetListQueryHandler implements QueryHandler
         $planets = $this->planetRepository->findAll();
 
         $formatter = new DownloadPlanetListFormatter($planets);
-        $file = $this->writer->generate($formatter->toArray());
+        $file = $this->writer->write($formatter->toArray());
 
         return DownloadWordPlanetListResult::create($this->makeFilename(), $file);
     }
