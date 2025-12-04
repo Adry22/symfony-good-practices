@@ -39,7 +39,7 @@ class DownloadWordPlanetListWriter extends PhpWordWriter implements DownloadWord
 
         $index = 1;
         foreach ($planets as $planet) {
-            $templateProcessor->setValue('PLANET#1#' . $index, $planet['name']);
+            $templateProcessor->setValue('PLANET#1#' . $index, $planet['name']->toString());
 
             $index++;
         }

@@ -72,7 +72,7 @@ class DownloadExcelPlanetListWriter implements DownloadExcelPlanetListWriterInte
     {
         foreach ($lines as $line) {
             foreach ($columns as $columnKey => $column) {
-                $this->activeSheet->setCellValue($this->colChar . $this->rowNumber, $line[$columnKey]);
+                $this->activeSheet->setCellValue($this->colChar . $this->rowNumber, $line[$columnKey]->toString());
                 $this->textCellStyle();
                 $this->newCol();
             }

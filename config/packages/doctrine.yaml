@@ -3,8 +3,9 @@ doctrine:
         url: '%env(resolve:DATABASE_URL)%'
         types:
           user_id: User\Infrastructure\ValueObject\UserId\Doctrine\UserIdDoctrineType
+          planet_name: Planet\Infrastructure\Type\Doctrine\PlanetNameDoctrineType
 
-        # IMPORTANT: You MUST configure your server version,
+      # IMPORTANT: You MUST configure your server version,
         # either here or in the DATABASE_URL env var (see .env file)
         #server_version: '13'
     orm:

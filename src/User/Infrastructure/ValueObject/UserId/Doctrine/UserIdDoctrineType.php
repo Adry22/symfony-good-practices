@@ -35,7 +35,6 @@ class UserIdDoctrineType extends StringType
             return $value->toString();
         }
 
-
         return $value;
     }
 

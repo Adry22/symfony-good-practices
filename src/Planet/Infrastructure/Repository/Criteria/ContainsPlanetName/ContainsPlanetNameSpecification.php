@@ -21,7 +21,7 @@ class ContainsPlanetNameSpecification implements Specification
 
     public function isSatisfiedBy(Planet $planet): bool
     {
-        if (str_contains($planet->name(), $this->name)) {
+        if (str_contains($planet->name()->toString(), $this->name)) {
             return true;
         }
 

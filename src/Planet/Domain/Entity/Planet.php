@@ -16,24 +16,24 @@ final class Planet
     #[ORM\GeneratedValue]
     private int $id;
 
-    #[ORM\Column(type:"string")]
-    private string $name;
+    #[ORM\Column(type:"planet_name")]
+    private PlanetName $name;
 
     private function __construct() {}
 
-    public static function create(string $name): self {
+    public static function create(PlanetName $name): self {
         $planet = new self();
         $planet->setName($name);
 
         return $planet;
     }
 
-    public function name(): string
+    public function name(): PlanetName
     {
         return $this->name;
     }
 
-    public function setName(string $name): void
+    public function setName(PlanetName $name): void
     {
         $this->name = $name;
     }

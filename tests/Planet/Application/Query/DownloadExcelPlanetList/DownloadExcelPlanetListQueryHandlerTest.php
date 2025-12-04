@@ -45,8 +45,8 @@ class DownloadExcelPlanetListQueryHandlerTest extends TestCase
 
         $this->assertWriterParameters($query, function($data) {
             $this->assertCount(2, $data['planets']);
-            $this->assertEquals('Mars', $data['planets'][0]['name']);
-            $this->assertEquals('Earth', $data['planets'][1]['name']);
+            $this->assertEquals('Mars', $data['planets'][0]['name']->toString());
+            $this->assertEquals('Earth', $data['planets'][1]['name']->toString());
 
             return '';
         });

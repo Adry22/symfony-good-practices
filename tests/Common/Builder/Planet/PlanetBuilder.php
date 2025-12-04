@@ -6,6 +6,7 @@ namespace Tests\Common\Builder\Planet;
 
 use Exception;
 use Planet\Domain\Entity\Planet;
+use Planet\Domain\Entity\PlanetName;
 
 final class PlanetBuilder
 {
@@ -20,7 +21,7 @@ final class PlanetBuilder
             throw new Exception('Name is required');
         }
 
-        return Planet::create($this->name);
+        return Planet::create(new PlanetName($this->name));
 
     }
 

@@ -49,7 +49,7 @@ final class ListPlanetQueryHandler implements QueryHandler
 
         $resources = array_map(
             function (Planet $planet) {
-                return new ListPlanetResource($planet->name());
+                return new ListPlanetResource($planet->name()->toString());
             },
             $planets
         );
