@@ -35,7 +35,7 @@ final class UserProfile
         $this->name = $name;
     }
 
-    public function name(): string
+    public function name(): ?string
     {
         return $this->name;
     }

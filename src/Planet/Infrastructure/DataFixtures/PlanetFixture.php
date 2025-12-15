@@ -18,7 +18,7 @@ class PlanetFixture extends Fixture
         'Mars',
         'Jupiter',
         'Saturn',
-        'Uranius',
+        'Uranus',
         'Neptune',
     ];
 

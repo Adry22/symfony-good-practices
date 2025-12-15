@@ -56,6 +56,14 @@ class Address
         }
     }
 
+    public function equals(Address $other): bool
+    {
+        return $this->street === $other->street
+            && $this->number === $other->number
+            && $this->city === $other->city
+            && $this->country === $other->country;
+    }
+
     public function toString(): string
     {
         return sprintf(
@@ -65,5 +73,25 @@ class Address
             $this->city,
             $this->country
         );
+    }
+
+    public function street(): ?string
+    {
+        return $this->street;
+    }
+
+    public function number(): ?string
+    {
+        return $this->number;
+    }
+
+    public function city(): ?string
+    {
+        return $this->city;
+    }
+
+    public function country(): ?string
+    {
+        return $this->country;
     }
 }

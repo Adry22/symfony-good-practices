@@ -11,6 +11,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use User\Domain\Entity\User\Address\Address;
 use User\Domain\Entity\User\Address\AddressInvalidArgumentException;
 use User\Domain\Entity\User\UserId\UserId;
+use User\Domain\Event\UserAddressChanged;
+use User\Domain\Event\UserNameChanged;
 use User\Domain\Event\UserRegistered;
 use User\Domain\Exception\UserMailNotValidException;
 
@@ -67,10 +69,33 @@ final class User extends AggregateRoot implements UserInterface, PasswordAuthent
         ?string $name = null
     ): void
     {
+        $oldName = $this->profile->name();
+        $oldAddress = $this->profile->address();
+
+        $newAddress = new Address($street, $number, $city, $country);
+
         $this->profile->update(
-            new Address($street, $number, $city, $country),
+            $newAddress,
             $name
         );
+
+        if ($name && $name !== $oldName) {
+            $this->record(new UserNameChanged(
+                $this->id->toString(),
+                $name,
+                $oldName
+            ));
+        }
+
+        if ($oldAddress && false === $oldAddress->equals($newAddress)) {
+            $this->record(new UserAddressChanged(
+                $this->id->toString(),
+                $newAddress->street(),
+                $newAddress->number(),
+                $newAddress->city(),
+                $newAddress->country()
+            ));
+        }
     }
 
     public function email(): string

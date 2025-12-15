@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Common\Builder\User;
 
 use Exception;
+use ReflectionClass;
 use User\Domain\Entity\User\User;
 use User\Domain\Entity\User\UserId\UserId;
 use User\Domain\Entity\User\UserProfile;
@@ -37,6 +38,14 @@ final class UserBuilder
 
         $user = User::create(UserId::random(), $this->email);
         $user->setPassword($this->password);
+
+        if (null !== $this->profile) {
+            $reflection = new ReflectionClass($user);
+            $property = $reflection->getProperty('profile');
+            $property->setValue($user, $this->profile);
+        }
+
+        $user->pullEvents();
 
         return $user;
     }
