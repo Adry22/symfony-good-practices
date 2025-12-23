@@ -26,9 +26,6 @@ build_doc: ## Generate Open API documentation
 cc: ## Clear dev cache
 	$(call exec_cmd,"symfony-good-practices/bin/console cache:clear --no-warmup --env=dev")
 
-test: ## Runs tests
-	$(call exec_cmd,"cd symfony-good-practices/ && ./bin/phpunit -d memory_limit=-1")
-
 prompt: ## Opens terminal in docker container
 	@docker exec -it $(CONTAINER_NAME) bash
 

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace User\Infrastructure\Controller;
 
+use Shared\Domain\ValueObject\Email;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Mime\Email;
 use Tests\Common\Controller\BaseWebApiTestCase;
 use User\Domain\Entity\User\UserId\UserId;
 use User\Domain\Repository\UserRepositoryInterface;
@@ -37,7 +37,7 @@ class RegisterUserControllerTest extends BaseWebApiTestCase
     public function given_email_to_register_user_when_email_already_exists_then_fail(): void
     {
         $user = $this->builderFactory()->user()
-            ->withEmail('email@test.com')
+            ->withEmail(new Email('email@test.com'))
             ->withPassword('password')
             ->build();
 

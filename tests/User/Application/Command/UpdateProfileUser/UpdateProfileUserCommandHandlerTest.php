@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace User\Application\Command\UpdateProfileUser;
 
-use Monolog\Test\TestCase;
+use PHPUnit\Framework\TestCase;
+use Shared\Domain\ValueObject\Email;
 use Tests\Common\Builder\BuilderFactory;
 use User\Domain\Entity\User\Address\Address;
 use User\Domain\Entity\User\UserId\UserId;
@@ -55,7 +56,7 @@ class UpdateProfileUserCommandHandlerTest extends TestCase
             ->build();
 
         $user = $this->builderFactory->user()
-            ->withEmail('email@test.com')
+            ->withEmail(new Email('email@test.com'))
             ->withPassword('password')
             ->withProfile($userProfile)
             ->build();
@@ -88,7 +89,7 @@ class UpdateProfileUserCommandHandlerTest extends TestCase
             ->build();
 
         $user = $this->builderFactory->user()
-            ->withEmail('email@test.com')
+            ->withEmail(new Email('email@test.com'))
             ->withPassword('password')
             ->withProfile($userProfile)
             ->build();
@@ -126,7 +127,7 @@ class UpdateProfileUserCommandHandlerTest extends TestCase
             ->build();
 
         $user = $this->builderFactory->user()
-            ->withEmail('email@test.com')
+            ->withEmail(new Email('email@test.com'))
             ->withPassword('password')
             ->withProfile($userProfile)
             ->build();

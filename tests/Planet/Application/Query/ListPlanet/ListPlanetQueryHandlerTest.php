@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Planet\Application\Query\ListPlanet;
 
-use Monolog\Test\TestCase;
+use PHPUnit\Framework\TestCase;
 use Planet\Domain\Repository\PlanetRepositoryInterface;
 use Tests\Common\Builder\BuilderFactory;
 

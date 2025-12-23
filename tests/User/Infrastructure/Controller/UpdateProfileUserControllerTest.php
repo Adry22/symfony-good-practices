@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace User\Infrastructure\Controller;
 
+use Shared\Domain\ValueObject\Email;
 use Symfony\Component\HttpFoundation\Response;
 use Tests\Common\Controller\BaseWebApiTestCase;
 use User\Domain\Entity\User\Address\Address;
@@ -36,7 +37,7 @@ class UpdateProfileUserControllerTest extends BaseWebApiTestCase
     {
         $user = $this->builderFactory()->user()
             ->withId(UserId::random())
-            ->withEmail('email@test.com')
+            ->withEmail(new Email('email@test.com'))
             ->withPassword('password')
             ->build();
 
@@ -60,7 +61,7 @@ class UpdateProfileUserControllerTest extends BaseWebApiTestCase
 
         $user = $this->builderFactory()->user()
             ->withId(UserId::random())
-            ->withEmail('email@test.com')
+            ->withEmail(new Email('email@test.com'))
             ->withPassword('password')
             ->withProfile($userProfile)
             ->build();
