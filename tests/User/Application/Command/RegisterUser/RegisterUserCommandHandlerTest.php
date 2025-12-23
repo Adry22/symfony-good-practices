@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace User\Application\Command\RegisterUser;
 
-use Monolog\Test\TestCase;
+use PHPUnit\Framework\TestCase;
+use Shared\Domain\ValueObject\Email;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Tests\Common\Builder\BuilderFactory;
 use User\Domain\Entity\User\UserId\UserId;
@@ -33,7 +34,7 @@ class RegisterUserCommandHandlerTest extends TestCase
         $this->expectException(UserEmailAlreadyExistsException::class);
 
         $user = $this->builderFactory->user()
-            ->withEmail('email@test.com')
+            ->withEmail(new Email('email@test.com'))
             ->withPassword('password')
             ->build();
 
@@ -64,7 +65,7 @@ class RegisterUserCommandHandlerTest extends TestCase
 
         $user = $this->registerUserCommandHandler->handle($command);
 
-        $this->assertSame('email@test.com', $user->email());
+        $this->assertSame('email@test.com', $user->email()->toString());
 
         $events = $user->pullEvents();
         $this->assertCount(1, $events);

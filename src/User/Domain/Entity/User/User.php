@@ -6,6 +6,7 @@ namespace User\Domain\Entity\User;
 
 use Doctrine\ORM\Mapping as ORM;
 use Shared\Domain\Aggregate\AggregateRoot;
+use Shared\Domain\ValueObject\Email;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use User\Domain\Entity\User\Address\Address;
@@ -14,7 +15,6 @@ use User\Domain\Entity\User\UserId\UserId;
 use User\Domain\Event\UserAddressChanged;
 use User\Domain\Event\UserNameChanged;
 use User\Domain\Event\UserRegistered;
-use User\Domain\Exception\UserMailNotValidException;
 
 #[ORM\Entity()]
 #[ORM\Table(name:"users")]
@@ -24,8 +24,8 @@ final class User extends AggregateRoot implements UserInterface, PasswordAuthent
     #[ORM\Column(type:"user_id")]
     private UserId $id;
 
-    #[ORM\Column(type:"string")]
-    private string $email;
+    #[ORM\Column(type: 'email', length: 254, unique: true)]
+    private Email $email;
 
     #[ORM\Column(type:"string")]
     private string $password;
@@ -33,17 +33,14 @@ final class User extends AggregateRoot implements UserInterface, PasswordAuthent
     #[ORM\Embedded(class: UserProfile::class)]
     private UserProfile $profile;
 
-    private function __construct(UserId $id, string $email, UserProfile $profile)
+    private function __construct(UserId $id, Email $email, UserProfile $profile)
     {
         $this->id = $id;
         $this->email = $email;
         $this->profile = $profile;
     }
 
-    /**
-     * @throws UserMailNotValidException
-     */
-    public static function create(UserId $id, string $email): self
+    public static function create(UserId $id, Email $email): self
     {
         $profile = UserProfile::empty();
 
@@ -52,7 +49,7 @@ final class User extends AggregateRoot implements UserInterface, PasswordAuthent
 
         $user->record(new UserRegistered(
             $id->toString(),
-            $email
+            $email->toString()
         ));
 
         return $user;
@@ -98,21 +95,14 @@ final class User extends AggregateRoot implements UserInterface, PasswordAuthent
         }
     }
 
-    public function email(): string
+    public function email(): Email
     {
         return $this->email;
     }
 
-    /**
-     * @throws UserMailNotValidException
-     */
-    public function setEmail(string $email): void
-    {
-        $validEmail = filter_var($email, FILTER_VALIDATE_EMAIL);
-        if (false === $validEmail) {
-            throw new UserMailNotValidException();
-        }
 
+    public function setEmail(Email $email): void
+    {
         $this->email = $email;
     }
 
@@ -127,7 +117,7 @@ final class User extends AggregateRoot implements UserInterface, PasswordAuthent
 
     public function getUserIdentifier(): string
     {
-        return $this->email;
+        return $this->email->toString();
     }
 
     public function getPassword(): string

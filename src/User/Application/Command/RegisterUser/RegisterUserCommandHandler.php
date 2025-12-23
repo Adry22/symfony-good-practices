@@ -1,13 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace User\Application\Command\RegisterUser;
 
 use Shared\Domain\Bus\Command\CommandHandler;
+use Shared\Domain\ValueObject\Email;
+use Shared\Domain\ValueObject\EmailInvalidArgumentException;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use User\Domain\Entity\User\User;
 use User\Domain\Entity\User\UserId\UserId;
 use User\Domain\Entity\User\UserId\UserIdInvalidArgumentException;
-use User\Domain\Exception\UserMailNotValidException;
 use User\Domain\Repository\UserRepositoryInterface;
 
 class RegisterUserCommandHandler implements CommandHandler
@@ -20,14 +23,14 @@ class RegisterUserCommandHandler implements CommandHandler
 
     /**
      * @throws UserEmailAlreadyExistsException
-     * @throws UserMailNotValidException
      * @throws UserIdInvalidArgumentException
+     * @throws EmailInvalidArgumentException
      */
     public function handle(RegisterUserCommand $command): User
     {
         $this->checkEmailNotExists($command->email());
 
-        $user = User::create(UserId::fromString($command->uuid()), $command->email());
+        $user = User::create(UserId::fromString($command->uuid()), new Email($command->email()));
         $this->hashPassword($user, $command->password());
 
         $this->userRepository->save($user);

@@ -12,7 +12,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use User\Application\Command\RegisterUser\RegisterUserCommand;
 use User\Application\Command\RegisterUser\UserEmailAlreadyExistsException;
-use User\Domain\Exception\UserMailNotValidException;
 
 class RegisterUserController extends ApiController
 {
@@ -62,13 +61,6 @@ class RegisterUserController extends ApiController
                 $password
             );
             $this->commandBus->handle($command);
-        } catch (UserMailNotValidException $e) {
-            $message = [
-                'code' => Response::HTTP_BAD_REQUEST,
-                'message' => 'User email not valid',
-                'type' => 'UserMailNotValidException',
-            ];
-            return $this->handleView($this->view($message, Response::HTTP_BAD_REQUEST));
         } catch (UserEmailAlreadyExistsException $e) {
             $message = [
                 'code' => Response::HTTP_BAD_REQUEST,

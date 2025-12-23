@@ -18,7 +18,7 @@ class UserIdDoctrineType extends StringType
      */
     public function convertToPHPValue($value, AbstractPlatform $platform): ?UserId
     {
-        if ($value === null || $value instanceof UserId) {
+        if (null === $value || $value instanceof UserId) {
             return $value;
         }
 
@@ -27,7 +27,7 @@ class UserIdDoctrineType extends StringType
 
     public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
     {
-        if ($value === null) {
+        if (null === $value) {
             return null;
         }
 

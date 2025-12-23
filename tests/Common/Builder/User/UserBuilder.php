@@ -6,6 +6,7 @@ namespace Tests\Common\Builder\User;
 
 use Exception;
 use ReflectionClass;
+use Shared\Domain\ValueObject\Email;
 use User\Domain\Entity\User\User;
 use User\Domain\Entity\User\UserId\UserId;
 use User\Domain\Entity\User\UserProfile;
@@ -13,7 +14,7 @@ use User\Domain\Entity\User\UserProfile;
 final class UserBuilder
 {
     private UserId $id;
-    private ?string $email = null;
+    private ?Email $email = null;
     private ?string $password = null;
     private UserProfile $profile;
 
@@ -57,7 +58,7 @@ final class UserBuilder
         return $this;
     }
 
-    public function withEmail(string $email): self
+    public function withEmail(Email $email): self
     {
         $this->email = $email;
 

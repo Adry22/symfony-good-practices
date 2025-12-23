@@ -11,7 +11,7 @@ define docker_compose
 	DOCKER_USER=$$(id -u) DOCKER_GROUP=$$(id -g) docker-compose $(1)
 endef
 
-run: ## Launches project in dev environment
+up: ## Launches project in dev environment
 	$(call docker_compose,"up")
 
 # show_fixer_errors: ## Shows code style errors
