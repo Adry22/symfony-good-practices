@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Planet\Infrastructure\Controller;
 
 use Planet\Domain\Repository\PlanetRepositoryInterface;
+use Shared\Domain\ValueObject\Email;
 use Symfony\Component\HttpFoundation\Response;
 use Tests\Common\Controller\BaseWebApiTestCase;
 
@@ -35,7 +36,7 @@ class ListPlanetsControllerTest extends BaseWebApiTestCase
     public function should_return_data_without_filter_when_there_is_no_filter(): void
     {
         $user = $this->builderFactory()->user()
-            ->withEmail('test@email.com')
+            ->withEmail(new Email('test@email.com'))
             ->withPassword('password')
             ->build();
 
@@ -66,7 +67,7 @@ class ListPlanetsControllerTest extends BaseWebApiTestCase
     public function should_return_data_filtered_when_everything_is_correct(): void
     {
         $user = $this->builderFactory()->user()
-            ->withEmail('test@email.com')
+            ->withEmail(new Email('test@email.com'))
             ->withPassword('password')
             ->build();
 
