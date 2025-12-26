@@ -21,4 +21,14 @@ final class Criteria
     {
         return $this->specification;
     }
+
+    public function order(): ?Order
+    {
+        return $this->order;
+    }
+
+    public function paginationLimits(): ?PaginationLimits
+    {
+        return $this->paginationLimits;
+    }
 }

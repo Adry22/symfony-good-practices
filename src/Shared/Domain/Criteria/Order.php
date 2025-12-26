@@ -8,12 +8,19 @@ final class Order
 {
     private const DEFAULT_ORDER_TYPE = 'ASC';
 
-    private string $orderBy;
-    private string $orderType;
+    public function __construct(
+        private string $field,
+        private string $direction = self::DEFAULT_ORDER_TYPE
+    ) {
+    }
 
-    public function __construct(string $orderBy, string $orderType)
+    public function field(): string
     {
-        $this->orderBy = $orderBy;
-        $this->orderType = $orderType ?: self::DEFAULT_ORDER_TYPE;
+        return $this->field;
+    }
+
+    public function direction(): string
+    {
+        return $this->direction;
     }
 }

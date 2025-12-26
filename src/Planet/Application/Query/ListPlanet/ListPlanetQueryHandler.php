@@ -9,6 +9,7 @@ use Planet\Domain\Repository\PlanetRepositoryInterface;
 use Planet\Infrastructure\Repository\Criteria\ContainsPlanetName\ContainsPlanetNameSpecification;
 use Shared\Domain\Bus\Query\QueryHandler;
 use Shared\Domain\Criteria\Criteria;
+use Shared\Domain\Criteria\Order;
 use Shared\Domain\Criteria\PaginationLimits;
 
 final class ListPlanetQueryHandler implements QueryHandler
@@ -33,14 +34,14 @@ final class ListPlanetQueryHandler implements QueryHandler
 
         // FIND BY CRITERIA
         $criteria = new Criteria(
-            new ContainsPlanetNameSpecification($query->name(), $this->planetRepository),
-            null,
+            new ContainsPlanetNameSpecification($query->name()),
+            new Order('name'),
             $paginationLimits
         );
 
         $planets = $this->planetRepository->findByCriteria($criteria);
 
-        $criteria = new Criteria(new ContainsPlanetNameSpecification($query->name(), $this->planetRepository));
+        $criteria = new Criteria(new ContainsPlanetNameSpecification($query->name()));
         $total = sizeof($this->planetRepository->findByCriteria($criteria));
 
         // FIND IN REPO

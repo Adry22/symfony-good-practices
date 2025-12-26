@@ -8,7 +8,7 @@ use Shared\Domain\Criteria\PaginationLimits;
 
 interface PlanetRepositoryInterface
 {
-    public function findByCriteria(Criteria $criteria);
+    public function findByCriteria(Criteria $criteria): array;
 
     public function findByName(?string $name = null, ?PaginationLimits $paginationLimits = null): array;
 

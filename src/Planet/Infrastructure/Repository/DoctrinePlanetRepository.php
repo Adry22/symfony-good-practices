@@ -15,8 +15,22 @@ class DoctrinePlanetRepository extends BaseRepository implements PlanetRepositor
 {
     private const ROOT_ALIAS = 'planets';
 
-    public function findByCriteria(Criteria $criteria) {
-        return $criteria->specification()->satisfyingElementsFrom($this);
+    public function findByCriteria(Criteria $criteria): array
+    {
+        $queryBuilder = $this->createQueryBuilder(self::ROOT_ALIAS);
+
+        $criteria->specification()->applyToQueryBuilder($queryBuilder);
+
+        if (null !== $criteria->order()) {
+            $queryBuilder->orderBy(self::ROOT_ALIAS . '.' . $criteria->order()->field(), $criteria->order()->direction());
+        }
+
+        if (null !== $criteria->paginationLimits()) {
+            $queryBuilder->setFirstResult($criteria->paginationLimits()->offset())
+                ->setMaxResults($criteria->paginationLimits()->limit());
+        }
+
+        return $queryBuilder->getQuery()->getResult();
     }
 
     public function findAll(): array

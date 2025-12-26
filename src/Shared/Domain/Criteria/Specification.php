@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Shared\Domain\Criteria;
 
-use Shared\Infrastructure\Repository\BaseRepository;
+use Doctrine\ORM\QueryBuilder;
 
 interface Specification
 {
-    public function satisfyingElementsFrom(BaseRepository $repository): array;
+    public function applyToQueryBuilder(QueryBuilder $queryBuilder): void;
 }
