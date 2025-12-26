@@ -18,22 +18,19 @@ final class Planet
     #[ORM\Column(type:"planet_name")]
     private PlanetName $name;
 
-    private function __construct() {}
+    private function __construct(PlanetId $id, PlanetName $name)
+    {
+        $this->id = $id;
+        $this->name = $name;
+    }
 
-    public static function create(PlanetName $name): self {
-        $planet = new self();
-        $planet->setName($name);
-
-        return $planet;
+    public static function create(PlanetId $id, PlanetName $name): self
+    {
+        return new self($id, $name);
     }
 
     public function name(): PlanetName
     {
         return $this->name;
-    }
-
-    public function setName(PlanetName $name): void
-    {
-        $this->name = $name;
     }
 }

@@ -7,6 +7,7 @@ namespace Planet\Infrastructure\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Planet\Domain\Entity\Planet;
+use Planet\Domain\Entity\PlanetId\PlanetId;
 use Planet\Domain\Entity\PlanetName;
 
 class PlanetFixture extends Fixture
@@ -25,7 +26,7 @@ class PlanetFixture extends Fixture
     public function load(ObjectManager $manager): void
     {
         foreach (self::PLANETS as $planetName) {
-            $planet = Planet::create(new PlanetName($planetName));
+            $planet = Planet::create(PlanetId::random(), new PlanetName($planetName));
             $manager->persist($planet);
         }
 
