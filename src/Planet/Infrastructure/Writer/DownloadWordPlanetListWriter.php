@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Planet\Infrastructure\Writer;
 
@@ -15,7 +17,7 @@ class DownloadWordPlanetListWriter extends PhpWordWriter implements DownloadWord
         private string $template,
         private string $folder
     ) {
-        parent::__construct($template, $folder, self::FILENAME);
+        parent::__construct($this->template, $this->folder, self::FILENAME);
     }
 
     public function write(array $data): string

@@ -38,25 +38,16 @@ final class UserBuilder
             throw new Exception('Password is required');
         }
 
-        $user = User::create(UserId::random(), $this->email);
+        $user = User::create($this->id, $this->email);
         $user->setPassword($this->password);
 
-        if (null !== $this->profile) {
-            $reflection = new ReflectionClass($user);
-            $property = $reflection->getProperty('profile');
-            $property->setValue($user, $this->profile);
-        }
+        $reflection = new ReflectionClass($user);
+        $property = $reflection->getProperty('profile');
+        $property->setValue($user, $this->profile);
 
         $user->pullEvents();
 
         return $user;
-    }
-
-    public function withId(UserId $id): self
-    {
-        $this->id = $id;
-
-        return $this;
     }
 
     public function withEmail(Email $email): self

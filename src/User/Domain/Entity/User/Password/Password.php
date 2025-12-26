@@ -10,13 +10,13 @@ final class Password
     private const MAX_LENGTH = 25;
 
     private function __construct(
-        private string $password,
-        private bool $isPlainText = true
+        private readonly string $password,
+        private readonly bool $isPlainText = true
     ) {
-        if (true === $isPlainText) {
-            $this->checkPasswordIsNotEmpty($password);
-            $this->checkPasswordIsNotTooShort($password);
-            $this->checkPasswordIsNotTooLong($password);
+        if (true === $this->isPlainText) {
+            $this->checkPasswordIsNotEmpty($this->password);
+            $this->checkPasswordIsNotTooShort($this->password);
+            $this->checkPasswordIsNotTooLong($this->password);
         }
     }
 

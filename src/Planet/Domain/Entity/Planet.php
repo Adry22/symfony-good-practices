@@ -9,7 +9,7 @@ use Planet\Domain\Entity\PlanetId\PlanetId;
 
 #[ORM\Entity()]
 #[ORM\Table(name:"planets")]
-final class Planet
+class Planet
 {
     #[ORM\Id]
     #[ORM\Column(type:"planet_id")]

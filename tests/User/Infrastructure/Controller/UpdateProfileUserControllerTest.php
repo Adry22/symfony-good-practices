@@ -37,7 +37,6 @@ class UpdateProfileUserControllerTest extends BaseWebApiTestCase
     public function should_fail_when_user_not_found(): void
     {
         $user = $this->builderFactory()->user()
-            ->withId(UserId::random())
             ->withEmail(new Email('email@test.com'))
             ->withPassword(Password::fromString('password'))
             ->build();
@@ -61,7 +60,6 @@ class UpdateProfileUserControllerTest extends BaseWebApiTestCase
             ->build();
 
         $user = $this->builderFactory()->user()
-            ->withId(UserId::random())
             ->withEmail(new Email('email@test.com'))
             ->withPassword(Password::fromString('password'))
             ->withProfile($userProfile)

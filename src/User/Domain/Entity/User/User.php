@@ -19,7 +19,7 @@ use User\Domain\Event\UserRegistered;
 
 #[ORM\Entity()]
 #[ORM\Table(name:"users")]
-final class User extends AggregateRoot implements UserInterface, PasswordAuthenticatedUserInterface
+class User extends AggregateRoot implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\Column(type:"user_id")]

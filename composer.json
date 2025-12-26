@@ -44,6 +44,7 @@
     "friends-of-behat/symfony-extension": "^2.0",
     "phpstan/extension-installer": "^1.4",
     "phpstan/phpstan": "^2.1",
+    "phpstan/phpstan-doctrine": "^2.0",
     "phpstan/phpstan-symfony": "^2.0",
     "phpunit/phpunit": "^9.5",
     "symfony/browser-kit": "6.4.*",
@@ -68,8 +69,11 @@
   },
   "autoload": {
     "psr-4": {
-      "": "src/",
-      "Tests\\": "tests/"
+      "App\\": "src/App",
+      "Tests\\": "tests/",
+      "Shared\\": "src/Shared",
+      "Planet\\": "src/Planet",
+      "User\\": "src/User"
     }
   },
   "autoload-dev": {

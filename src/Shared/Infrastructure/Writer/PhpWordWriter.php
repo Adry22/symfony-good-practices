@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Shared\Infrastructure\Writer;
 
@@ -19,7 +21,7 @@ abstract class PhpWordWriter
         private string $folder,
         private string $filename
     ) {
-        $this->processor = new TemplateProcessor($template);
+        $this->processor = new TemplateProcessor($this->template);
     }
 
     abstract public function updateTemplate(TemplateProcessor $templateProcessor, $data);

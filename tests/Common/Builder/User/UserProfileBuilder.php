@@ -9,7 +9,7 @@ use User\Domain\Entity\User\UserProfile;
 
 final class UserProfileBuilder
 {
-    private ?Address $address;
+    private Address $address;
     private ?string $name = null;
 
     public function __construct()

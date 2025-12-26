@@ -3,7 +3,7 @@ controllers:
   type: annotation
 
 kernel:
-    resource: ../src/Kernel.php
+    resource: ../src/App/Kernel.php
     type: annotation
 
 login:
