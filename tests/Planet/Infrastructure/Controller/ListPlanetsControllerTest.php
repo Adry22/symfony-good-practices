@@ -38,7 +38,7 @@ class ListPlanetsControllerTest extends BaseWebApiTestCase
     {
         $user = $this->builderFactory()->user()
             ->withEmail(new Email('test@email.com'))
-            ->withPassword(new Password('password'))
+            ->withPassword(Password::fromString('password'))
             ->build();
 
         $mars = $this->builderFactory()->planet()
@@ -69,7 +69,7 @@ class ListPlanetsControllerTest extends BaseWebApiTestCase
     {
         $user = $this->builderFactory()->user()
             ->withEmail(new Email('test@email.com'))
-            ->withPassword(new Password('password'))
+            ->withPassword(Password::fromString('password'))
             ->build();
 
         $mars = $this->builderFactory()->planet()

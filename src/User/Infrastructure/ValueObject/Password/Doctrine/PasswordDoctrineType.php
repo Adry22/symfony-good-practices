@@ -8,7 +8,7 @@ use Doctrine\DBAL\Types\StringType;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use User\Domain\Entity\User\Password\Password;
 
-final class PasswordType extends StringType
+final class PasswordDoctrineType extends StringType
 {
     private const NAME = 'password';
 
@@ -18,7 +18,7 @@ final class PasswordType extends StringType
             return null;
         }
 
-        return new Password($value);
+        return Password::fromHash($value);
     }
 
     public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string

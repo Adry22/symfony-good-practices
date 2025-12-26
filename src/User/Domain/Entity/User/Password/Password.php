@@ -9,11 +9,25 @@ final class Password
     private const MIN_LENGTH = 8;
     private const MAX_LENGTH = 25;
 
-    public function __construct(private string $password)
+    private function __construct(
+        private string $password,
+        private bool $isPlainText = true
+    ) {
+        if (true === $isPlainText) {
+            $this->checkPasswordIsNotEmpty($password);
+            $this->checkPasswordIsNotTooShort($password);
+            $this->checkPasswordIsNotTooLong($password);
+        }
+    }
+
+    public static function fromString(string $password): Password
     {
-        $this->checkPasswordIsNotEmpty($password);
-        $this->checkPasswordIsNotTooShort($password);
-        $this->checkPasswordIsNotTooLong($password);
+        return new self($password);
+    }
+
+    public static function fromHash(string $password): Password
+    {
+        return new self($password, false);
     }
 
     private function checkPasswordIsNotEmpty(string $password): void

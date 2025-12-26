@@ -13,7 +13,7 @@ class PasswordTest extends TestCase
      */
     public function should_create_password_when_is_correct(): void
     {
-        $password = new Password('password');
+        $password = Password::fromString('password');
 
         $this->assertSame('password', $password->toString());
     }

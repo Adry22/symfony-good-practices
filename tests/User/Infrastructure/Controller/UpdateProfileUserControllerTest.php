@@ -39,7 +39,7 @@ class UpdateProfileUserControllerTest extends BaseWebApiTestCase
         $user = $this->builderFactory()->user()
             ->withId(UserId::random())
             ->withEmail(new Email('email@test.com'))
-            ->withPassword(new Password('password'))
+            ->withPassword(Password::fromString('password'))
             ->build();
 
         $this->loginUser($user);
@@ -63,7 +63,7 @@ class UpdateProfileUserControllerTest extends BaseWebApiTestCase
         $user = $this->builderFactory()->user()
             ->withId(UserId::random())
             ->withEmail(new Email('email@test.com'))
-            ->withPassword(new Password('password'))
+            ->withPassword(Password::fromString('password'))
             ->withProfile($userProfile)
             ->build();
 

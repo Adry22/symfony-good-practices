@@ -58,7 +58,7 @@ class UpdateProfileUserCommandHandlerTest extends TestCase
 
         $user = $this->builderFactory->user()
             ->withEmail(new Email('email@test.com'))
-            ->withPassword(new Password('password'))
+            ->withPassword(Password::fromString('password'))
             ->withProfile($userProfile)
             ->build();
 
@@ -91,7 +91,7 @@ class UpdateProfileUserCommandHandlerTest extends TestCase
 
         $user = $this->builderFactory->user()
             ->withEmail(new Email('email@test.com'))
-            ->withPassword(new Password('password'))
+            ->withPassword(Password::fromString('password'))
             ->withProfile($userProfile)
             ->build();
 
@@ -129,7 +129,7 @@ class UpdateProfileUserCommandHandlerTest extends TestCase
 
         $user = $this->builderFactory->user()
             ->withEmail(new Email('email@test.com'))
-            ->withPassword(new Password('password'))
+            ->withPassword(Password::fromString('password'))
             ->withProfile($userProfile)
             ->build();
 

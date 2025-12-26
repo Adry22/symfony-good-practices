@@ -53,8 +53,8 @@ class RegisterUserCommandHandler implements CommandHandler
 
     private function hashPassword(User $user, string $password): void
     {
-        $passwordHashed = $this->userPasswordHasher->hashPassword($user, $password);
-        $password = new Password($passwordHashed);
-        $user->setPassword($password);
+        $password = Password::fromString($password);
+        $passwordHashed = $this->userPasswordHasher->hashPassword($user, $password->toString());
+        $user->setPassword(Password::fromHash($passwordHashed));
     }
 }
