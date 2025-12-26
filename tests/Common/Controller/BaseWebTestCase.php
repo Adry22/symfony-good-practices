@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Common\Controller;
 
 use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
@@ -39,7 +41,13 @@ class BaseWebTestCase extends WebTestCase
         $this->client = static::createClient();
         $this->client->disableReboot();
         $this->testContainer = static::getContainer();
-        $this->entityManager = $this->testContainer->get('doctrine')->getManager();
+        $manager = $this->testContainer->get('doctrine')->getManager();
+
+        if (!$manager instanceof EntityManagerInterface) {
+            throw new \RuntimeException('Manager is not instance of EntityManagerInterface');
+        }
+
+        $this->entityManager = $manager;
         $this->connection = $this->entityManager->getConnection();
         $this->platform = $this->connection->getDatabasePlatform();
         $this->builderFactory = new BuilderFactory();
