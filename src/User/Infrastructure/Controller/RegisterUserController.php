@@ -73,13 +73,4 @@ class RegisterUserController extends ApiController
 
         return $this->handleView($this->view(null, Response::HTTP_OK));
     }
-
-//    protected function exceptions(): array
-//    {
-//        return [
-//            TransportExceptionInterface::class => Response::HTTP_NOT_FOUND,
-//            UserMailNotValidException::class => Response::HTTP_BAD_REQUEST,
-//            UserEmailAlreadyExistsException::class => Response::HTTP_BAD_REQUEST
-//        ];
-//    }
 }

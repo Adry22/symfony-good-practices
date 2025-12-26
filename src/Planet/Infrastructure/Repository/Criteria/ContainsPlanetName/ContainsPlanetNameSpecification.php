@@ -7,7 +7,7 @@ namespace Planet\Infrastructure\Repository\Criteria\ContainsPlanetName;
 use Doctrine\ORM\QueryBuilder;
 use Shared\Domain\Criteria\Specification;
 
-class ContainsPlanetNameSpecification implements Specification
+readonly class ContainsPlanetNameSpecification implements Specification
 {
     public function __construct(private ?string $name = null)
     {

@@ -29,21 +29,4 @@ class DownloadWordPlanetsListControllerTest extends BaseWebApiTestCase
 
         $this->assertNotEquals(Response::HTTP_FORBIDDEN, $response->getStatusCode());
     }
-
-    // TODO: Commented test cause CircleCI fails
-//    /** @test */
-//    public function given_a_list_of_planets_when_everything_is_ok_then_file_download_should_has_correct_filename(): void
-//    {
-//        $user = $this->userBuilder
-//            ->withEmail('test@email.com')
-//            ->withPassword('password')
-//            ->build();
-//
-//        $this->loginUser($user);
-//        $response = $this->getRequestJson(self::URL);
-//
-//        $this->assertSame('application/vnd.openxmlformats-officedocument.wordprocessingml.document', $response->headers->get('Content-Type'));
-//        $this->assertSame('inline; filename="planets_list.docx"', $response->headers->get('Content-Disposition'));
-//
-//    }
 }

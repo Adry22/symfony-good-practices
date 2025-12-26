@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Shared\Infrastructure\Controller;
@@ -10,17 +11,6 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 abstract class ApiController extends AbstractFOSRestController
 {
-//    public function __construct(
-//        ApiExceptionsHttpStatusCodeMapping $apiExceptionsHttpStatusCodeMapping
-//    ) {
-//        foreach ($this->exceptions() as $exceptionClass => $httpCode) {
-//            $apiExceptionsHttpStatusCodeMapping->register($exceptionClass, $httpCode);
-//        }
-//    }
-//
-//
-//    abstract protected function exceptions(): array;
-
     protected function getQueryParameter(Request $request, string $key): ?string
     {
         return $request->get($key);
