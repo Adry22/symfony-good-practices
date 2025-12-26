@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace User\Infrastructure\Controller;
 
+use Shared\Domain\ValueObject\Email;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\DataCollector\MessageDataCollector;
-use Symfony\Component\Mime\Email;
 use Tests\Common\Controller\BaseWebApiTestCase;
 use User\Domain\Entity\User\Password\Password;
 use User\Domain\Entity\User\UserId\UserId;
@@ -102,7 +102,7 @@ class RegisterUserControllerTest extends BaseWebApiTestCase
 
         $message = $messages[0];
 
-        $this->assertInstanceOf(Email::class, $message);
+        $this->assertInstanceOf(\Symfony\Component\Mime\Email::class, $message);
 
         $this->assertSame('email@test.com', $message->getTo()[0]->getAddress());
         $this->assertSame('good-practices@symfonyproject.com', $message->getFrom()[0]->getAddress());
