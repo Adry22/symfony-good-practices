@@ -16,6 +16,8 @@ interface UserRepositoryInterface
 
     public function save($object): void;
 
+    public function flush(): void;
+
     public function findAll(): array;
 
     /**

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Mink;
 
+use Behat\Mink\Driver\BrowserKitDriver;
 use Behat\Mink\Driver\DriverInterface;
 use Behat\Mink\Session;
 use Symfony\Component\BrowserKit\AbstractBrowser;
@@ -71,13 +72,22 @@ final class MinkHelper
 
     private function getDriver(): DriverInterface
     {
-
         return $this->getSession()->getDriver();
     }
 
     private function getClient(): AbstractBrowser
     {
-        return $this->getDriver()->getClient();
+        $driver = $this->getDriver();
+
+        if (!$driver instanceof BrowserKitDriver) {
+            throw new \RuntimeException(sprintf(
+                'El driver debe ser una instancia de "%s", se encontró "%s".',
+                BrowserKitDriver::class,
+                get_class($driver)
+            ));
+        }
+
+        return $driver->getClient();
     }
 
     private function normalizeHeaders(array $headers): array

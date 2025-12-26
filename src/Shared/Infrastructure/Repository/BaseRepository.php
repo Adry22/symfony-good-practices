@@ -26,7 +26,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
         $this->em->persist($object);
     }
 
-    public function flush()
+    public function flush(): void
     {
         $this->em->flush();
     }

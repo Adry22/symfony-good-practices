@@ -6,9 +6,9 @@ namespace Shared\Domain\Repository;
 
 interface BaseRepositoryInterface
 {
-    public function save($object);
+    public function save($object): void;
 
-    public function flush();
+    public function flush(): void;
 
     public function remove($object): void;
 }

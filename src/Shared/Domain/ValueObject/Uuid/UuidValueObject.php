@@ -26,7 +26,7 @@ abstract class UuidValueObject implements EntityId
 
     public static function fromString(string $uuid): static
     {
-        static::checkIsValid($uuid);
+        self::checkIsValid($uuid);
 
         return new static(Uuid::fromString($uuid));
     }

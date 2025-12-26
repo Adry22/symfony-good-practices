@@ -12,6 +12,8 @@ use User\Domain\Entity\User\Address\Address;
 use User\Domain\Entity\User\Password\Password;
 use User\Domain\Entity\User\UserId\UserId;
 use User\Domain\Entity\User\UserNotFoundException;
+use User\Domain\Event\UserAddressChanged;
+use User\Domain\Event\UserNameChanged;
 use User\Domain\Repository\UserRepositoryInterface;
 
 class UpdateProfileUserCommandHandlerTest extends TestCase
@@ -119,6 +121,7 @@ class UpdateProfileUserCommandHandlerTest extends TestCase
         $event = $events[0];
 
         $this->assertSame('user.name_changed', $event::name());
+        $this->assertInstanceOf(UserNameChanged::class, $event);
 
         $this->assertSame($user->id()->toString(), $event->userId());
         $this->assertSame('New Name', $event->newName());
@@ -161,6 +164,7 @@ class UpdateProfileUserCommandHandlerTest extends TestCase
         $event = $events[0];
 
         $this->assertSame('user.address_changed', $event::name());
+        $this->assertInstanceOf(UserAddressChanged::class, $event);
 
         $this->assertSame($user->id()->toString(), $event->userId());
         $this->assertSame('New Street', $event->street());

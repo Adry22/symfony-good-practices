@@ -17,4 +17,8 @@ interface PlanetRepositoryInterface
     public function getEntityClassName(): string;
 
     public function findAll(): array;
+
+    public function save($object): void;
+
+    public function flush(): void;
 }

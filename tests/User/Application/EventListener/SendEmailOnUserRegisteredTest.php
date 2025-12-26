@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace User\Application\EventListener;
 
-use Monolog\Test\TestCase;
+use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
 use Shared\Infrastructure\Mailer\MailtrapEmailSender;
 use User\Domain\Entity\User\UserId\UserId;
 use User\Domain\Event\UserRegistered;
 
 final class SendEmailOnUserRegisteredTest extends TestCase
 {
-    private MailtrapEmailSender $emailSender;
+    private MailtrapEmailSender&MockObject $emailSender;
     private SendEmailOnUserRegistered $listener;
 
     protected function setUp(): void
