@@ -44,21 +44,25 @@ paths:
           in: query
           description: 'Offset to paginate results'
           schema:
-            type: int
+            type: integer
         -
           name: limit
           in: query
           description: 'Limit to paginate results'
           schema:
-            type: int
+            type: integer
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                allOf:
-                  - { properties: { total: { type: integer }, offset: { type: integer }, limit: { type: integer }, results: { type: array, items: { properties: { name: { type: string } }, type: object } } }, type: object }
+                properties:
+                  total: { type: integer }
+                  offset: { type: integer }
+                  limit: { type: integer }
+                  results: { type: array, items: { properties: { name: { type: string } }, type: object } }
+                type: object
   '/register-user/{uuid}':
     post:
       tags:
@@ -125,3 +129,10 @@ paths:
           description: Success
         '400':
           description: 'User not found'
+tags:
+  -
+    name: planet
+    description: planet
+  -
+    name: user
+    description: user

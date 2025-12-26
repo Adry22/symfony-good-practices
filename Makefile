@@ -21,10 +21,10 @@ up: ## Launches project in dev environment
 # 	$(call exec_cmd,"symfony-good-practices/bin/phpcbf")
 
 build_doc: ## Generate Open API documentation
-	$(call exec_cmd,"cd symfony-good-practices && composer run docs --quiet --no-interaction")
+	$(call exec_cmd,"composer run docs --quiet --no-interaction")
 
 cc: ## Clear dev cache
-	$(call exec_cmd,"symfony-good-practices/bin/console cache:clear --no-warmup --env=dev")
+	$(call exec_cmd,"bin/console cache:clear --no-warmup --env=dev")
 
 prompt: ## Opens terminal in docker container
 	@docker exec -it $(CONTAINER_NAME) bash

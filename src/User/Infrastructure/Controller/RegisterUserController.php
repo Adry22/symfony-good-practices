@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace User\Infrastructure\Controller;
 
-use OpenApi\Annotations as OA;
+use OpenApi\Attributes as OA;
 use Shared\Domain\Bus\Command\CommandBus;
 use Shared\Infrastructure\Controller\ApiController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,40 +15,41 @@ use User\Application\Command\RegisterUser\UserEmailAlreadyExistsException;
 
 class RegisterUserController extends ApiController
 {
-    public function __construct(private CommandBus $commandBus) {
+    public function __construct(private readonly CommandBus $commandBus) {
     }
 
-    #[Route('/register-user/{uuid}', methods: ['POST'], defaults: ['_format' => 'json'])]
-    /**
-     *
-     * @OA\Post(
-     *   path="/register-user/{uuid}",
-     *   description="Register user",
-     *   tags={"user"},
-     *   @OA\Parameter(
-     *      in="query",
-     *      name="email",
-     *      description="User email",
-     *      required=true,
-     *      @OA\Schema(type="string")
-     *   ),
-     *   @OA\Parameter(
-     *      in="query",
-     *      name="password",
-     *      description="User password",
-     *      required=true,
-     *      @OA\Schema(type="string")
-     *   ),
-     *   @OA\Response(
-     *      response="200",
-     *      description="Success",
-     *    ),
-     *    @OA\Response(
-     *      response="400",
-     *      description="Bad Request"
-     *    )
-     * )
-     */
+    #[Route('/register-user/{uuid}', defaults: ['_format' => 'json'], methods: ['POST'])]
+    #[OA\Post(
+        path: '/register-user/{uuid}',
+        description: 'Register user',
+        tags: ['user'],
+        parameters: [
+            new OA\Parameter(
+                name: 'email',
+                description: 'User email',
+                in: 'query',
+                required: true,
+                schema: new OA\Schema(type: 'string')
+            ),
+            new OA\Parameter(
+                name: 'password',
+                description: 'User password',
+                in: 'query',
+                required: true,
+                schema: new OA\Schema(type: 'string')
+            )
+        ],
+        responses: [
+            new OA\Response(
+                response: 200,
+                description: 'Success'
+            ),
+            new OA\Response(
+                response: 400,
+                description: 'Bad Request'
+            )
+        ]
+    )]
     public function action(Request $request, string $uuid): Response
     {
         $email = $this->getBodyParameterOrFail($request, 'email');

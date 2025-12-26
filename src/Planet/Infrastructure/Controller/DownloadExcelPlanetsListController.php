@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Planet\Infrastructure\Controller;
 
-use OpenApi\Annotations as OA;
+use OpenApi\Attributes as OA;
 use Planet\Application\Query\DownloadExcelPlanetList\DownloadExcelPlanetListQuery;
 use Planet\Application\Query\DownloadExcelPlanetList\DownloadExcelPlanetListResult;
 use Shared\Domain\Bus\Query\QueryBus;
@@ -15,26 +15,22 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DownloadExcelPlanetsListController extends ApiController
 {
-    private QueryBus $queryBus;
-
-    public function __construct(QueryBus $queryBus)
+    public function __construct(private readonly QueryBus $queryBus)
     {
-        $this->queryBus = $queryBus;
     }
 
-    #[Route('/download-excel-planets-list', methods: ['GET'], defaults: ['_format' => 'json'])]
-    /**
-     *
-     * @OA\Get(
-     *   path="/download-excel-planets-list",
-     *   description="Download excel planets list",
-     *   tags={"planet"},
-     *   @OA\Response(
-     *     response="200",
-     *     description="Binary file",
-     *   )
-     * )
-     */
+    #[Route('/download-excel-planets-list', defaults: ['_format' => 'json'], methods: ['GET'])]
+    #[OA\Get(
+        path: '/download-excel-planets-list',
+        description: 'Download excel planets list',
+        tags: ['planet'],
+        responses: [
+            new OA\Response(
+                response: 200,
+                description: 'Binary file'
+            )
+        ]
+    )]
     public function action(Request $request): Response
     {
         $query = new DownloadExcelPlanetListQuery();
