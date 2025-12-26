@@ -8,6 +8,7 @@ use Shared\Domain\Bus\Command\CommandHandler;
 use Shared\Domain\ValueObject\Email;
 use Shared\Domain\ValueObject\EmailInvalidArgumentException;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use User\Domain\Entity\User\Password\Password;
 use User\Domain\Entity\User\User;
 use User\Domain\Entity\User\UserId\UserId;
 use User\Domain\Entity\User\UserId\UserIdInvalidArgumentException;
@@ -53,6 +54,7 @@ class RegisterUserCommandHandler implements CommandHandler
     private function hashPassword(User $user, string $password): void
     {
         $passwordHashed = $this->userPasswordHasher->hashPassword($user, $password);
-        $user->setPassword($passwordHashed);
+        $password = new Password($passwordHashed);
+        $user->setPassword($password);
     }
 }

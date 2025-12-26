@@ -7,6 +7,7 @@ namespace Tests\Common\Builder\User;
 use Exception;
 use ReflectionClass;
 use Shared\Domain\ValueObject\Email;
+use User\Domain\Entity\User\Password\Password;
 use User\Domain\Entity\User\User;
 use User\Domain\Entity\User\UserId\UserId;
 use User\Domain\Entity\User\UserProfile;
@@ -15,7 +16,7 @@ final class UserBuilder
 {
     private UserId $id;
     private ?Email $email = null;
-    private ?string $password = null;
+    private ?Password $password = null;
     private UserProfile $profile;
 
     public function __construct()
@@ -65,7 +66,7 @@ final class UserBuilder
         return $this;
     }
 
-    public function withPassword(string $password): self
+    public function withPassword(Password $password): self
     {
         $this->password = $password;
 

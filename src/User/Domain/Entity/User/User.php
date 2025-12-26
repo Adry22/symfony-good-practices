@@ -11,6 +11,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use User\Domain\Entity\User\Address\Address;
 use User\Domain\Entity\User\Address\AddressInvalidArgumentException;
+use User\Domain\Entity\User\Password\Password;
 use User\Domain\Entity\User\UserId\UserId;
 use User\Domain\Event\UserAddressChanged;
 use User\Domain\Event\UserNameChanged;
@@ -27,8 +28,8 @@ final class User extends AggregateRoot implements UserInterface, PasswordAuthent
     #[ORM\Column(type: 'email', length: 254, unique: true)]
     private Email $email;
 
-    #[ORM\Column(type:"string")]
-    private string $password;
+    #[ORM\Column(type:"password")]
+    private Password $password;
 
     #[ORM\Embedded(class: UserProfile::class)]
     private UserProfile $profile;
@@ -122,10 +123,10 @@ final class User extends AggregateRoot implements UserInterface, PasswordAuthent
 
     public function getPassword(): string
     {
-        return $this->password;
+        return $this->password->toString();
     }
 
-    public function setPassword(string $password): void
+    public function setPassword(Password $password): void
     {
         $this->password = $password;
     }

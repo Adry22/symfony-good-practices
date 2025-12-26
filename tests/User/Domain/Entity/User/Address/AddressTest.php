@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace User\Domain\Entity\User\Address;
 
-use Monolog\Test\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class AddressTest extends TestCase
 {

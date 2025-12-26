@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
 use Shared\Domain\ValueObject\Email;
 use Tests\Common\Builder\BuilderFactory;
 use User\Domain\Entity\User\Address\Address;
+use User\Domain\Entity\User\Password\Password;
 use User\Domain\Entity\User\UserId\UserId;
 use User\Domain\Entity\User\UserNotFoundException;
 use User\Domain\Repository\UserRepositoryInterface;
@@ -57,7 +58,7 @@ class UpdateProfileUserCommandHandlerTest extends TestCase
 
         $user = $this->builderFactory->user()
             ->withEmail(new Email('email@test.com'))
-            ->withPassword('password')
+            ->withPassword(new Password('password'))
             ->withProfile($userProfile)
             ->build();
 
@@ -90,7 +91,7 @@ class UpdateProfileUserCommandHandlerTest extends TestCase
 
         $user = $this->builderFactory->user()
             ->withEmail(new Email('email@test.com'))
-            ->withPassword('password')
+            ->withPassword(new Password('password'))
             ->withProfile($userProfile)
             ->build();
 
@@ -128,7 +129,7 @@ class UpdateProfileUserCommandHandlerTest extends TestCase
 
         $user = $this->builderFactory->user()
             ->withEmail(new Email('email@test.com'))
-            ->withPassword('password')
+            ->withPassword(new Password('password'))
             ->withProfile($userProfile)
             ->build();
 

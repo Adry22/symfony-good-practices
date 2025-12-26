@@ -8,6 +8,7 @@ use Planet\Domain\Repository\PlanetRepositoryInterface;
 use Shared\Domain\ValueObject\Email;
 use Symfony\Component\HttpFoundation\Response;
 use Tests\Common\Controller\BaseWebApiTestCase;
+use User\Domain\Entity\User\Password\Password;
 
 class ListPlanetsControllerTest extends BaseWebApiTestCase
 {
@@ -37,7 +38,7 @@ class ListPlanetsControllerTest extends BaseWebApiTestCase
     {
         $user = $this->builderFactory()->user()
             ->withEmail(new Email('test@email.com'))
-            ->withPassword('password')
+            ->withPassword(new Password('password'))
             ->build();
 
         $mars = $this->builderFactory()->planet()
@@ -68,7 +69,7 @@ class ListPlanetsControllerTest extends BaseWebApiTestCase
     {
         $user = $this->builderFactory()->user()
             ->withEmail(new Email('test@email.com'))
-            ->withPassword('password')
+            ->withPassword(new Password('password'))
             ->build();
 
         $mars = $this->builderFactory()->planet()

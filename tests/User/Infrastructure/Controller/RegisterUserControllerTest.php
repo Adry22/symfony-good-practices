@@ -7,6 +7,7 @@ namespace User\Infrastructure\Controller;
 use Shared\Domain\ValueObject\Email;
 use Symfony\Component\HttpFoundation\Response;
 use Tests\Common\Controller\BaseWebApiTestCase;
+use User\Domain\Entity\User\Password\Password;
 use User\Domain\Entity\User\UserId\UserId;
 use User\Domain\Repository\UserRepositoryInterface;
 
@@ -38,7 +39,7 @@ class RegisterUserControllerTest extends BaseWebApiTestCase
     {
         $user = $this->builderFactory()->user()
             ->withEmail(new Email('email@test.com'))
-            ->withPassword('password')
+            ->withPassword(new Password('password'))
             ->build();
 
         $this->userRepository->save($user);

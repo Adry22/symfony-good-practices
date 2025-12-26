@@ -9,7 +9,7 @@ use Doctrine\DBAL\Types\StringType;
 use User\Domain\Entity\User\UserId\UserId;
 use User\Domain\Entity\User\UserId\UserIdInvalidArgumentException;
 
-class UserIdDoctrineType extends StringType
+final class UserIdDoctrineType extends StringType
 {
     public const NAME = 'user_id';
 
