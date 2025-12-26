@@ -26,7 +26,7 @@ class PasswordTest extends TestCase
     {
         $this->expectException(PasswordInvalidArgumentException::class);
 
-        new Password($password);
+        Password::fromString($password);
     }
 
     public function invalidPasswords(): array
