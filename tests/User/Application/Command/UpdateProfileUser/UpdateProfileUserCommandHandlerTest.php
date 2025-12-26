@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace User\Application\Command\UpdateProfileUser;
 
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Shared\Domain\ValueObject\Email;
 use Tests\Common\Builder\BuilderFactory;
@@ -15,6 +16,10 @@ use User\Domain\Repository\UserRepositoryInterface;
 
 class UpdateProfileUserCommandHandlerTest extends TestCase
 {
+    private UserRepositoryInterface&MockObject $userRepository;
+    private BuilderFactory $builderFactory;
+    private UpdateProfileUserCommandHandler $commandHandler;
+
     public function setUp(): void
     {
         parent::setUp();

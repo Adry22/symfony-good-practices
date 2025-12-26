@@ -4,24 +4,30 @@ declare(strict_types=1);
 
 namespace Planet\Application\Query\DownloadExcelPlanetList;
 
-use Monolog\Test\TestCase;
+use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
 use Planet\Domain\Repository\PlanetRepositoryInterface;
 use Planet\Domain\Writer\DownloadExcelPlanetListWriterInterface;
 use Tests\Common\Builder\BuilderFactory;
 
 class DownloadExcelPlanetListQueryHandlerTest extends TestCase
 {
+    private BuilderFactory $builderFactory;
+    private PlanetRepositoryInterface&MockObject $planetRepository;
+    private DownloadExcelPlanetListWriterInterface&MockObject $writer;
+    private DownloadExcelPlanetListQueryHandler $handler;
+
     public function setUp(): void
     {
         parent::setUp();
 
         $this->builderFactory = new BuilderFactory();
         $this->planetRepository = $this->createMock(PlanetRepositoryInterface::class);
-        $this->downloadExcelPlanetListWriter = $this->createMock(DownloadExcelPlanetListWriterInterface::class);
+        $this->writer = $this->createMock(DownloadExcelPlanetListWriterInterface::class);
 
-        $this->downloadExcelPlanetListQueryHandler = new DownloadExcelPlanetListQueryHandler(
+        $this->handler = new DownloadExcelPlanetListQueryHandler(
             $this->planetRepository,
-            $this->downloadExcelPlanetListWriter
+            $this->writer
         );
     }
 
@@ -54,11 +60,11 @@ class DownloadExcelPlanetListQueryHandlerTest extends TestCase
 
     private function assertWriterParameters(DownloadExcelPlanetListQuery $query, $callback)
     {
-        $this->downloadExcelPlanetListWriter
+        $this->writer
             ->expects($this->once())
             ->method('generate')
             ->willReturnCallback($callback);
 
-        $this->downloadExcelPlanetListQueryHandler->handle($query);
+        $this->handler->handle($query);
     }
 }

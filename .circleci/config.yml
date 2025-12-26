@@ -31,6 +31,14 @@ jobs:
           paths:
             - ./vendor
 
+      - run:
+          name: Warmup cache for PHPStan
+          command: php bin/console cache:warmup --env=dev
+
+      - run:
+          name: Run Static Analysis (PHPStan)
+          command: composer phpstan
+
       # TODO: This should be in Dockerfile
       - run: apt-get install -y netcat
 

@@ -14,6 +14,8 @@ class ListPlanetsControllerTest extends BaseWebApiTestCase
 {
     private const URL = '/planets';
 
+    private PlanetRepositoryInterface $planetRepository;
+
     public function setUp(): void
     {
         parent::setUp();

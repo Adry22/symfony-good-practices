@@ -4,12 +4,17 @@ declare(strict_types=1);
 
 namespace Planet\Application\Query\ListPlanet;
 
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Planet\Domain\Repository\PlanetRepositoryInterface;
 use Tests\Common\Builder\BuilderFactory;
 
 class ListPlanetQueryHandlerTest extends TestCase
 {
+    private BuilderFactory $builderFactory;
+    private PlanetRepositoryInterface&MockObject $planetRepository;
+    private ListPlanetQueryHandler $listPlanetQueryHandler;
+
     public function setUp(): void
     {
         parent::setUp();

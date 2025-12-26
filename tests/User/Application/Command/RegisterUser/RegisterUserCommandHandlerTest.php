@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace User\Application\Command\RegisterUser;
 
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Shared\Domain\ValueObject\Email;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -14,6 +15,11 @@ use User\Domain\Repository\UserRepositoryInterface;
 
 class RegisterUserCommandHandlerTest extends TestCase
 {
+    private UserRepositoryInterface&MockObject $userRepository;
+    private UserPasswordHasherInterface&MockObject $userPasswordHasherInterface;
+    private BuilderFactory $builderFactory;
+    private RegisterUserCommandHandler $registerUserCommandHandler;
+
     public function setUp(): void
     {
         parent::setUp();
