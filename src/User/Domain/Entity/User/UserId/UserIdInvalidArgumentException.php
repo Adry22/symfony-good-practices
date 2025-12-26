@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace User\Domain\Entity\User\UserId;
 
-use Exception;
+use InvalidArgumentException;
 
-class UserIdInvalidArgumentException extends Exception
+final class UserIdInvalidArgumentException extends InvalidArgumentException
 {
 }

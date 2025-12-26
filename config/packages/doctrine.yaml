@@ -6,6 +6,7 @@ doctrine:
           planet_name: Planet\Infrastructure\Type\Doctrine\PlanetNameDoctrineType
           email: Shared\Infrastructure\ValueObject\Email\Doctrine\EmailDoctrineType
           password: User\Infrastructure\ValueObject\Password\Doctrine\PasswordDoctrineType
+          planet_id: Planet\Infrastructure\ValueObject\PlanetId\Doctrine\PlanetIdDoctrineType
 
       # IMPORTANT: You MUST configure your server version,
         # either here or in the DATABASE_URL env var (see .env file)

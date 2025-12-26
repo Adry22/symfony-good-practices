@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace User\Domain\Entity\User\UserId;
+namespace Planet\Domain\Entity\PlanetId;
 
 use Shared\Domain\ValueObject\Uuid\UuidValueObject;
 use InvalidArgumentException;
 
-class UserId extends UuidValueObject
+class PlanetId extends UuidValueObject
 {
     protected static function createInvalidArgumentException(): InvalidArgumentException
     {
-        return new UserIdInvalidArgumentException();
+        return new PlanetIdInvalidArgumentException();
     }
 }
