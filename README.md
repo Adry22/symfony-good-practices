@@ -73,7 +73,7 @@ All architectural decisions are documented in [Architecture Decision Records](do
 - [ADR-0002](docs/adr/0002-implement-cqrs-pattern-with-tactician.md) - CQRS with Tactician
 - [ADR-0003](docs/adr/0003-use-value-objects-for-domain-primitives.md) - Value Objects
 - [ADR-0004](docs/adr/0004-implement-domain-events-with-event-bus.md) - Domain Events
-- And [18 more ADRs](docs/adr/README.md)...
+- And [18 more ADRs](docs/adr/)...
 
 ### Bounded Contexts
 
