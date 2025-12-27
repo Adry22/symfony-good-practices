@@ -301,7 +301,7 @@ All significant architectural decisions are documented in ADRs:
 - **When**: Captures date and circumstances
 - **Consequences**: Lists trade-offs and impacts
 
-View all ADRs in [docs/adr/](docs/adr/README.md)
+View all ADRs in [docs/adr/](docs/adr/)
 
 ### Key ADRs
 
